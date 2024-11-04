@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b28ucjto8wyae"]
+
+[ext_resource type="PackedScene" uid="uid://ba11768h32njx" path="res://scenes/NPC.tscn" id="1_0w760"]
+[ext_resource type="Script" path="res://scripts/soldat_idle_state.gd" id="2_5qf25"]
+[ext_resource type="Script" path="res://scripts/soldat_hunting_state.gd" id="3_qto15"]
+[ext_resource type="Script" path="res://scripts/soldat_attacking_state.gd" id="4_m1top"]
+
+[node name="Npc" instance=ExtResource("1_0w760")]
+speed = 100
+attackDamage = 5
+attackRange = 100
+
+[node name="StateMachine" parent="." index="2" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("SoldatIdleState")
+
+[node name="SoldatIdleState" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("2_5qf25")
+
+[node name="SoldatHuntingState" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("3_qto15")
+state = 1
+
+[node name="SoldatAttackingState" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("4_m1top")
+state = 2
