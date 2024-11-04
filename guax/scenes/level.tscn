@@ -1,7 +1,8 @@
 [gd_scene load_steps=10 format=4 uid="uid://dqvr3b6w07dr1"]
 
 [ext_resource type="Texture2D" uid="uid://dqiw5k64mi133" path="res://art/kenney_scribble-dungeons/Tilesheet/tilesheet.png" id="1_5n2xs"]
-[ext_resource type="PackedScene" uid="uid://iajdl2h2k0es" path="res://scenes/enemy.tscn" id="2_2wuga"]
+[ext_resource type="PackedScene" uid="uid://b28ucjto8wyae" path="res://scenes/soldat.tscn" id="3_crmja"]
+[ext_resource type="PackedScene" uid="uid://co4pp6atuitii" path="res://scenes/enemynpc.tscn" id="4_u4oy0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dg0x"]
 texture = ExtResource("1_5n2xs")
@@ -1803,11 +1804,10 @@ size = Vector2(1025, 637)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ggb80"]
 size = Vector2(21, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7pbgc"]
-size = Vector2(20, 24.0686)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qripb"]
-size = Vector2(663, 20)
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_man46"]
+vertices = PackedVector2Array(1397.19, 634.961, 824.047, 633, 824.063, 633, 10.0313, 8.9375, 1409.79, 1.04688, 642.969, 632, 11.9609, 638.883)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 0, 2, 5), PackedInt32Array(3, 5, 6)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, -1, 1420, -9, 1407, 645, 824, 643, 643, 642, 2, 649)])
 
 [node name="Level" type="Node2D"]
 
@@ -1818,13 +1818,14 @@ tile_set = SubResource("TileSet_7c0s2")
 rendering_quadrant_size = 64
 
 [node name="EnemySpawn" type="Area2D" parent="."]
+visible = false
 position = Vector2(1282, 320)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpawn"]
 scale = Vector2(0.890233, 1)
 shape = SubResource("RectangleShape2D_ukm32")
 
-[node name="AggroZone" type="Area2D" parent="."]
+[node name="AggroZone" type="Area2D" parent="." groups=["Aggrozone"]]
 position = Vector2(449, 322)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AggroZone"]
@@ -1839,19 +1840,29 @@ position = Vector2(0.5, 0)
 scale = Vector2(2.96587, 31.9401)
 shape = SubResource("RectangleShape2D_ggb80")
 
-[node name="Enemy" parent="." instance=ExtResource("2_2wuga")]
-position = Vector2(1282, 320)
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_man46")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(704, 320)
-collision_layer = 2
-collision_mask = 2
+[node name="Npc" parent="." instance=ExtResource("3_crmja")]
+position = Vector2(210, 311)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(0, -51.8406)
-scale = Vector2(7.07809, 22.3661)
-shape = SubResource("RectangleShape2D_7pbgc")
+[node name="Npc2" parent="." instance=ExtResource("4_u4oy0")]
+position = Vector2(1099, 323)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(376, -325)
-shape = SubResource("RectangleShape2D_qripb")
+[node name="Npc3" parent="." instance=ExtResource("3_crmja")]
+position = Vector2(172, 391)
+
+[node name="Npc4" parent="." instance=ExtResource("3_crmja")]
+position = Vector2(137, 232)
+
+[node name="Npc5" parent="." instance=ExtResource("3_crmja")]
+position = Vector2(88, 446)
+
+[node name="Npc6" parent="." instance=ExtResource("4_u4oy0")]
+position = Vector2(1148, 227)
+
+[node name="Npc7" parent="." instance=ExtResource("4_u4oy0")]
+position = Vector2(1194, 443)
+
+[node name="Npc8" parent="." instance=ExtResource("4_u4oy0")]
+position = Vector2(1055, 500)
