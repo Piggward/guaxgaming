@@ -2,14 +2,22 @@ class_name BattleTurnPhase
 extends TurnPhase
 
 func phase_start():
+	print_debug("battle start")
+	turn_start.emit()
 	# Spawn enemy wave
+	GameManager.spawn_enemy_wave()
 	
 	# Replace placeholders
+	GameManager.spawn_soldiers()
 	pass
 	
 func phase_end():
+	print_debug("battle end")
+	turn_end.emit()
+	
 	# Remove all soldiers from the game
 	# Respawn all placeholders
+	GameManager.replace_soldiers()
 	TurnManager.next_turn()
 	pass
 	

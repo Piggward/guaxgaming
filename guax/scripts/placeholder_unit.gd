@@ -4,11 +4,13 @@ extends Area2D
 var dragging = false
 var cd = false
 var battle_position = null
-var actual_soldier: TestSoldier
+var actual_soldier: Npc
 signal placed(placeholder: PlaceholderUnit)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	TurnManager.shop_turn.turn_end.connect(func(): self.visible = false)
+	TurnManager.shop_turn.turn_start.connect(func(): self.visible = true)
 	pass # Replace with function body.
 	
 func _process(delta):
@@ -27,7 +29,7 @@ func can_release() -> bool:
 	return not colliding() and in_dropable_area()
 	
 func colliding() -> bool:
-	return get_overlapping_areas().any(func(a): return a is not DropArea)
+	return get_overlapping_areas().any(func(a): return not a.is_in_group("Placeable"))
 	
 func in_dropable_area() -> bool:
 	return get_overlapping_areas().any(func(a): return a.is_in_group("Placeable"))

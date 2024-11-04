@@ -4,12 +4,11 @@ extends CharacterBody2D
 @export var attributes: TestSoldierResource
 @export var sprite2D: Array[Sprite2D]
 @export var collisionShapes: Array[CollisionShape2D]
-var placeholder: PlaceholderUnit
 var battle_start_location: Vector2
 const PLACEHOLDER_UNIT = preload("res://scenes/placeholder_unit.tscn")
+const SOLDAT_SPRITES = preload("res://scenes/character_sprites/soldat_sprites.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	placeholder = get_placeholder()
 	pass # Replace with function body.
 
 
@@ -19,10 +18,11 @@ func _process(delta):
 	
 func get_placeholder():
 	var placeholder = PLACEHOLDER_UNIT.instantiate()
-	for s in sprite2D:
-		placeholder.add_child(s)
-	for c in collisionShapes:
-		placeholder.add_child(c)
+	var sprites = SOLDAT_SPRITES.instantiate()
+	placeholder.add_child(sprites)
+	var count = placeholder.get_child_count()
+	placeholder.add_child(Sprite2D.new())
+	count = placeholder.get_child_count()
 	placeholder.actual_soldier = self
 	placeholder.placed.connect(update_start_location)
 	return placeholder

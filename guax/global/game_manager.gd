@@ -3,10 +3,11 @@ extends Node
 var player_gold: int
 var player_health: int
 var player_max_health: int
-var player_soldiers: Array[TestSoldier]
+var player_soldiers: Array[Npc]
+var level: Level
 
-signal soldier_purchased(soldier: TestSoldier)
-
+signal soldier_purchased(soldier: Npc)
+const ENEMYNPC = preload("res://scenes/enemynpc.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	soldier_purchased.connect(on_purchase)
@@ -14,21 +15,31 @@ func _ready():
 	player_health = 100
 	pass # Replace with function body.
 
+func spawn_enemy_wave():
+	level.spawn_next_wave()
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-	
-func can_purchase(soldier: TestSoldier) -> bool:
+func spawn_soldiers():
+	for npc in player_soldiers:
+		# If parent is null it means that we have never added this npc to the scene tree before.
+		if npc.get_parent() == null:
+			level.spawn_soldier(npc)
+		# Otherwise, it is in the scene tree and we just need to set the position and visibility.
+		else:
+			npc.global_position = npc.battle_start_location
+			npc.visible = true
+		
+func replace_soldiers():
+	for npc in player_soldiers:
+		npc.visible = false
+
+func can_purchase(soldier: Npc) -> bool:
 	if !PlayerControlManager.can_drag():
 		print("player is busy")
 		return false
 		
-	if soldier.attributes.cost > GameManager.player_gold:
+	if soldier.cost > GameManager.player_gold:
 		print("player cant afford")
 		return false
-		
-	var c = TurnManager.current_phase.phase
 		
 	if TurnManager.current_phase.phase != TurnPhase.Phase.SHOPPING:
 		print("Not in shop phase")
@@ -36,8 +47,7 @@ func can_purchase(soldier: TestSoldier) -> bool:
 	
 	return true
 	
-
-func on_purchase(soldier: TestSoldier):
-	player_gold -= soldier.attributes.cost
+func on_purchase(soldier: Npc):
+	player_gold -= soldier.cost
 	player_soldiers.append(soldier)
 	print(player_gold)

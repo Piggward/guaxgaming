@@ -1,31 +1,30 @@
 extends Control
 
-@export var soldier_scene: PackedScene
+@export var npc_scene: PackedScene
 
 @onready var unit_name = $VBoxContainer/CoreShopItemPanel/VBoxContainer/HeaderShopItemPanel/UnitName
 @onready var unit_info = $VBoxContainer/CoreShopItemPanel/VBoxContainer/UnitInfo
 @onready var unit_cost = $VBoxContainer/CostPanel/UnitCost
 
-var soldier: TestSoldier
+var store_front: Npc
 var cd = false
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var ss = soldier_scene.instantiate()
-	if not ss is TestSoldier:
+	var npc = npc_scene.instantiate()
+	if not npc is Npc:
 		print_debug("ERROR: scene needs to be soldier")
 		return
-		
-	soldier = ss
-	unit_name.text = soldier.attributes.title
+	store_front = npc
+	unit_name.text = npc.title
 	#unit_info.text = "enter information here"
-	unit_cost.text = str(soldier.attributes.cost)
+	unit_cost.text = str(npc.cost)
 	pass # Replace with function body.
 
 
 func _on_gui_input(event):
-	if event.is_action_pressed("left_mouse") && !cd && GameManager.can_purchase(soldier):
+	if event.is_action_pressed("left_mouse") && !cd && GameManager.can_purchase(store_front):
 		# create placeholder
+		var soldier = npc_scene.instantiate()
 		var placeholder = soldier.get_placeholder()
 		
 		# Add placeholder to PlayerControlManager

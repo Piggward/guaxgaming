@@ -1,14 +1,13 @@
 class_name ShopTurnPhase
 extends TurnPhase
 
-func _ready():
-	phase = TurnPhase.Phase.SHOPPING
-
 func phase_start():
+	turn_start.emit()
 	print("shop turn phase start")
 	pass
 	
 func phase_end():
+	turn_end.emit()
 	print("shop turn phase end")
 	TurnManager.next_turn()
 	pass

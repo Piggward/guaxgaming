@@ -17,7 +17,7 @@ func _process(delta):
 		stop_dragging()
 		
 func can_drag():
-	return not dragging
+	return not dragging && TurnManager.current_phase.phase == TurnPhase.Phase.SHOPPING
 	
 func start_dragging(ms: PlaceholderUnit):
 	get_tree().root.add_child(ms)
