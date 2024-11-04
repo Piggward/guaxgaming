@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="TestSoldierResource" load_steps=3 format=3 uid="uid://nts8gxnkqer6"]
+
+[ext_resource type="Script" path="res://resources/soldier.gd" id="1_7c2uc"]
+[ext_resource type="PackedScene" uid="uid://deq8y7kgc8uss" path="res://scenes/placeholder_unit.tscn" id="1_gwrxs"]
+
+[resource]
+script = ExtResource("1_7c2uc")
+placeholder = ExtResource("1_gwrxs")
+speed = 30
+damage = 30
+cost = 30
+attack_range = 30
+title = "Soldier"
+flavor_text = "die!"
+info_text = "test"

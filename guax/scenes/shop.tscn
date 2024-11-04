@@ -1,0 +1,76 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbvo22bysuwrk"]
+
+[ext_resource type="PackedScene" uid="uid://tb3fjmamrd0b" path="res://scenes/shop_item.tscn" id="1_68pky"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m0me"]
+bg_color = Color(0.672438, 0.587959, 0.44678, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Shop" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 545.0
+offset_top = 28.0
+offset_right = 585.0
+offset_bottom = 68.0
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_3m0me")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="ShopLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.779513, 0.723424, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 3
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 3
+theme_override_constants/shadow_outline_size = 7
+theme_override_font_sizes/font_size = 40
+text = "Shop"
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ShopRow" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ShopItemContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/ShopRow"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ShopItem" parent="PanelContainer/VBoxContainer/MarginContainer/ShopRow/ShopItemContainer" instance=ExtResource("1_68pky")]
+layout_mode = 2
+
+[node name="ShopItem2" parent="PanelContainer/VBoxContainer/MarginContainer/ShopRow/ShopItemContainer" instance=ExtResource("1_68pky")]
+layout_mode = 2
+
+[node name="ShopItemContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/ShopRow"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="ShopItem" parent="PanelContainer/VBoxContainer/MarginContainer/ShopRow/ShopItemContainer2" instance=ExtResource("1_68pky")]
+layout_mode = 2
+
+[node name="ShopItem2" parent="PanelContainer/VBoxContainer/MarginContainer/ShopRow/ShopItemContainer2" instance=ExtResource("1_68pky")]
+layout_mode = 2

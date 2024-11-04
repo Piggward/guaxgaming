@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://deq8y7kgc8uss"]
+
+[ext_resource type="Script" path="res://scripts/placeholder_unit.gd" id="1_rrbnn"]
+[ext_resource type="Texture2D" uid="uid://nwmp4xg7e3to" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_character.png" id="2_4tsjy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2tkm1"]
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 9
+collision_mask = 9
+script = ExtResource("1_rrbnn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4tsjy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.27029, 2.0519)
+shape = SubResource("CircleShape2D_2tkm1")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

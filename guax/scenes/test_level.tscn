@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdb4wc6v0clh8"]
+
+[ext_resource type="PackedScene" uid="uid://cbvo22bysuwrk" path="res://scenes/shop.tscn" id="1_x5cgc"]
+[ext_resource type="Script" path="res://scripts/drop_area.gd" id="2_qixso"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="3_nauvb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3bxan"]
+
+[node name="TestLevel" type="Node2D"]
+
+[node name="Shop" parent="." instance=ExtResource("1_x5cgc")]
+
+[node name="DropArea" type="Area2D" parent="." groups=["Placeable"]]
+position = Vector2(238, 274)
+scale = Vector2(8.76061, 20.4624)
+script = ExtResource("2_qixso")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DropArea"]
+scale = Vector2(2.69898, 1.32852)
+shape = SubResource("RectangleShape2D_3bxan")
+
+[node name="Player" type="Node2D" parent="."]
+script = ExtResource("3_nauvb")
+
+[connection signal="body_entered" from="DropArea" to="DropArea" method="_on_body_entered"]
+[connection signal="body_exited" from="DropArea" to="DropArea" method="_on_body_exited"]
