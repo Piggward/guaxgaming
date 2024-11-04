@@ -22,10 +22,18 @@ var aggrozone:Area2D
 
 #animator
 @onready var soldat_animation: Node = $SoldatAnimation
+@onready var root = $Root
 
+# Soldier specific code
+const PLACEHOLDER_UNIT = preload("res://scenes/placeholder_unit.tscn")
+const SOLDAT_SPRITES = preload("res://scenes/character_sprites/soldat_sprites.tscn")
+var battle_start_location: Vector2
+@export var cost: int
+@export var title: String
+@export var flavor_text: String
+var placeholder: PlaceholderUnit
 
-
-
+signal on_death(npc: Npc)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,6 +42,7 @@ func _ready():
 	make_path(position)
 	currentHealth = maxHealth
 	state_machine.init(self)
+	set_placeholder()
 
 func _physics_process(delta: float) -> void:
 	state_machine.act()
@@ -43,6 +52,11 @@ func make_path(target: Vector2):
 	nav_agent.target_position = target
 	
 func take_damage(damageTaken:int):
+	currentHealth -= damageTaken
+	if currentHealth <= 0:
+		on_death.emit(self)
+		self.queue_free()
+		# implement more stuff for dying event here
 	pass
 	
 #Animations
@@ -51,3 +65,23 @@ func play_idle_animation():
 
 func play_attack_animation():
 	soldat_animation.play_attack()
+	
+func set_placeholder():
+	var placeholderunit = PLACEHOLDER_UNIT.instantiate()
+	var sprites = SOLDAT_SPRITES.instantiate()
+	for child in sprites.get_children():
+		if child is CollisionShape2D:
+			child.reparent(placeholderunit)
+	placeholderunit.add_child(sprites)
+	placeholderunit.actual_soldier = self
+	placeholderunit.placed.connect(update_start_location)
+	placeholder = placeholderunit
+	pass
+	
+func get_placeholder():
+	if placeholder == null:
+		set_placeholder()
+	return placeholder
+
+func update_start_location(placeholder: PlaceholderUnit):
+	self.battle_start_location = placeholder.battle_position

@@ -4,7 +4,7 @@ extends NpcState
 
 func  act():
 	var enemies: Array[Npc] = find_targets()
-	if enemies.is_empty():
+	if enemies.is_empty() or enemies == null:
 		transition_requested.emit(self, NpcState.State.IDLE)
 		return
 	var target = target_closest_enemy(enemies)

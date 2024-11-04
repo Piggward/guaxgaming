@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://coy0k3wst2pcj"]
+
+[ext_resource type="Texture2D" uid="uid://c0rholvi5pivk" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/purple_character.png" id="1_h06pc"]
+[ext_resource type="Texture2D" uid="uid://db0fjqkxwjyl6" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/purple_hand.png" id="2_82e05"]
+[ext_resource type="Texture2D" uid="uid://bfw4muxb2mupy" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_longsword.png" id="3_6x36p"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ssyg2"]
+
+[node name="Root" type="Sprite2D"]
+rotation = -1.50906
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.2998, 2.21761)
+shape = SubResource("CircleShape2D_ssyg2")
+
+[node name="Character Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_h06pc")
+
+[node name="Hand right" type="Sprite2D" parent="Character Sprite"]
+position = Vector2(-33, 10)
+texture = ExtResource("2_82e05")
+
+[node name="Hand left" type="Sprite2D" parent="Character Sprite"]
+position = Vector2(34, 12)
+rotation = 1.86696
+texture = ExtResource("2_82e05")
+
+[node name="Sword" type="Sprite2D" parent="Character Sprite/Hand left"]
+position = Vector2(21.1628, 9.80499)
+rotation = 2.00772
+texture = ExtResource("3_6x36p")

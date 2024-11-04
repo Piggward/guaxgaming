@@ -19,6 +19,7 @@ func  act():
 	
 
 func enter():
+	npc.target.on_death.connect(func(): npc.target = null)
 	if (npc.target!=null):
 		npc.velocity = Vector2.ZERO
 		return

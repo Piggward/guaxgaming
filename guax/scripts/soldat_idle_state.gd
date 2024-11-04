@@ -13,6 +13,8 @@ func  act():
 func enter():
 	npc.make_path(npc.global_position)
 	npc.play_idle_animation()
+	# Maybe there is a better way, but if velocity is not reset to zero, then the character will keep moving while in idle.
+	npc.velocity = Vector2.ZERO
 
 func exit():
 	pass
