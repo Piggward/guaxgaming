@@ -1,33 +1,32 @@
 extends Control
 
-@export var soldier: TestSoldierResource
 @export var soldier_scene: PackedScene
 
 @onready var unit_name = $VBoxContainer/CoreShopItemPanel/VBoxContainer/HeaderShopItemPanel/UnitName
 @onready var unit_info = $VBoxContainer/CoreShopItemPanel/VBoxContainer/UnitInfo
 @onready var unit_cost = $VBoxContainer/CostPanel/UnitCost
 
+var soldier: TestSoldier
 var cd = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	unit_name.text = soldier.title
+	var ss = soldier_scene.instantiate()
+	if not ss is TestSoldier:
+		print_debug("ERROR: scene needs to be soldier")
+		return
+		
+	soldier = ss
+	unit_name.text = soldier.attributes.title
 	#unit_info.text = "enter information here"
-	unit_cost.text = str(soldier.cost)
+	unit_cost.text = str(soldier.attributes.cost)
 	pass # Replace with function body.
 
 
 func _on_gui_input(event):
-	if event.is_action_pressed("left_mouse") && !cd && PlayerControlManager.can_drag():
-		# can afford? 
-		if soldier.cost > GameManager.player_gold:
-			print("cant afford bro")
-		
+	if event.is_action_pressed("left_mouse") && !cd && GameManager.can_purchase(soldier):
 		# create placeholder
-		var ss = soldier_scene.instantiate()
-		if not ss is TestSoldier:
-			return
-		var placeholder = ss.get_placeholder()
+		var placeholder = soldier.get_placeholder()
 		
 		# Add placeholder to PlayerControlManager
 		PlayerControlManager.start_dragging(placeholder)
