@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://bec3h70ww5jqj"]
+
+[ext_resource type="Script" path="res://scripts/npc_states/npc_state_machine.gd" id="1_1u1xq"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="2_3hsp6"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="3_4e6kx"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="4_87mwn"]
+
+[node name="BasicStateMachine" type="Node" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_1u1xq")
+initial_state = NodePath("BasicIdleState")
+
+[node name="BasicIdleState" type="Node" parent="."]
+script = ExtResource("2_3hsp6")
+
+[node name="BasicHuntingState" type="Node" parent="."]
+script = ExtResource("3_4e6kx")
+state = 1
+
+[node name="BasicAttackingState" type="Node" parent="."]
+script = ExtResource("4_87mwn")
+state = 2

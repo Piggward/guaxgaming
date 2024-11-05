@@ -12,7 +12,7 @@ func  act():
 
 func enter():
 	npc.make_path(npc.global_position)
-	npc.play_idle_animation()
+	npc.play_animation("Idle")
 	# Maybe there is a better way, but if velocity is not reset to zero, then the character will keep moving while in idle.
 	npc.velocity = Vector2.ZERO
 
@@ -23,7 +23,6 @@ func find_targets()-> Array[Npc]:
 	var found_enemies: Array[Npc]
 	var found_bodies = npc.aggrozone.get_overlapping_bodies()
 	for body in found_bodies:
-		if body is Npc:
-			if body.isEnemy != npc.isEnemy:
-				found_enemies.append(body)
+		if body is Enemy:
+			found_enemies.append(body)
 	return found_enemies

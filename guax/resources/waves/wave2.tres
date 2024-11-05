@@ -1,19 +1,19 @@
 [gd_resource type="Resource" script_class="WaveResource" load_steps=6 format=3 uid="uid://dv76s47c0mqhu"]
 
 [ext_resource type="Script" path="res://resources/waves/enemy_spawn_location.gd" id="1_rviwi"]
+[ext_resource type="PackedScene" uid="uid://dltmpjt8do3fi" path="res://scenes/enemies/basic_enemy/basic_enemy.tscn" id="2_ae1uu"]
 [ext_resource type="Script" path="res://resources/waves/wave_resource.gd" id="2_nqakw"]
-[ext_resource type="PackedScene" uid="uid://co4pp6atuitii" path="res://scenes/enemynpc.tscn" id="2_x3g3n"]
 
-[sub_resource type="Resource" id="Resource_a7gpr"]
-script = ExtResource("1_rviwi")
-spawn_location = Vector2(20, 20)
-enemy = ExtResource("2_x3g3n")
-
-[sub_resource type="Resource" id="Resource_iklg7"]
+[sub_resource type="Resource" id="Resource_bm3c3"]
 script = ExtResource("1_rviwi")
 spawn_location = Vector2(-20, -20)
-enemy = ExtResource("2_x3g3n")
+enemy = ExtResource("2_ae1uu")
+
+[sub_resource type="Resource" id="Resource_j6sgi"]
+script = ExtResource("1_rviwi")
+spawn_location = Vector2(20, 20)
+enemy = ExtResource("2_ae1uu")
 
 [resource]
 script = ExtResource("2_nqakw")
-enemies = Array[ExtResource("1_rviwi")]([SubResource("Resource_a7gpr"), SubResource("Resource_iklg7")])
+enemies = Array[ExtResource("1_rviwi")]([SubResource("Resource_bm3c3"), SubResource("Resource_j6sgi")])

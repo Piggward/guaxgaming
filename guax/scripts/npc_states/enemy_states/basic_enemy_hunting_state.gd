@@ -1,8 +1,6 @@
 class_name EnemyHuntingState
 extends NpcState
 
-@onready var aggrozone_enemy: Area2D = $"../../AggrozoneEnemy"
-
 func act():
 	var enemies: Array[Npc] = find_targets()
 	if enemies.is_empty():
@@ -28,11 +26,10 @@ func exit():
 
 func find_targets()-> Array[Npc]:
 	var found_enemies: Array[Npc]
-	var found_bodies = aggrozone_enemy.get_overlapping_bodies()
+	var found_bodies = npc.aggrozone.get_overlapping_bodies()
 	for body in found_bodies:
-		if body is Npc:
-			if body.isEnemy != npc.isEnemy:
-				found_enemies.append(body)
+		if body is Ally:
+			found_enemies.append(body)
 	return found_enemies
 
 func target_closest_enemy(enemiesArray:Array[Npc]) -> Npc:
@@ -63,7 +60,7 @@ func calculateNewVelocityTarget():
 
 func is_target_in_range(targetEnemy:Npc)->bool:
 	var distance = (targetEnemy.global_position-npc.global_position).length()
-	if(distance < npc.attackRange):
+	if(distance < npc.attack.range):
 		return true
 	else:
 		return false

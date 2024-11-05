@@ -6,17 +6,17 @@ extends Control
 @onready var unit_info = $VBoxContainer/CoreShopItemPanel/VBoxContainer/UnitInfo
 @onready var unit_cost = $VBoxContainer/CostPanel/UnitCost
 
-var store_front: Npc
+var store_front: Ally
 var cd = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var npc = npc_scene.instantiate()
-	if not npc is Npc:
-		print_debug("ERROR: scene needs to be soldier")
+	if not npc is Ally:
+		print_debug("ERROR: scene needs to be an ally")
 		return
 	store_front = npc
 	unit_name.text = npc.title
-	#unit_info.text = "enter information here"
+	unit_info.text = 
 	unit_cost.text = str(npc.cost)
 	pass # Replace with function body.
 

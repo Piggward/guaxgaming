@@ -1,11 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://817ch6mxm3k7"]
+[gd_scene load_steps=12 format=3 uid="uid://dltmpjt8do3fi"]
 
-[ext_resource type="Script" path="res://scripts/npc.gd" id="1_6cm8f"]
-[ext_resource type="Script" path="res://scripts/soldat_animation.gd" id="3_c03wt"]
-[ext_resource type="PackedScene" uid="uid://coy0k3wst2pcj" path="res://scenes/character_sprites/basic_ally/basic_ally_sprites.tscn" id="4_8xggn"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ux5ua"]
-radius = 21.0238
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_6ipli"]
+[ext_resource type="PackedScene" uid="uid://coy0k3wst2pcj" path="res://scenes/character_sprites/basic_ally/basic_ally_sprites.tscn" id="1_di6as"]
+[ext_resource type="Script" path="res://scripts/soldat_animation.gd" id="2_8m7dk"]
+[ext_resource type="Resource" uid="uid://evtuf3l5x5cs" path="res://resources/attacks/basic_melee_attack.tres" id="2_y3p08"]
+[ext_resource type="PackedScene" uid="uid://3ya2y1umglwg" path="res://scenes/state_machines/basic_enemy_state_machine.tscn" id="3_jodb8"]
 
 [sub_resource type="Animation" id="Animation_r3alr"]
 resource_name = "Attack_melee_1"
@@ -156,8 +155,26 @@ _data = {
 "RESET": SubResource("Animation_mh5gm")
 }
 
-[node name="Npc" type="CharacterBody2D"]
-script = ExtResource("1_6cm8f")
+[sub_resource type="CircleShape2D" id="CircleShape2D_v38bn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pqm7e"]
+
+[node name="basic_enemy" type="CharacterBody2D"]
+script = ExtResource("1_6ipli")
+bounty = 100
+maxHealth = 500
+speed = 100
+attack = ExtResource("2_y3p08")
+title = "BasicEnemy"
+sprite_scene = ExtResource("1_di6as")
+
+[node name="Root" parent="." instance=ExtResource("1_di6as")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ssa1n")
+}
+script = ExtResource("2_8m7dk")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
@@ -165,16 +182,13 @@ radius = 32.32
 max_speed = 50605.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_ux5ua")
+scale = Vector2(2.19293, 2.28307)
+shape = SubResource("CircleShape2D_v38bn")
 
-[node name="StateMachine" type="Node" parent="."]
+[node name="StateMachine" parent="." instance=ExtResource("3_jodb8")]
 
-[node name="SoldatAnimation" type="Node" parent="."]
-script = ExtResource("3_c03wt")
+[node name="Aggrozone" type="Area2D" parent="."]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ssa1n")
-}
-
-[node name="Root" parent="." instance=ExtResource("4_8xggn")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aggrozone"]
+scale = Vector2(25.9531, 23.9933)
+shape = SubResource("CircleShape2D_pqm7e")

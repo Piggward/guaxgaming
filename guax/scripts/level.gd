@@ -28,12 +28,12 @@ func spawn_next_wave():
 			enemy.position = nmy.spawn_location
 			spawn_enemy(enemy)
 
-func spawn_enemy(enemy: Npc):
+func spawn_enemy(enemy: Enemy):
 	enemy_spawn.spawn(enemy)
 	
-func spawn_soldier(soldier: Npc):
-	aggro_zone.add_child(soldier)
-	soldier.global_position = soldier.battle_start_location
+func spawn_soldier(ally: Ally):
+	aggro_zone.add_child(ally)
+	ally.global_position = ally.battle_start_location
 	
 func spawn_placeholder(placeholder: PlaceholderUnit):
 	aggro_zone.add_child(placeholder)
