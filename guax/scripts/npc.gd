@@ -1,6 +1,6 @@
 class_name Npc
 extends CharacterBody2D
-
+#buuu
 #NPC stats
 @export var maxHealth = 30
 var currentHealth
