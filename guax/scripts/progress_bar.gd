@@ -14,8 +14,16 @@ func _ready():
 func on_damage_taken(amount: int):
 	self.value = clamp(self.value - amount, 0, max_value)
 	var dlabel = DAMAGE_LABEL.instantiate()
-	self.add_child(dlabel)
+	
+	# Set label parent to root so that if character dies, the text will still continue to flow. 
+	get_tree().root.add_child(dlabel)
+	dlabel.global_position = self.global_position
 	dlabel.text = str(amount)
+	
+	# Offset the position of the label so it fits better with the progress bar
+	dlabel.position.x += self.size.x / 2
+	dlabel.position.y -= self.size.y
+	dlabel.position.x -= dlabel.size.x / 2
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

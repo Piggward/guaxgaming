@@ -226,10 +226,10 @@ shape = SubResource("CircleShape2D_pqm7e")
 top_level = true
 
 [node name="ProgressBar" type="ProgressBar" parent="Node2D"]
-offset_left = -55.0
-offset_top = -76.0
-offset_right = 57.0
-offset_bottom = -49.0
+offset_left = -47.0
+offset_top = -74.0
+offset_right = 53.0
+offset_bottom = -47.0
 theme_override_styles/background = SubResource("StyleBoxFlat_yek2k")
 theme_override_styles/fill = SubResource("StyleBoxFlat_dpyk7")
 value = 75.0
