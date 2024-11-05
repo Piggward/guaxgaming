@@ -75,8 +75,6 @@ mouse_filter = 1
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = -5
 theme_override_font_sizes/font_size = 15
-text = "Speed: 12 damage: 5 range:melee \"duty or die\"
-"
 autowrap_mode = 2
 
 [node name="CostPanel" type="PanelContainer" parent="VBoxContainer"]

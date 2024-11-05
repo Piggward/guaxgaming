@@ -16,7 +16,9 @@ func _ready():
 		return
 	store_front = npc
 	unit_name.text = npc.title
-	unit_info.text = 
+	unit_info.text = "damage: " + str(store_front.attack.damage) + "\n"
+	unit_info.text += "speed: " + str(store_front.speed) + "\n"
+	unit_info.text += "range: " + str(store_front.attack.range) + "\n"
 	unit_cost.text = str(npc.cost)
 	pass # Replace with function body.
 

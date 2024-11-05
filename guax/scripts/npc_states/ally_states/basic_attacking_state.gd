@@ -32,11 +32,13 @@ func exit():
 func attack():
 	if(attackReady):
 		attackReady=false
-		npc.target.take_damage(npc.attack.damage)
 		npc.play_animation(npc.attack.animation)
 		print_debug("Attackerade!")
 		await get_tree().create_timer(npc.attackspeed/10).timeout
 		attackReady =  true
+		
+func deal_damage():
+	npc.target.take_damage(npc.attack.damage)
 		
 func rotate_towards_target(target:Npc):
 	npc.look_at(target.global_position)	

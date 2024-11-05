@@ -29,6 +29,7 @@ const PLACEHOLDER_UNIT = preload("res://scenes/placeholder_unit.tscn")
 var placeholder: PlaceholderUnit
 
 signal on_death(npc: Npc)
+signal receive_damage(amount: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -46,6 +47,7 @@ func make_path(target: Vector2):
 	
 func take_damage(damageTaken:int):
 	currentHealth -= damageTaken
+	receive_damage.emit(damageTaken)
 	if currentHealth <= 0:
 		on_death.emit(self)
 		self.queue_free()

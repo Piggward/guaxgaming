@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://817ch6mxm3k7"]
+[gd_scene load_steps=10 format=3 uid="uid://817ch6mxm3k7"]
 
 [ext_resource type="Script" path="res://scripts/npc.gd" id="1_6cm8f"]
+[ext_resource type="Resource" uid="uid://evtuf3l5x5cs" path="res://resources/attacks/basic_melee_attack.tres" id="2_rl1my"]
 [ext_resource type="Script" path="res://scripts/soldat_animation.gd" id="3_c03wt"]
 [ext_resource type="PackedScene" uid="uid://coy0k3wst2pcj" path="res://scenes/character_sprites/basic_ally/basic_ally_sprites.tscn" id="4_8xggn"]
 
@@ -158,6 +159,9 @@ _data = {
 
 [node name="Npc" type="CharacterBody2D"]
 script = ExtResource("1_6cm8f")
+maxHealth = 300
+attack = ExtResource("2_rl1my")
+title = "BasicEnemy"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 avoidance_enabled = true
