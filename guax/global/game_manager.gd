@@ -7,7 +7,6 @@ var player_allies: Array[Ally]
 var level: Level
 
 signal soldier_purchased(soldier: Ally)
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	soldier_purchased.connect(on_purchase)
