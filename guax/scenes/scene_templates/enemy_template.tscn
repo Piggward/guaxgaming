@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://7hudo5mwi7x8"]
+
+[ext_resource type="PackedScene" uid="uid://c333vpdqm6vuj" path="res://scenes/scene_templates/npc_template.tscn" id="1_tuqte"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="2_gx80s"]
+[ext_resource type="Script" path="res://scripts/progress_bar.gd" id="3_0tr82"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adxu7"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iykpu"]
+bg_color = Color(0.509804, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="EnemyTemplate" instance=ExtResource("1_tuqte")]
+script = ExtResource("2_gx80s")
+
+[node name="ProgressBar" type="ProgressBar" parent="Node2D" index="0"]
+offset_left = -53.0
+offset_top = -82.0
+offset_right = 59.0
+offset_bottom = -55.0
+theme_override_styles/background = SubResource("StyleBoxFlat_adxu7")
+theme_override_styles/fill = SubResource("StyleBoxFlat_iykpu")
+value = 75.0
+show_percentage = false
+script = ExtResource("3_0tr82")
+metadata/_edit_use_anchors_ = true

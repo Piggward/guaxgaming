@@ -1,0 +1,133 @@
+[gd_scene load_steps=14 format=3 uid="uid://dmakabgoy2ver"]
+
+[ext_resource type="Script" path="res://scripts/ally.gd" id="1_36jr0"]
+[ext_resource type="Resource" uid="uid://evtuf3l5x5cs" path="res://resources/attacks/basic_melee_attack.tres" id="2_vdk18"]
+[ext_resource type="PackedScene" uid="uid://coy0k3wst2pcj" path="res://scenes/character_sprites/basic_ally/basic_ally_sprites.tscn" id="3_3s745"]
+[ext_resource type="PackedScene" uid="uid://bec3h70ww5jqj" path="res://scenes/state_machines/basic_state_machine.tscn" id="4_264wh"]
+[ext_resource type="Animation" uid="uid://dqjbtrwd8xwjn" path="res://animations/Attack_melee_1.res" id="4_c2d22"]
+[ext_resource type="Animation" uid="uid://upaejgphx4kd" path="res://animations/Idle.res" id="5_20s55"]
+[ext_resource type="Script" path="res://scripts/soldat_animation.gd" id="5_de6cq"]
+[ext_resource type="Script" path="res://scripts/progress_bar.gd" id="6_ut2nt"]
+
+[sub_resource type="Animation" id="Animation_mm1q0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(34, 12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.67735]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-33, 10)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Character Sprite:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_24qvj"]
+_data = {
+"Attack_melee_1": ExtResource("4_c2d22"),
+"Idle": ExtResource("5_20s55"),
+"RESET": SubResource("Animation_mm1q0")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dgxdn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx3jt"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sp4sq"]
+bg_color = Color(0, 0.517593, 9.62615e-08, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="Soldat" type="CharacterBody2D"]
+script = ExtResource("1_36jr0")
+cost = 2000
+maxHealth = 100
+speed = 100
+attack = ExtResource("2_vdk18")
+title = "Soldier"
+sprite_scene = ExtResource("3_3s745")
+
+[node name="Root" parent="." instance=ExtResource("3_3s745")]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_24qvj")
+}
+script = ExtResource("5_de6cq")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 32.32
+max_speed = 50605.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.19293, 2.28307)
+shape = SubResource("CircleShape2D_dgxdn")
+
+[node name="StateMachine" parent="." instance=ExtResource("4_264wh")]
+
+[node name="Node2D" type="Node2D" parent="."]
+top_level = true
+
+[node name="ProgressBar" type="ProgressBar" parent="Node2D"]
+offset_left = -55.0
+offset_top = -76.0
+offset_right = 57.0
+offset_bottom = -49.0
+theme_override_styles/background = SubResource("StyleBoxFlat_sx3jt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sp4sq")
+value = 75.0
+show_percentage = false
+script = ExtResource("6_ut2nt")
+metadata/_edit_use_anchors_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../Node2D")
+update_rotation = false
+
+[editable path="StateMachine"]

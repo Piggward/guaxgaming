@@ -5,42 +5,36 @@ extends CharacterBody2D
 @export var maxHealth = 30
 var currentHealth
 @export var speed = 30
-@export var attackDamage = 30
-@export var attackRange = 30
-@export var isEnemy = false
 @export var attackspeed = 30
+@export var attack: Attack
+@export var title: String
 
 #Navagent logic
 @onready var nav_agent = $NavigationAgent2D
 var targetReached = false
 
 var target:Npc
-#Aggrozone
-var aggrozone:Area2D
+var aggrozone: Area2D
+
 #Statemachine
-@onready var state_machine: Npc_State_Machine = $StateMachine
+@onready var state_machine = $StateMachine
 
 #animator
-@onready var soldat_animation: Node = $SoldatAnimation
+@onready var animation_player = $AnimationPlayer
 @onready var root = $Root
+@export var sprite_scene: PackedScene
 
 # Soldier specific code
 const PLACEHOLDER_UNIT = preload("res://scenes/placeholder_unit.tscn")
-const SOLDAT_SPRITES = preload("res://scenes/character_sprites/soldat_sprites.tscn")
-var battle_start_location: Vector2
-@export var cost: int
-@export var title: String
-@export var flavor_text: String
 var placeholder: PlaceholderUnit
 
 signal on_death(npc: Npc)
+signal receive_damage(amount: int)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	aggrozone = get_tree().get_nodes_in_group("Aggrozone")[0]
-	
-	make_path(position)
 	currentHealth = maxHealth
+	make_path(position)
 	state_machine.init(self)
 	set_placeholder()
 
@@ -53,6 +47,7 @@ func make_path(target: Vector2):
 	
 func take_damage(damageTaken:int):
 	currentHealth -= damageTaken
+	receive_damage.emit(damageTaken)
 	if currentHealth <= 0:
 		on_death.emit(self)
 		self.queue_free()
@@ -60,28 +55,26 @@ func take_damage(damageTaken:int):
 	pass
 	
 #Animations
-func play_idle_animation():
-	soldat_animation.play_idle()
-
-func play_attack_animation():
-	soldat_animation.play_attack()
+func play_animation(animation: String):
+	animation_player.play_animation(animation)
 	
 func set_placeholder():
 	var placeholderunit = PLACEHOLDER_UNIT.instantiate()
-	var sprites = SOLDAT_SPRITES.instantiate()
+	var sprites = sprite_scene.instantiate()
 	for child in sprites.get_children():
 		if child is CollisionShape2D:
 			child.reparent(placeholderunit)
 	placeholderunit.add_child(sprites)
 	placeholderunit.actual_soldier = self
-	placeholderunit.placed.connect(update_start_location)
+	placeholderunit.placed.connect(_on_placeholder_placed)
 	placeholder = placeholderunit
+	pass
+	
+func _on_placeholder_placed(placeholder: PlaceholderUnit):
+	# Implement this in ally / enemy class
 	pass
 	
 func get_placeholder():
 	if placeholder == null:
 		set_placeholder()
 	return placeholder
-
-func update_start_location(placeholder: PlaceholderUnit):
-	self.battle_start_location = placeholder.battle_position

@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpv3pk15wvy25"]
+
+[ext_resource type="Script" path="res://scripts/damage_label.gd" id="1_vvnlc"]
+
+[node name="DamageLabel" type="Label"]
+texture_filter = 1
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0.509804, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 35
+script = ExtResource("1_vvnlc")

@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c333vpdqm6vuj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5fgv5"]
+
+[node name="NpcTemplate" type="CharacterBody2D"]
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+avoidance_enabled = true
+radius = 32.32
+max_speed = 50605.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.19293, 2.28307)
+shape = SubResource("CircleShape2D_5fgv5")
+
+[node name="Node2D" type="Node2D" parent="."]
+top_level = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../Node2D")
+update_rotation = false

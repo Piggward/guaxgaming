@@ -9,7 +9,7 @@ func  act():
 		return
 		
 	var distance = (npc.target.global_position-npc.global_position).length()
-	if(distance < npc.attackRange):
+	if(distance < npc.attack.range):
 		attack()
 	else:
 		transition_requested.emit(self, NpcState.State.HUNTING)
@@ -32,11 +32,13 @@ func exit():
 func attack():
 	if(attackReady):
 		attackReady=false
-		npc.target.take_damage(npc.attackDamage)
-		npc.play_attack_animation()
+		npc.play_animation(npc.attack.animation)
 		print_debug("Attackerade!")
 		await get_tree().create_timer(npc.attackspeed/10).timeout
 		attackReady =  true
+		
+func deal_damage():
+	npc.target.take_damage(npc.attack.damage)
 		
 func rotate_towards_target(target:Npc):
 	npc.look_at(target.global_position)	

@@ -7,6 +7,7 @@ extends Node2D
 @onready var enemy_spawn = $EnemySpawn
 @onready var aggro_zone = $AggroZone
 var current_wave = 1
+const WAVE_TEXT = preload("res://scenes/wave_text.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,6 +22,10 @@ func _ready():
 	pass # Replace with function body.
 
 func spawn_next_wave():
+	#var wave_text = WAVE_TEXT.instantiate()
+	#wave_text.wave_display.text = "WAVE " + str(current_wave)
+	#add_child(wave_text)
+	#await wave_text.animation_player.animation_finished
 	var wave = waves[current_wave - 1]
 	for nmy in wave.enemies:
 		if nmy is EnemySpawnLocation:
@@ -28,12 +33,12 @@ func spawn_next_wave():
 			enemy.position = nmy.spawn_location
 			spawn_enemy(enemy)
 
-func spawn_enemy(enemy: Npc):
+func spawn_enemy(enemy: Enemy):
 	enemy_spawn.spawn(enemy)
 	
-func spawn_soldier(soldier: Npc):
-	aggro_zone.add_child(soldier)
-	soldier.global_position = soldier.battle_start_location
+func spawn_soldier(ally: Ally):
+	aggro_zone.add_child(ally)
+	ally.global_position = ally.battle_start_location
 	
 func spawn_placeholder(placeholder: PlaceholderUnit):
 	aggro_zone.add_child(placeholder)
