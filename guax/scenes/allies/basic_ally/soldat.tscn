@@ -4,10 +4,10 @@
 [ext_resource type="Resource" uid="uid://evtuf3l5x5cs" path="res://resources/attacks/basic_melee_attack.tres" id="2_vdk18"]
 [ext_resource type="PackedScene" uid="uid://coy0k3wst2pcj" path="res://scenes/character_sprites/basic_ally/basic_ally_sprites.tscn" id="3_3s745"]
 [ext_resource type="PackedScene" uid="uid://bec3h70ww5jqj" path="res://scenes/state_machines/basic_state_machine.tscn" id="4_264wh"]
-[ext_resource type="Animation" uid="uid://dqjbtrwd8xwjn" path="res://animations/Attack_melee_1.res" id="4_c2d22"]
-[ext_resource type="Animation" uid="uid://upaejgphx4kd" path="res://animations/Idle.res" id="5_20s55"]
+[ext_resource type="Animation" uid="uid://dqjbtrwd8xwjn" path="res://animations/humanoid/Attack_melee_1.res" id="4_c2d22"]
+[ext_resource type="Animation" uid="uid://upaejgphx4kd" path="res://animations/humanoid/Idle.res" id="5_20s55"]
 [ext_resource type="Script" path="res://scripts/soldat_animation.gd" id="5_de6cq"]
-[ext_resource type="Script" path="res://scripts/progress_bar.gd" id="6_ut2nt"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="6_ut2nt"]
 
 [sub_resource type="Animation" id="Animation_mm1q0"]
 length = 0.001

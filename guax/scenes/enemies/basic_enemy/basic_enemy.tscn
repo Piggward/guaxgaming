@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scripts/soldat_animation.gd" id="2_8m7dk"]
 [ext_resource type="Resource" uid="uid://evtuf3l5x5cs" path="res://resources/attacks/basic_melee_attack.tres" id="2_y3p08"]
 [ext_resource type="PackedScene" uid="uid://3ya2y1umglwg" path="res://scenes/state_machines/basic_enemy_state_machine.tscn" id="3_jodb8"]
-[ext_resource type="Script" path="res://scripts/progress_bar.gd" id="6_fluqm"]
+[ext_resource type="Script" path="res://scripts/health_bar.gd" id="6_fluqm"]
 
 [sub_resource type="Animation" id="Animation_r3alr"]
 resource_name = "Attack_melee_1"
