@@ -191,11 +191,10 @@ corner_radius_bottom_left = 3
 [node name="basic_enemy" type="CharacterBody2D"]
 script = ExtResource("1_6ipli")
 bounty = 100
-maxHealth = 150
-speed = 100
+maxHealth = 100
+speed = 200
 attack = ExtResource("2_y3p08")
 title = "BasicEnemy"
-sprite_scene = ExtResource("1_di6as")
 
 [node name="Root" parent="." instance=ExtResource("1_di6as")]
 

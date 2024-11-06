@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cbvo22bysuwrk"]
+[gd_scene load_steps=5 format=3 uid="uid://cbvo22bysuwrk"]
 
-[ext_resource type="PackedScene" uid="uid://tb3fjmamrd0b" path="res://scenes/shop_item.tscn" id="1_68pky"]
+[ext_resource type="Script" path="res://scripts/shop.gd" id="1_4ruot"]
+[ext_resource type="PackedScene" uid="uid://blk6weaukj4um" path="res://scenes/shop/shop_row.tscn" id="1_iaojw"]
+[ext_resource type="PackedScene" uid="uid://dmakabgoy2ver" path="res://scenes/allies/basic_ally/soldat.tscn" id="2_s4cmp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m0me"]
 bg_color = Color(0.672438, 0.587959, 0.44678, 1)
@@ -21,6 +23,8 @@ offset_left = 545.0
 offset_top = 28.0
 offset_right = 585.0
 offset_bottom = 68.0
+script = ExtResource("1_4ruot")
+items = Array[PackedScene]([ExtResource("2_s4cmp"), ExtResource("2_s4cmp"), ExtResource("2_s4cmp"), ExtResource("2_s4cmp"), ExtResource("2_s4cmp"), ExtResource("2_s4cmp"), ExtResource("2_s4cmp")])
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 0
@@ -51,26 +55,9 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="ShopRow" type="VBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="ShopItemContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/ShopRow"]
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="ShopItem" parent="PanelContainer/VBoxContainer/MarginContainer/ShopRow/ShopItemContainer" instance=ExtResource("1_68pky")]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/VBoxContainer/MarginContainer"]
+custom_minimum_size = Vector2(225, 510)
 layout_mode = 2
 
-[node name="ShopItem2" parent="PanelContainer/VBoxContainer/MarginContainer/ShopRow/ShopItemContainer" instance=ExtResource("1_68pky")]
-layout_mode = 2
-
-[node name="ShopItemContainer2" type="HBoxContainer" parent="PanelContainer/VBoxContainer/MarginContainer/ShopRow"]
-layout_mode = 2
-theme_override_constants/separation = 15
-
-[node name="ShopItem" parent="PanelContainer/VBoxContainer/MarginContainer/ShopRow/ShopItemContainer2" instance=ExtResource("1_68pky")]
-layout_mode = 2
-
-[node name="ShopItem2" parent="PanelContainer/VBoxContainer/MarginContainer/ShopRow/ShopItemContainer2" instance=ExtResource("1_68pky")]
+[node name="ShopRows" parent="PanelContainer/VBoxContainer/MarginContainer/ScrollContainer" instance=ExtResource("1_iaojw")]
 layout_mode = 2

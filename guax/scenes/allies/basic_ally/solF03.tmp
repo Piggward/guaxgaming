@@ -86,7 +86,6 @@ corner_radius_bottom_left = 3
 [node name="Soldat" type="CharacterBody2D"]
 script = ExtResource("1_36jr0")
 cost = 2000
-maxHealth = 50
 speed = 100
 attack = ExtResource("2_vdk18")
 title = "Soldier"
