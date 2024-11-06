@@ -22,10 +22,7 @@ func _ready():
 	pass # Replace with function body.
 
 func spawn_next_wave():
-	#var wave_text = WAVE_TEXT.instantiate()
-	#wave_text.wave_display.text = "WAVE " + str(current_wave)
-	#add_child(wave_text)
-	#await wave_text.animation_player.animation_finished
+	display_wave_text()
 	var wave = waves[current_wave - 1]
 	for nmy in wave.enemies:
 		if nmy is EnemySpawnLocation:
@@ -51,6 +48,13 @@ func get_current_enemies():
 			if child.isEnemy:
 				count += 1
 	return count
+
+func display_wave_text():
+	var wave_text = WAVE_TEXT.instantiate()
+	wave_text.display_text = "WAVE " + str(current_wave)
+	wave_text.position = Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
+	add_child(wave_text)
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

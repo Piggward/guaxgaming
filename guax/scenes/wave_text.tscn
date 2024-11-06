@@ -40,6 +40,42 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(450, 207)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WaveDisplayShadow:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(362, 136)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WaveDisplayShadow:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WaveDisplayShadow:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(460, 209)]
+}
 
 [sub_resource type="Animation" id="Animation_h0f5o"]
 resource_name = "new_animation"
@@ -75,10 +111,46 @@ tracks/2/path = NodePath("WaveDisplay:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2, 2.03333, 2.1, 2.16667, 2.23333, 2.26667, 2.33333, 2.4, 2.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 2, 2.26667, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(450, 207), Vector2(479, 188), Vector2(614, 85), Vector2(740, 11), Vector2(861, -35), Vector2(978, -122), Vector2(1212, -165), Vector2(1536, -175), Vector2(1853, -48)]
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(464, -470), Vector2(1481, -934)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("WaveDisplayShadow:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.0333333, 0.1, 0.166666, 1.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(362, 0), Vector2(362, 20), Vector2(362, 40), Vector2(362, 136)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WaveDisplayShadow:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.0333333, 2.03333, 2.3, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(5, 0), Vector2(5, 0), Vector2(464, -470), Vector2(1481, -934)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WaveDisplayShadow:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(2.03333, 2.3, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 3.14159]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_eio0n"]
@@ -96,12 +168,28 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_6p07g")
 
+[node name="WaveDisplayShadow" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 209.0
+offset_right = 822.0
+offset_bottom = 345.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_outline_size = 10
+theme_override_font_sizes/normal_font_size = 100
+text = "WAVE 5"
+scroll_active = false
+autowrap_mode = 0
+
 [node name="WaveDisplay" type="RichTextLabel" parent="."]
 layout_mode = 0
 offset_left = 450.0
 offset_top = 207.0
 offset_right = 812.0
 offset_bottom = 343.0
+theme_override_colors/default_color = Color(0.95369, 0.556682, 0.364447, 1)
 theme_override_font_sizes/normal_font_size = 100
 text = "WAVE 5"
 scroll_active = false
@@ -111,4 +199,4 @@ autowrap_mode = 0
 libraries = {
 "": SubResource("AnimationLibrary_eio0n")
 }
-autoplay = "new_animation"
+autoplay = "RESET"
