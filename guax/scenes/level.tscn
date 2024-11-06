@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=4 uid="uid://dqvr3b6w07dr1"]
+[gd_scene load_steps=16 format=4 uid="uid://dqvr3b6w07dr1"]
 
 [ext_resource type="Texture2D" uid="uid://dqiw5k64mi133" path="res://art/kenney_scribble-dungeons/Tilesheet/tilesheet.png" id="1_5n2xs"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_80x34"]
@@ -6,7 +6,6 @@
 [ext_resource type="Script" path="res://resources/waves/wave_resource.gd" id="2_yxhid"]
 [ext_resource type="Resource" uid="uid://ban4knkh8t6pn" path="res://resources/waves/wave1.tres" id="3_v800y"]
 [ext_resource type="Resource" uid="uid://dv76s47c0mqhu" path="res://resources/waves/wave2.tres" id="4_6a554"]
-[ext_resource type="Script" path="res://scripts/shop.gd" id="4_ig1m8"]
 [ext_resource type="Texture2D" uid="uid://cigo17wlx6w7u" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_axe_double.png" id="5_4asks"]
 [ext_resource type="Script" path="res://scripts/start_wave_button.gd" id="6_dgeyi"]
 [ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="6_rpc6o"]
@@ -1797,6 +1796,13 @@ texture_region_size = Vector2i(64, 64)
 18:43/0 = 0
 21:43/0 = 0
 22:43/0 = 0
+9:8/0 = 0
+8:8/0 = 0
+8:9/0 = 0
+0:9/0 = 0
+0:8/0 = 0
+1:8/0 = 0
+8:4/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_7c0s2"]
 tile_size = Vector2i(64, 64)
@@ -1860,7 +1866,6 @@ offset_left = 1113.0
 offset_top = -1.0
 offset_right = 1153.0
 offset_bottom = 39.0
-script = ExtResource("4_ig1m8")
 
 [node name="Button" type="Button" parent="."]
 offset_left = 540.0
