@@ -36,9 +36,9 @@ func spawn_next_wave():
 func spawn_enemy(enemy: Enemy):
 	enemy_spawn.spawn(enemy)
 	
-func spawn_soldier(ally: Ally):
+func spawn_ally(ally: Ally):
 	aggro_zone.add_child(ally)
-	ally.global_position = ally.battle_start_location
+	ally.global_position = ally.placeholder.battle_position
 	
 func spawn_placeholder(placeholder: PlaceholderUnit):
 	aggro_zone.add_child(placeholder)

@@ -195,7 +195,6 @@ maxHealth = 150
 speed = 100
 attack = ExtResource("2_y3p08")
 title = "BasicEnemy"
-sprite_scene = ExtResource("1_di6as")
 
 [node name="Root" parent="." instance=ExtResource("1_di6as")]
 

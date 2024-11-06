@@ -21,11 +21,12 @@ var aggrozone: Area2D
 
 #animator
 @onready var animation_player = $AnimationPlayer
-@onready var root = $Root
-@export var sprite_scene: PackedScene
 
-# Soldier specific code
-const PLACEHOLDER_UNIT = preload("res://scenes/placeholder_unit.tscn")
+#sprites and collisions
+@onready var root_sprites = $Root
+@onready var collision_shape = $CollisionShape2D
+
+#placeholder
 var placeholder: PlaceholderUnit
 
 signal on_death(npc: Npc)
@@ -36,7 +37,6 @@ func _ready():
 	currentHealth = maxHealth
 	make_path(position)
 	state_machine.init(self)
-	set_placeholder()
 
 func _physics_process(delta: float) -> void:
 	state_machine.act()
@@ -57,24 +57,7 @@ func take_damage(damageTaken:int):
 #Animations
 func play_animation(animation: String):
 	animation_player.play_animation(animation)
-	
-func set_placeholder():
-	var placeholderunit = PLACEHOLDER_UNIT.instantiate()
-	var sprites = sprite_scene.instantiate()
-	for child in sprites.get_children():
-		if child is CollisionShape2D:
-			child.reparent(placeholderunit)
-	placeholderunit.add_child(sprites)
-	placeholderunit.actual_soldier = self
-	placeholderunit.placed.connect(_on_placeholder_placed)
-	placeholder = placeholderunit
-	pass
-	
-func _on_placeholder_placed(placeholder: PlaceholderUnit):
-	# Implement this in ally / enemy class
-	pass
-	
-func get_placeholder():
-	if placeholder == null:
-		set_placeholder()
-	return placeholder
+
+func set_placeholder(ph: PlaceholderUnit):
+	ph.actual_unit = self
+	placeholder = ph

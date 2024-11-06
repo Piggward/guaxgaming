@@ -13,5 +13,5 @@ func phase_end():
 	pass
 	
 func phase_act():
-	# Nothing happens here, the player is free to purchase and rearrange soldiers
+	# Nothing happens here, the player is free to purchase and rearrange allies
 	pass

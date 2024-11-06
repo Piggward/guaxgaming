@@ -1,53 +1,38 @@
 class_name PlaceholderUnit
 extends Area2D
 
-var dragging = false
-var cd = false
 var battle_position = null
-var actual_soldier: Npc
+var actual_unit: Npc
+@export var dragable = true
+
 signal placed(placeholder: PlaceholderUnit)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	TurnManager.shop_turn.turn_end.connect(func(): self.visible = false)
-	TurnManager.shop_turn.turn_start.connect(func(): self.visible = true)
+	if dragable:
+		add_dragable_area()
 	pass # Replace with function body.
+
+func add_dragable_area():
+	var drag_area = DragableArea2D.new()
+	get_tree().root.add_child(drag_area)
+	self.reparent(drag_area)
+	self.position = Vector2.ZERO
+	drag_area.canceled.connect(_on_drag_cancel)
+	drag_area.placed.connect(_on_placed)
 	
-func _process(delta):
-	if not dragging:
-		return
-	global_position = get_global_mouse_position()
+	# Placeable zone is hardcoded here, consider adding placable_zone variable to the ally script instead.
+	if actual_unit is Ally:
+		drag_area.placable_zone = "Placeable"
 		
-func _on_input_event(viewport, event, shape_idx):
-	if event.is_action_pressed("left_mouse") && !dragging && not cd && PlayerControlManager.can_drag():
-		dragging = true
-		PlayerControlManager.start_dragging(self)
-		set_input_cd()
-	pass # Replace with function body.
+	PlayerControlManager.start_dragging(drag_area)
 	
-func can_release() -> bool:
-	return not colliding() and in_dropable_area()
-	
-func colliding() -> bool:
-	return get_overlapping_areas().any(func(a): return not a.is_in_group("Placeable"))
-	
-func in_dropable_area() -> bool:
-	return get_overlapping_areas().any(func(a): return a.is_in_group("Placeable"))
-		
-func release() -> void:
-	dragging = false
-	battle_position = self.global_position
-	placed.emit(self)
-	set_input_cd()
-			
-func set_input_cd():
-	cd = true
-	await get_tree().create_timer(0.2).timeout
-	cd = false
-	
-func cancel():
-	if battle_position == null: 
+func _on_drag_cancel():
+	if battle_position == null:
 		self.queue_free()
 	else:
 		self.global_position = battle_position
-		release()
+		
+func _on_placed():
+	battle_position = self.global_position
+	placed.emit(self)

@@ -90,7 +90,6 @@ maxHealth = 100
 speed = 100
 attack = ExtResource("2_vdk18")
 title = "Soldier"
-sprite_scene = ExtResource("3_3s745")
 
 [node name="Root" parent="." instance=ExtResource("3_3s745")]
 

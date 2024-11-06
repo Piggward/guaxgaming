@@ -8,16 +8,16 @@ func phase_start():
 	GameManager.spawn_enemy_wave()
 	
 	# Replace placeholders
-	GameManager.spawn_soldiers()
+	GameManager.spawn_allies()
 	pass
 	
 func phase_end():
 	print_debug("battle end")
 	turn_end.emit()
 	
-	# Remove all soldiers from the game
+	# Remove all allies from the game
 	# Respawn all placeholders
-	GameManager.replace_soldiers()
+	GameManager.replace_allies()
 	TurnManager.next_turn()
 	pass
 	
