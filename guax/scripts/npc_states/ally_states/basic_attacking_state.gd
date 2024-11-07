@@ -15,7 +15,8 @@ func  act():
 		transition_requested.emit(self, NpcState.State.HUNTING)
 		return
 	
-	rotate_towards_target(npc.target)
+	npc.rotate_towards_target(npc.target.global_position)
+	npc.stand_still()
 	
 
 func enter():
@@ -40,5 +41,3 @@ func attack():
 func deal_damage():
 	npc.target.take_damage(npc.attack.damage)
 		
-func rotate_towards_target(target:Npc):
-	npc.look_at(target.global_position)	

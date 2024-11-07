@@ -1838,6 +1838,7 @@ scale = Vector2(0.890233, 1)
 shape = SubResource("RectangleShape2D_ukm32")
 
 [node name="AggroZone" type="Area2D" parent="." groups=["Aggrozone", "Placeable"]]
+visible = false
 position = Vector2(449, 322)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AggroZone"]
@@ -1853,6 +1854,7 @@ scale = Vector2(2.96587, 31.9401)
 shape = SubResource("RectangleShape2D_ggb80")
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_man46")
 
 [node name="Shop" parent="." instance=ExtResource("2_b8kgr")]

@@ -1,6 +1,6 @@
 class_name Npc
 extends CharacterBody2D
-
+#buuu
 #NPC stats
 @export var maxHealth = 30
 var currentHealth
@@ -9,11 +9,10 @@ var currentHealth
 @export var attack: Attack
 @export var title: String
 
-#Navagent logic
-@onready var nav_agent = $NavigationAgent2D
-var targetReached = false
+#navigation
+@onready var advanced_navigation: AdvancedNavigation = $NavigationAgent2D
 
-var target:Npc
+var target:Npc #STATES USES THIS, DO NOT DELETE
 var aggrozone: Area2D
 
 #Statemachine
@@ -34,16 +33,13 @@ signal receive_damage(amount: int)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	currentHealth = maxHealth
-	make_path(position)
+	advanced_navigation.set_agent_target(position)
 	state_machine.init(self)
 	set_placeholder()
 
 func _physics_process(delta: float) -> void:
 	state_machine.act()
 	move_and_slide()
-	
-func make_path(target: Vector2):
-	nav_agent.target_position = target
 	
 func take_damage(damageTaken:int):
 	currentHealth -= damageTaken
@@ -78,3 +74,14 @@ func get_placeholder():
 	if placeholder == null:
 		set_placeholder()
 	return placeholder
+
+#States call this to move character in direction
+func calculate_velocity_towards_target(target_position:Vector2):
+	advanced_navigation.calculate_velocity(target_position)
+	#rotate_towards_target(target_position)
+func stand_still():
+	advanced_navigation.stand_still()
+
+func rotate_towards_target(target_position:Vector2):
+	look_at(target_position)
+	
