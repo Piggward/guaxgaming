@@ -1,0 +1,34 @@
+[gd_scene load_steps=7 format=3 uid="uid://c04vrnuvdtfqt"]
+
+[ext_resource type="PackedScene" uid="uid://bdvto3ukiy0ei" path="res://scenes/scene_templates/ally_template.tscn" id="1_iyvje"]
+[ext_resource type="PackedScene" uid="uid://d3x567lhre2el" path="res://scenes/scene_templates/sprite_template.tscn" id="2_beov4"]
+[ext_resource type="Texture2D" uid="uid://nwmp4xg7e3to" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_character.png" id="3_kb5ub"]
+[ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="4_mw008"]
+[ext_resource type="PackedScene" uid="uid://bec3h70ww5jqj" path="res://scenes/state_machines/basic_state_machine.tscn" id="5_pdktb"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_o0khq"]
+
+[node name="AllyHumanTemplate" instance=ExtResource("1_iyvje")]
+cost = 2000
+maxHealth = 100
+
+[node name="Root" parent="." index="4" instance=ExtResource("2_beov4")]
+
+[node name="Character Sprite" parent="Root" index="0"]
+texture = ExtResource("3_kb5ub")
+
+[node name="Hand right" parent="Root/Character Sprite" index="0"]
+texture = ExtResource("4_mw008")
+
+[node name="Hand left" parent="Root/Character Sprite" index="1"]
+texture = ExtResource("4_mw008")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
+libraries = {
+"Animations": SubResource("AnimationLibrary_o0khq")
+}
+
+[node name="BasicStateMachine" parent="." index="6" instance=ExtResource("5_pdktb")]
+
+[editable path="Root"]
+[editable path="BasicStateMachine"]

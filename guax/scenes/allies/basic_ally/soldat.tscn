@@ -97,5 +97,37 @@ state = 2
 libraries = {
 "": SubResource("AnimationLibrary_7m0kr")
 }
+script = ExtResource("5_de6cq")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+radius = 55.19
+max_speed = 50605.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(2.19293, 2.28307)
+shape = SubResource("CircleShape2D_dgxdn")
+
+[node name="StateMachine" parent="." instance=ExtResource("4_264wh")]
+
+[node name="Node2D" type="Node2D" parent="."]
+top_level = true
+
+[node name="ProgressBar" type="ProgressBar" parent="Node2D"]
+offset_left = -55.0
+offset_top = -76.0
+offset_right = 57.0
+offset_bottom = -49.0
+theme_override_styles/background = SubResource("StyleBoxFlat_sx3jt")
+theme_override_styles/fill = SubResource("StyleBoxFlat_sp4sq")
+value = 75.0
+show_percentage = false
+script = ExtResource("6_ut2nt")
+metadata/_edit_use_anchors_ = true
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../Node2D")
+update_rotation = false
+
+[editable path="StateMachine"]
 
 [editable path="Root/Character Sprite"]
