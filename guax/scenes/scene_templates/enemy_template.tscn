@@ -1,34 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://7hudo5mwi7x8"]
+[gd_scene load_steps=6 format=3 uid="uid://vd48q4imlpo8"]
 
-[ext_resource type="PackedScene" uid="uid://c333vpdqm6vuj" path="res://scenes/scene_templates/npc_template.tscn" id="1_tuqte"]
-[ext_resource type="Script" path="res://scripts/enemy.gd" id="2_gx80s"]
-[ext_resource type="Script" path="res://scripts/progress_bar.gd" id="3_0tr82"]
+[ext_resource type="PackedScene" uid="uid://c333vpdqm6vuj" path="res://scenes/scene_templates/npc_template.tscn" id="1_kg6xc"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="2_nrd26"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_adxu7"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhla1"]
 bg_color = Color(0, 0, 0, 1)
 corner_radius_top_left = 5
 corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iykpu"]
-bg_color = Color(0.509804, 0, 0, 1)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_25jfj"]
+bg_color = Color(0.432134, 0.104846, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
 
-[node name="EnemyTemplate" instance=ExtResource("1_tuqte")]
-script = ExtResource("2_gx80s")
+[sub_resource type="CircleShape2D" id="CircleShape2D_ock8s"]
 
-[node name="ProgressBar" type="ProgressBar" parent="Node2D" index="0"]
-offset_left = -53.0
-offset_top = -82.0
-offset_right = 59.0
-offset_bottom = -55.0
-theme_override_styles/background = SubResource("StyleBoxFlat_adxu7")
-theme_override_styles/fill = SubResource("StyleBoxFlat_iykpu")
-value = 75.0
+[node name="EnemyTemplate" instance=ExtResource("1_kg6xc")]
+script = ExtResource("2_nrd26")
+
+[node name="ProgressBar" parent="Node2D" index="0"]
+offset_left = -66.0
+offset_top = -84.0
+offset_right = 72.0
+offset_bottom = -57.0
+theme_override_styles/background = SubResource("StyleBoxFlat_jhla1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_25jfj")
 show_percentage = false
-script = ExtResource("3_0tr82")
-metadata/_edit_use_anchors_ = true
+
+[node name="Aggrozone" type="Area2D" parent="." index="7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aggrozone" index="0"]
+scale = Vector2(23.4565, 21.9456)
+shape = SubResource("CircleShape2D_ock8s")

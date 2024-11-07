@@ -14,36 +14,46 @@ func _ready():
 	if not npc is Ally:
 		print_debug("ERROR: scene needs to be an ally")
 		return
-	store_front = npc
-	unit_name.text = npc.title
-	unit_info.text = "damage: " + str(store_front.attack.damage) + "\n"
-	unit_info.text += "speed: " + str(store_front.speed) + "\n"
-	unit_info.text += "range: " + str(store_front.attack.range) + "\n"
-	unit_cost.text = str(npc.cost)
-	pass # Replace with function body.
 
+	# We need to instantiate a store front where we can access the sprites and collision shapes from. 
+	store_front = npc
+	add_child(store_front)
+	store_front.deactivate()
+	store_front.visible = false
+	
+	set_display_text()
+	pass # Replace with function body.
 
 func _on_gui_input(event):
 	if event.is_action_pressed("left_mouse") && !cd && GameManager.can_purchase(store_front):
 		# create placeholder
-		var soldier = npc_scene.instantiate()
-		var placeholder = soldier.get_placeholder()
+		var placeholder = DragablePlaceholderUnit.new()
+		var ally = npc_scene.instantiate()
+		ally.set_placeholder(placeholder)
+		placeholder.add_child(store_front.root_sprites.duplicate())
+		placeholder.add_child(store_front.collision_shape.duplicate())
 		
-		# Add placeholder to PlayerControlManager
 		PlayerControlManager.start_dragging(placeholder)
 		
 		# Listen for placed signal to commit the transaction
 		placeholder.placed.connect(commit_transaction)
-		
+
 		# Set input CD
 		set_cd()
 		pass
 		
 func commit_transaction(placeholder: PlaceholderUnit):
-	GameManager.soldier_purchased.emit(placeholder.actual_soldier)
+	GameManager.ally_purchased.emit(placeholder.actual_unit)
 	placeholder.placed.disconnect(commit_transaction)
 
 func set_cd():
 	cd = true
 	await get_tree().create_timer(0.2).timeout
 	cd = false
+	
+func set_display_text():
+	unit_name.text = store_front.title
+	unit_info.text = "damage: " + str(store_front.attack.damage) + "\n"
+	unit_info.text += "speed: " + str(store_front.speed) + "\n"
+	unit_info.text += "range: " + str(store_front.attack.range) + "\n"
+	unit_cost.text = str(store_front.cost)

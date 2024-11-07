@@ -3,12 +3,9 @@ extends TurnPhase
 
 func phase_start():
 	print_debug("battle start")
-	turn_start.emit()
-	# Spawn enemy wave
-	GameManager.spawn_enemy_wave()
-	
+	turn_start.emit()	
 	# Replace placeholders
-	GameManager.spawn_soldiers()
+	GameManager.spawn_allies()
 	pass
 	
 func phase_end():
@@ -17,7 +14,7 @@ func phase_end():
 	
 	# Remove all soldiers from the game
 	# Respawn all placeholders
-	GameManager.replace_soldiers()
+	GameManager.replace_allies()
 	TurnManager.next_turn()
 	pass
 	

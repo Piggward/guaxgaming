@@ -39,5 +39,7 @@ func attack():
 		attackReady =  true
 		
 func deal_damage():
+	if npc.target == null:
+		return
 	npc.target.take_damage(npc.attack.damage)
 		
