@@ -1,8 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://7kwja2wq63gd"]
 
 [ext_resource type="PackedScene" uid="uid://msxduomjfhjr" path="res://scenes/scene_templates/wave_template.tscn" id="1_68mmq"]
-[ext_resource type="PackedScene" uid="uid://b1edo4ne5hxjt" path="res://scenes/enemies/basic_enemy/basic_enemy.tscn" id="2_7fixl"]
+[ext_resource type="PackedScene" uid="uid://b7tfptr704ad4" path="res://scenes/enemies/basic_enemy/basic_enemy.tscn" id="2_7fixl"]
 
 [node name="EnemySpawn" instance=ExtResource("1_68mmq")]
 
 [node name="BasicEnemy" parent="." index="1" instance=ExtResource("2_7fixl")]
+position = Vector2(-37, -143)
