@@ -69,3 +69,14 @@ func set_placeholder(ph: PlaceholderUnit):
 func set_health(new_health: int):
 	currentHealth = new_health
 	health_updated.emit(currentHealth)
+	
+func deactivate():
+	self.visible = false
+	process_mode = PROCESS_MODE_DISABLED
+	animation_player.stop()
+	pass
+
+func activate():
+	self.visible = true
+	process_mode = PROCESS_MODE_INHERIT
+	pass

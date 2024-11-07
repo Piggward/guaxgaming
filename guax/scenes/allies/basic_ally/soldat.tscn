@@ -73,6 +73,7 @@ _data = {
 
 [node name="Soldat" instance=ExtResource("1_qe3nn")]
 cost = 2000
+maxHealth = 100
 attack = ExtResource("2_vdk18")
 title = "Soldat"
 
@@ -88,7 +89,7 @@ script = ExtResource("4_hlnlk")
 script = ExtResource("5_buw8h")
 state = 1
 
-[node name="BasicAttackingState" type="Node" parent="StateMachine" index="2"]
+[node name="AttackingState" type="Node" parent="StateMachine" index="2"]
 script = ExtResource("6_c6hfn")
 state = 2
 

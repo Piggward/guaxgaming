@@ -3,7 +3,7 @@ extends Node2D
 
 @export var player_starting_gold: int
 @export var player_starting_health: int
-@export var waves: Array[WaveResource]
+@export var waves: Array[PackedScene]
 @onready var enemy_spawn = $EnemySpawn
 @onready var aggro_zone = $AggroZone
 var current_wave = 1
@@ -12,26 +12,17 @@ const WAVE_TEXT = preload("res://scenes/wave_text.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	TurnManager.battle_turn.turn_end.connect(_on_turn_end)
+	TurnManager.battle_turn.turn_start.connect(_on_turn_start)
+	TurnManager.shop_turn.turn_start.connect(_on_shop_turn_start)
+	
 	GameManager.player_gold = player_starting_gold
 	GameManager.player_max_health = player_starting_health
 	GameManager.player_health = player_starting_health
 	GameManager.level = self
+	
 	TurnManager.init()
-	# Increment current wave on battle turn end.
-	TurnManager.battle_turn.turn_end.connect(_on_turn_end)
-	TurnManager.battle_turn.turn_start.connect(_on_turn_start)
 	pass # Replace with function body.
-
-func spawn_next_wave():
-	var wave = waves[current_wave - 1]
-	for nmy in wave.enemies:
-		if nmy is EnemySpawnLocation:
-			var enemy = nmy.enemy.instantiate()
-			enemy.position = nmy.spawn_location
-			spawn_enemy(enemy)
-
-func spawn_enemy(enemy: Enemy):
-	enemy_spawn.spawn(enemy)
 	
 func spawn_ally(ally: Ally):
 	aggro_zone.add_child(ally)
@@ -55,6 +46,12 @@ func display_wave_text(text: String, type: WaveText.TextType):
 	wave_text.text_type = type
 	wave_text.position = Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
 	canvas_layer.add_child(wave_text)
+	
+func _on_shop_turn_start():
+	var wave = waves[current_wave - 1].instantiate()
+	for child in wave.get_children():
+		if child is Enemy:
+			enemy_spawn.spawn_enemy(child)
 	
 func _on_turn_end():
 	var text = "WAVE " + str(current_wave)

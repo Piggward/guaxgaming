@@ -14,9 +14,6 @@ func _ready():
 	player_health = 100
 	pass # Replace with function body.
 
-func spawn_enemy_wave():
-	level.spawn_next_wave()
-
 func spawn_allies():
 	for ally in player_allies:
 		ally.placeholder.deactivate()

@@ -3,10 +3,7 @@ extends TurnPhase
 
 func phase_start():
 	print_debug("battle start")
-	turn_start.emit()
-	# Spawn enemy wave
-	GameManager.spawn_enemy_wave()
-	
+	turn_start.emit()	
 	# Replace placeholders
 	GameManager.spawn_allies()
 	pass

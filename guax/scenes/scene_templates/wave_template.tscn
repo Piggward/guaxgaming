@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://msxduomjfhjr"]
+
+[ext_resource type="PackedScene" uid="uid://cjevh1ieopuam" path="res://scenes/enemy_spawn.tscn" id="1_6unv8"]
+
+[node name="EnemySpawn" instance=ExtResource("1_6unv8")]
+position = Vector2(0, 0)

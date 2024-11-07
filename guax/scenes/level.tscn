@@ -1,14 +1,14 @@
-[gd_scene load_steps=16 format=4 uid="uid://dqvr3b6w07dr1"]
+[gd_scene load_steps=15 format=4 uid="uid://dqvr3b6w07dr1"]
 
 [ext_resource type="Texture2D" uid="uid://dqiw5k64mi133" path="res://art/kenney_scribble-dungeons/Tilesheet/tilesheet.png" id="1_5n2xs"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_80x34"]
+[ext_resource type="PackedScene" uid="uid://7kwja2wq63gd" path="res://scenes/waves/test_wave_1.tscn" id="2_a45vl"]
 [ext_resource type="PackedScene" uid="uid://cbvo22bysuwrk" path="res://scenes/shop.tscn" id="2_b8kgr"]
-[ext_resource type="Script" path="res://resources/waves/wave_resource.gd" id="2_yxhid"]
-[ext_resource type="Resource" uid="uid://ban4knkh8t6pn" path="res://resources/waves/wave1.tres" id="3_v800y"]
-[ext_resource type="Resource" uid="uid://dv76s47c0mqhu" path="res://resources/waves/wave2.tres" id="4_6a554"]
+[ext_resource type="PackedScene" uid="uid://c1naarkppitxn" path="res://scenes/waves/test_wave_2.tscn" id="3_eaowk"]
+[ext_resource type="PackedScene" uid="uid://vafbojecxpb6" path="res://scenes/waves/test_wave_3.tscn" id="4_dh540"]
 [ext_resource type="Texture2D" uid="uid://cigo17wlx6w7u" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_axe_double.png" id="5_4asks"]
 [ext_resource type="Script" path="res://scripts/start_wave_button.gd" id="6_dgeyi"]
-[ext_resource type="Script" path="res://scripts/enemy_spawner.gd" id="6_rpc6o"]
+[ext_resource type="PackedScene" uid="uid://cjevh1ieopuam" path="res://scenes/enemy_spawn.tscn" id="6_few75"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dg0x"]
 texture = ExtResource("1_5n2xs")
@@ -1808,9 +1808,6 @@ texture_region_size = Vector2i(64, 64)
 tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_4dg0x")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukm32"]
-size = Vector2(283, 638)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nj3vr"]
 size = Vector2(1025, 637)
 
@@ -1826,7 +1823,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(0, -1, 1420, -9, 1407, 
 script = ExtResource("1_80x34")
 player_starting_gold = 5000
 player_starting_health = 100
-waves = Array[ExtResource("2_yxhid")]([ExtResource("3_v800y"), ExtResource("4_6a554")])
+waves = Array[PackedScene]([ExtResource("2_a45vl"), ExtResource("3_eaowk"), ExtResource("4_dh540"), null])
 metadata/_edit_horizontal_guides_ = [623.0]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -1835,13 +1832,7 @@ tile_map_data = PackedByteArray("AAAAAAkAAAAAAAMAAAAAAAgAAAAAAAMAAAAAAAcAAAAAAAM
 tile_set = SubResource("TileSet_7c0s2")
 rendering_quadrant_size = 64
 
-[node name="EnemySpawn" type="Area2D" parent="."]
-position = Vector2(1282, 320)
-script = ExtResource("6_rpc6o")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EnemySpawn"]
-scale = Vector2(0.890233, 1)
-shape = SubResource("RectangleShape2D_ukm32")
+[node name="EnemySpawn" parent="." instance=ExtResource("6_few75")]
 
 [node name="AggroZone" type="Area2D" parent="." groups=["Aggrozone", "Placeable"]]
 position = Vector2(449, 322)
@@ -1862,10 +1853,10 @@ shape = SubResource("RectangleShape2D_ggb80")
 navigation_polygon = SubResource("NavigationPolygon_man46")
 
 [node name="Shop" parent="." instance=ExtResource("2_b8kgr")]
-offset_left = 1113.0
-offset_top = -1.0
-offset_right = 1153.0
-offset_bottom = 39.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 43.0
+offset_bottom = 43.0
 
 [node name="Button" type="Button" parent="."]
 offset_left = 540.0

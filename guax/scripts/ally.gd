@@ -16,17 +16,6 @@ func die():
 	on_death.emit(self)
 	deactivate()
 	
-func deactivate():
-	self.visible = false
-	process_mode = PROCESS_MODE_DISABLED
-	animation_player.stop()
-	pass
-
-func activate():
-	self.visible = true
-	process_mode = PROCESS_MODE_INHERIT
-	pass
-	
 func refresh():
 	global_position = placeholder.battle_position
 	set_health(maxHealth)

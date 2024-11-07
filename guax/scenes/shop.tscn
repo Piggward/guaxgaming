@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_4ruot"]
 [ext_resource type="PackedScene" uid="uid://blk6weaukj4um" path="res://scenes/shop/shop_row.tscn" id="1_iaojw"]
-[ext_resource type="PackedScene" uid="uid://dmakabgoy2ver" path="res://scenes/allies/basic_ally/soldat.tscn" id="2_s4cmp"]
+[ext_resource type="PackedScene" uid="uid://bbphhhu6wvo68" path="res://scenes/allies/basic_ally/soldat.tscn" id="2_s4cmp"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3m0me"]
 bg_color = Color(0.672438, 0.587959, 0.44678, 1)

@@ -19,8 +19,8 @@ _data = {
 
 [node name="BasicEnemy" instance=ExtResource("1_rpdu5")]
 bounty = 50
-maxHealth = 10
-speed = 100
+maxHealth = 70
+speed = 300
 attack = ExtResource("2_y3p08")
 title = "basic_enemy"
 
@@ -36,7 +36,7 @@ script = ExtResource("3_u5ulr")
 script = ExtResource("4_oy5bm")
 state = 1
 
-[node name="BasicEnemyAttackingState" type="Node" parent="StateMachine" index="2"]
+[node name="AttackingState" type="Node" parent="StateMachine" index="2"]
 script = ExtResource("5_oqqat")
 state = 2
 
