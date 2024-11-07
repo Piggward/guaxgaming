@@ -19,3 +19,5 @@ top_level = true
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
 remote_path = NodePath("../Node2D")
 update_rotation = false
+
+[node name="test" type="Node" parent="."]

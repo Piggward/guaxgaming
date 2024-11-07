@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bj5nkpv3d8hoy"]
+
+[node name="Senses2d" type="Node2D"]
+
+[node name="01" type="RayCast2D" parent="."]
+target_position = Vector2(0, 70)
+
+[node name="11" type="RayCast2D" parent="."]
+target_position = Vector2(50, 50)
+
+[node name="10" type="RayCast2D" parent="."]
+target_position = Vector2(70, 0)
+
+[node name="1-1" type="RayCast2D" parent="."]
+target_position = Vector2(50, -50)
+
+[node name="0-1" type="RayCast2D" parent="."]
+target_position = Vector2(0, -70)
+
+[node name="-1-1" type="RayCast2D" parent="."]
+target_position = Vector2(-50, -50)
+
+[node name="-10" type="RayCast2D" parent="."]
+target_position = Vector2(-70, 0)
+
+[node name="-11" type="RayCast2D" parent="."]
+target_position = Vector2(-50, 50)

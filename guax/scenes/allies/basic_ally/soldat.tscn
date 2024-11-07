@@ -68,6 +68,7 @@ _data = {
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dgxdn"]
+radius = 6.38415
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx3jt"]
 bg_color = Color(0, 0, 0, 1)
@@ -86,7 +87,7 @@ corner_radius_bottom_left = 3
 [node name="Soldat" type="CharacterBody2D"]
 script = ExtResource("1_36jr0")
 cost = 2000
-maxHealth = 100
+maxHealth = 3000
 speed = 100
 attack = ExtResource("2_vdk18")
 title = "Soldier"
@@ -101,8 +102,7 @@ libraries = {
 script = ExtResource("5_de6cq")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-avoidance_enabled = true
-radius = 32.32
+radius = 55.19
 max_speed = 50605.1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -12,18 +12,14 @@ func  act():
 		npc.target = target
 		transition_requested.emit(self, NpcState.State.ATTACKING)
 		return
-	set_agent_target(target)
-	calculateNewVelocityTarget()
-	rotate_towards_target(target)
-	
+	npc.calculate_velocity_towards_target(target.global_position)
 
 func enter():
-	npc.nav_agent.navigation_finished.connect(_on_nav_finished)
-	npc.nav_agent.velocity_computed.connect(_on_navigation_agent_2d_velocity_computed)
+	pass
+
 
 func exit():
-	npc.nav_agent.navigation_finished.disconnect(_on_nav_finished)
-	npc.nav_agent.velocity_computed.disconnect(_on_navigation_agent_2d_velocity_computed)
+	pass
 
 func find_targets()-> Array[Npc]:
 	var found_enemies: Array[Npc]
@@ -44,20 +40,7 @@ func target_closest_enemy(enemiesArray:Array[Npc]) -> Npc:
 		
 	return target
 
-func set_agent_target(targetEnemy:Npc):
-	npc.make_path(targetEnemy.global_position)
 
-func _on_nav_finished():
-	pass
-
-func _on_navigation_agent_2d_velocity_computed(safe_velocity):
-	npc.velocity = npc.velocity.move_toward(safe_velocity,1000)
-
-func calculateNewVelocityTarget():
-	var next_path_pos = npc.nav_agent.get_next_path_position()
-	var direction = npc.global_position.direction_to(next_path_pos)
-	var new_velocity = direction * npc.speed
-	npc.nav_agent.velocity = new_velocity
 
 func is_target_in_range(targetEnemy:Npc)->bool:
 	var distance = (targetEnemy.global_position-npc.global_position).length()
@@ -65,6 +48,3 @@ func is_target_in_range(targetEnemy:Npc)->bool:
 		return true
 	else:
 		return false
-
-func rotate_towards_target(target:Npc):
-	npc.look_at(target.global_position)
