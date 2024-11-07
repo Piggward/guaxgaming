@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://coy0k3wst2pcj"]
+
+[ext_resource type="Texture2D" uid="uid://c0rholvi5pivk" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/purple_character.png" id="1_ksor7"]
+[ext_resource type="Texture2D" uid="uid://db0fjqkxwjyl6" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/purple_hand.png" id="2_65gd5"]
+
+[node name="Character Sprite" type="Sprite2D"]
+rotation = -1.50906
+texture = ExtResource("1_ksor7")
+
+[node name="Hand right" type="Sprite2D" parent="."]
+position = Vector2(-33, 10)
+texture = ExtResource("2_65gd5")
+
+[node name="Hand left" type="Sprite2D" parent="."]
+position = Vector2(34, 12)
+rotation = 1.86696
+texture = ExtResource("2_65gd5")

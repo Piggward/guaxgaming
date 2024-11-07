@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://vd48q4imlpo8"]
+[gd_scene load_steps=6 format=3 uid="uid://vd48q4imlpo8"]
 
 [ext_resource type="PackedScene" uid="uid://c333vpdqm6vuj" path="res://scenes/scene_templates/npc_template.tscn" id="1_kg6xc"]
 [ext_resource type="Script" path="res://scripts/enemy.gd" id="2_nrd26"]
@@ -17,6 +17,8 @@ corner_radius_top_right = 5
 corner_radius_bottom_right = 5
 corner_radius_bottom_left = 5
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ock8s"]
+
 [node name="EnemyTemplate" instance=ExtResource("1_kg6xc")]
 script = ExtResource("2_nrd26")
 
@@ -28,3 +30,9 @@ offset_bottom = -57.0
 theme_override_styles/background = SubResource("StyleBoxFlat_jhla1")
 theme_override_styles/fill = SubResource("StyleBoxFlat_25jfj")
 show_percentage = false
+
+[node name="Aggrozone" type="Area2D" parent="." index="7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aggrozone" index="0"]
+scale = Vector2(23.4565, 21.9456)
+shape = SubResource("CircleShape2D_ock8s")

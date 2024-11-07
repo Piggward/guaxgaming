@@ -8,6 +8,7 @@ extends Node2D
 @onready var aggro_zone = $AggroZone
 var current_wave = 1
 const WAVE_TEXT = preload("res://scenes/wave_text.tscn")
+@onready var canvas_layer = $CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,13 +17,12 @@ func _ready():
 	GameManager.player_health = player_starting_health
 	GameManager.level = self
 	TurnManager.init()
-	
 	# Increment current wave on battle turn end.
-	TurnManager.battle_turn.turn_end.connect(func(): current_wave += 1)
+	TurnManager.battle_turn.turn_end.connect(_on_turn_end)
+	TurnManager.battle_turn.turn_start.connect(_on_turn_start)
 	pass # Replace with function body.
 
 func spawn_next_wave():
-	display_wave_text()
 	var wave = waves[current_wave - 1]
 	for nmy in wave.enemies:
 		if nmy is EnemySpawnLocation:
@@ -49,13 +49,22 @@ func get_current_enemies():
 				count += 1
 	return count
 
-func display_wave_text():
+func display_wave_text(text: String, type: WaveText.TextType):
 	var wave_text = WAVE_TEXT.instantiate()
-	wave_text.display_text = "WAVE " + str(current_wave)
+	wave_text.display_text = text
+	wave_text.text_type = type
 	wave_text.position = Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
-	add_child(wave_text)
+	canvas_layer.add_child(wave_text)
 	
-
+func _on_turn_end():
+	var text = "WAVE " + str(current_wave)
+	display_wave_text(text, WaveText.TextType.WAVE_CLEARED)
+	current_wave += 1
+	
+func _on_turn_start():
+	var text = "WAVE " + str(current_wave)
+	display_wave_text(text, WaveText.TextType.WAVE_BEGIN)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

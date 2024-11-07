@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq4o0xadavm5e"]
+
+[ext_resource type="Texture2D" uid="uid://dcljne8hbstan" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/red_character.png" id="1_gtiag"]
+[ext_resource type="Texture2D" uid="uid://d4ero2j7e6xss" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/red_hand.png" id="2_bmeqh"]
+
+[node name="Character Sprite" type="Sprite2D"]
+texture = ExtResource("1_gtiag")
+
+[node name="Hand right" type="Sprite2D" parent="."]
+position = Vector2(-33, 10)
+texture = ExtResource("2_bmeqh")
+
+[node name="Hand left" type="Sprite2D" parent="."]
+position = Vector2(34, 12)
+rotation = 1.86696
+texture = ExtResource("2_bmeqh")
