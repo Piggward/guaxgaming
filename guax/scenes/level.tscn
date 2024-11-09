@@ -221,7 +221,7 @@ offset_left = 3.0
 offset_top = 3.0
 offset_right = 43.0
 offset_bottom = 43.0
-items = Array[PackedScene]([ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp")])
+items = Array[PackedScene]([ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp")])
 
 [node name="Button" type="Button" parent="."]
 offset_left = 540.0

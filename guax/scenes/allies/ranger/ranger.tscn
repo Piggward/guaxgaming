@@ -1,0 +1,113 @@
+[gd_scene load_steps=13 format=3 uid="uid://b8ixl4nnppqyi"]
+
+[ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_djvip"]
+[ext_resource type="Texture2D" uid="uid://nwmp4xg7e3to" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_character.png" id="2_6ou3u"]
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="2_14kne"]
+[ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="3_2cyso"]
+[ext_resource type="Texture2D" uid="uid://dfse6le3rh5kv" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_bow.png" id="4_vdyar"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="5_23tlb"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="6_igs2r"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="7_oqyq0"]
+
+[sub_resource type="Resource" id="Resource_8ve42"]
+script = ExtResource("2_14kne")
+damage = 20
+range = 300
+types = Array[int]([1, 2])
+animation = "Ranged_Attack"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_886hd"]
+
+[sub_resource type="Animation" id="Animation_deet6"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.035, 1.035), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-33, 10), Vector2(-32.8502, 5.7971), Vector2(-33, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(34, 12), Vector2(36.715, 6.76328), Vector2(34, 12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.86696, 2.0532, 1.86696]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ljcjm"]
+_data = {
+"Idle": SubResource("Animation_deet6")
+}
+
+[node name="Ranger" instance=ExtResource("1_djvip")]
+cost = 2000
+attack = SubResource("Resource_8ve42")
+title = "Ranger"
+
+[node name="Character Sprite" type="Sprite2D" parent="Root" index="0"]
+texture = ExtResource("2_6ou3u")
+
+[node name="Hand right" type="Sprite2D" parent="Root/Character Sprite" index="0"]
+position = Vector2(-33, 10)
+texture = ExtResource("3_2cyso")
+
+[node name="Hand left" type="Sprite2D" parent="Root/Character Sprite" index="1"]
+position = Vector2(34, 12)
+rotation = 1.86696
+texture = ExtResource("3_2cyso")
+
+[node name="Bow" type="Sprite2D" parent="Root/Character Sprite/Hand left" index="0"]
+texture = ExtResource("4_vdyar")
+
+[node name="BasicIdleState" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("5_23tlb")
+
+[node name="BasicHuntingState" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("6_igs2r")
+state = 1
+
+[node name="BasicAttackingState" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("7_oqyq0")
+state = 2
+
+[node name="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_886hd"),
+"ranger": SubResource("AnimationLibrary_ljcjm")
+}

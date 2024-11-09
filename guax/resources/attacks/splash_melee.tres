@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://x01r08vopoj4"]
+
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="1_2dk7w"]
+
+[resource]
+script = ExtResource("1_2dk7w")
+damage = 0
+range = 0
+types = Array[int]([])
+animation = ""

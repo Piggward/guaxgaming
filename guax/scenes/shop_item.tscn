@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://tb3fjmamrd0b"]
+[gd_scene load_steps=5 format=3 uid="uid://tb3fjmamrd0b"]
 
 [ext_resource type="Script" path="res://scripts/shop_item.gd" id="1_43r50"]
-[ext_resource type="PackedScene" uid="uid://bbphhhu6wvo68" path="res://scenes/allies/basic_ally/soldat.tscn" id="2_e2ej8"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chhhw"]
 bg_color = Color(0.754647, 0.74703, 0.542539, 1)
@@ -35,7 +34,6 @@ custom_minimum_size = Vector2(94, 160)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_43r50")
-npc_scene = ExtResource("2_e2ej8")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 0
