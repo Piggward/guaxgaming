@@ -40,3 +40,8 @@ script = ExtResource("2_fvlqa")
 script = ExtResource("2_m13y3")
 
 [node name="Senses2d" parent="." instance=ExtResource("5_ut0qd")]
+top_level = true
+
+[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../Senses2d")
+update_rotation = false

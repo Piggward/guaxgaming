@@ -43,4 +43,7 @@ libraries = {
 "": SubResource("AnimationLibrary_x61vg")
 }
 
+[node name="Senses2d" parent="." index="8"]
+top_level = false
+
 [editable path="Root/Character Sprite"]

@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://7kwja2wq63gd" path="res://scenes/waves/test_wave_1.tscn" id="2_hoagx"]
 [ext_resource type="PackedScene" uid="uid://c1naarkppitxn" path="res://scenes/waves/test_wave_2.tscn" id="3_h7jwk"]
 [ext_resource type="Texture2D" uid="uid://cigo17wlx6w7u" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_axe_double.png" id="5_4asks"]
-[ext_resource type="PackedScene" uid="uid://8dhl1jsgc6qn" path="res://scenes/allies/basic_ally/basic_ally.tscn" id="5_qekwp"]
+[ext_resource type="PackedScene" path="res://scenes/allies/basic_ally/basic_ally.tscn" id="5_qekwp"]
 [ext_resource type="Script" path="res://scripts/start_wave_button.gd" id="6_dgeyi"]
-[ext_resource type="PackedScene" uid="uid://cjevh1ieopuam" path="res://scenes/enemy_spawn.tscn" id="6_few75"]
+[ext_resource type="PackedScene" path="res://scenes/enemy_spawn.tscn" id="6_few75"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dg0x"]
 texture = ExtResource("1_5n2xs")
