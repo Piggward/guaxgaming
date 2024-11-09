@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b7tfptr704ad4"]
+[gd_scene load_steps=10 format=3 uid="uid://dltmpjt8do3fi"]
 
 [ext_resource type="PackedScene" uid="uid://vd48q4imlpo8" path="res://scenes/scene_templates/enemy_template.tscn" id="1_2h0ar"]
 [ext_resource type="Resource" uid="uid://evtuf3l5x5cs" path="res://resources/attacks/basic_melee_attack.tres" id="2_iw0b8"]
