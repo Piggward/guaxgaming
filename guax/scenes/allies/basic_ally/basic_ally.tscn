@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://8dhl1jsgc6qn"]
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_hjiol"]
-[ext_resource type="Resource" uid="uid://evtuf3l5x5cs" path="res://resources/attacks/basic_melee_attack.tres" id="2_7auxd"]
+[ext_resource type="Resource" uid="uid://x01r08vopoj4" path="res://resources/attacks/splash_melee.tres" id="2_ah76l"]
 [ext_resource type="PackedScene" uid="uid://crffb1bw5pjda" path="res://scenes/character_sprites/humanoids/purple_soldier.tscn" id="3_yogtv"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="4_ks7um"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="5_txsk6"]
@@ -19,7 +19,7 @@ _data = {
 cost = 1000
 maxHealth = 100
 attackspeed = 10
-attack = ExtResource("2_7auxd")
+attack = ExtResource("2_ah76l")
 title = "Soldier"
 
 [node name="Character Sprite" parent="Root" index="0" instance=ExtResource("3_yogtv")]

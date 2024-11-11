@@ -4,7 +4,8 @@
 
 [resource]
 script = ExtResource("1_2dk7w")
-damage = 0
-range = 0
+damage = 20
+range = 100
 types = Array[int]([])
-animation = ""
+animation = "Attack_melee_1"
+aoe_radius = 200.0

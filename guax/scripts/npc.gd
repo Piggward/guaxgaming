@@ -37,6 +37,7 @@ func _ready():
 	currentHealth = maxHealth
 	advanced_navigation.set_agent_target(position)
 	state_machine.init(self)
+	attack.performer = self
 
 func _physics_process(delta: float) -> void:
 	state_machine.act()

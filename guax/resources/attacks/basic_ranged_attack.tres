@@ -10,3 +10,4 @@ range = 400
 types = Array[int]([1, 2])
 animation = "Ranged_Attack"
 projectile = ExtResource("1_62h86")
+aoe_radius = 0.0

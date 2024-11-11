@@ -8,3 +8,7 @@
 [node name="BasicEnemy" parent="." index="1" instance=ExtResource("2_7fixl")]
 position = Vector2(-728, 5)
 speed = 5
+
+[node name="BasicEnemy2" parent="." index="2" instance=ExtResource("2_7fixl")]
+position = Vector2(-806, 3)
+speed = 5
