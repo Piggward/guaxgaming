@@ -33,13 +33,16 @@ func exit():
 func attack():
 	if(attackReady):
 		attackReady=false
+		var attack = npc.attack
 		npc.play_animation(npc.attack.animation)
 		print_debug("Attackerade!")
 		await get_tree().create_timer(npc.attackspeed/10).timeout
 		attackReady =  true
 		
-func deal_damage():
-	if npc.target == null:
-		return
-	npc.target.take_damage(npc.attack.damage)
+func on_hit():
+	npc.attack.on_hit(npc.target)
 		
+func shoot_projectile():
+	var projectile = npc.attack.get_projectile(npc.target)
+	get_tree().root.add_child(projectile)
+	projectile.global_position = npc.global_position

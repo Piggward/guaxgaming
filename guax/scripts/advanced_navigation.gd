@@ -32,7 +32,6 @@ func calculate_velocity(target_position:Vector2):
 	
 	if(avoidance_update_timer_bool):
 		steering_force = calculate_steering_force(next_path_pos)
-		print_debug(steering_force)
 	var new_velocity = ((direction+steering_force*4)).normalized() * npc.speed
 	npc.velocity = new_velocity
 
@@ -92,4 +91,3 @@ func calculate_steering_force(target_position:Vector2):
 func avoid_bool_timer():
 	await get_tree().create_timer(1).timeout #avoid_update_time funkar ej här? hårdkodar 1
 	avoidance_update_timer_bool = true
-	print_debug("nu")

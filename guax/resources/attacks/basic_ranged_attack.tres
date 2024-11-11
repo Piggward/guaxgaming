@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://ea57yfn7o6gj"]
+[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://ea57yfn7o6gj"]
 
+[ext_resource type="PackedScene" uid="uid://cd35by30uyhja" path="res://scenes/projectile.tscn" id="1_62h86"]
 [ext_resource type="Script" path="res://resources/attacks/attack.gd" id="1_epirh"]
 
 [resource]
 script = ExtResource("1_epirh")
-damage = 20
+damage = 19
 range = 400
 types = Array[int]([1, 2])
-animation = "Attack_bow_ranged_1"
+animation = "Ranged_Attack"
+projectile = ExtResource("1_62h86")

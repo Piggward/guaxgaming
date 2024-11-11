@@ -1,22 +1,35 @@
 [gd_scene load_steps=13 format=3 uid="uid://b8ixl4nnppqyi"]
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_djvip"]
+[ext_resource type="Resource" uid="uid://ea57yfn7o6gj" path="res://resources/attacks/basic_ranged_attack.tres" id="2_2gh77"]
 [ext_resource type="Texture2D" uid="uid://nwmp4xg7e3to" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_character.png" id="2_6ou3u"]
-[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="2_14kne"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="3_2cyso"]
 [ext_resource type="Texture2D" uid="uid://dfse6le3rh5kv" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_bow.png" id="4_vdyar"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="5_23tlb"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="6_igs2r"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="7_oqyq0"]
 
-[sub_resource type="Resource" id="Resource_8ve42"]
-script = ExtResource("2_14kne")
-damage = 20
-range = 300
-types = Array[int]([1, 2])
-animation = "Ranged_Attack"
+[sub_resource type="Animation" id="Animation_hog7w"]
+resource_name = "Ranged_Attack"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StateMachine/BasicAttackingState")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot_projectile"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_886hd"]
+_data = {
+"Ranged_Attack": SubResource("Animation_hog7w")
+}
 
 [sub_resource type="Animation" id="Animation_deet6"]
 resource_name = "Idle"
@@ -77,7 +90,7 @@ _data = {
 
 [node name="Ranger" instance=ExtResource("1_djvip")]
 cost = 2000
-attack = SubResource("Resource_8ve42")
+attack = ExtResource("2_2gh77")
 title = "Ranger"
 
 [node name="Character Sprite" type="Sprite2D" parent="Root" index="0"]
@@ -94,6 +107,9 @@ texture = ExtResource("3_2cyso")
 
 [node name="Bow" type="Sprite2D" parent="Root/Character Sprite/Hand left" index="0"]
 texture = ExtResource("4_vdyar")
+
+[node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("BasicIdleState")
 
 [node name="BasicIdleState" type="Node" parent="StateMachine" index="0"]
 script = ExtResource("5_23tlb")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://dqvr3b6w07dr1"]
+[gd_scene load_steps=16 format=4 uid="uid://dqvr3b6w07dr1"]
 
 [ext_resource type="Texture2D" uid="uid://dqiw5k64mi133" path="res://art/kenney_scribble-dungeons/Tilesheet/tilesheet.png" id="1_5n2xs"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_80x34"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://8dhl1jsgc6qn" path="res://scenes/allies/basic_ally/basic_ally.tscn" id="5_qekwp"]
 [ext_resource type="Script" path="res://scripts/start_wave_button.gd" id="6_dgeyi"]
 [ext_resource type="PackedScene" uid="uid://cjevh1ieopuam" path="res://scenes/enemy_spawn.tscn" id="6_few75"]
+[ext_resource type="PackedScene" uid="uid://b8ixl4nnppqyi" path="res://scenes/allies/ranger/ranger.tscn" id="7_xj53t"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dg0x"]
 texture = ExtResource("1_5n2xs")
@@ -221,7 +222,7 @@ offset_left = 3.0
 offset_top = 3.0
 offset_right = 43.0
 offset_bottom = 43.0
-items = Array[PackedScene]([ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp")])
+items = Array[PackedScene]([ExtResource("7_xj53t"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp"), ExtResource("5_qekwp")])
 
 [node name="Button" type="Button" parent="."]
 offset_left = 540.0
