@@ -12,7 +12,7 @@ func  act():
 
 func enter():
 	#npc.set_agent_target(npc.global_position)
-	npc.play_animation("Idle")
+	npc.play_animation(npc.title+"/Idle")
 	# Maybe there is a better way, but if velocity is not reset to zero, then the character will keep moving while in idle.
 	npc.velocity = Vector2.ZERO
 

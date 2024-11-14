@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://8dhl1jsgc6qn"]
+[gd_scene load_steps=10 format=3 uid="uid://c4g33nbk2sg76"]
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_hjiol"]
 [ext_resource type="Resource" uid="uid://evtuf3l5x5cs" path="res://resources/attacks/basic_melee_attack.tres" id="2_7auxd"]
@@ -17,7 +17,7 @@ _data = {
 
 [node name="BasicAlly" instance=ExtResource("1_hjiol")]
 cost = 1000
-maxHealth = 100
+maxHealth = 5
 attackspeed = 10
 attack = ExtResource("2_7auxd")
 title = "Soldier"

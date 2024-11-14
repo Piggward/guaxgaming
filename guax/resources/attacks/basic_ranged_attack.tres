@@ -7,4 +7,4 @@ script = ExtResource("1_epirh")
 damage = 20
 range = 400
 types = Array[int]([1, 2])
-animation = "Attack_bow_ranged_1"
+animation = "Attack1"
