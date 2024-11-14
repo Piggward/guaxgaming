@@ -7,4 +7,4 @@ script = ExtResource("1_v8iiy")
 damage = 30
 range = 100
 types = Array[int]([0, 2])
-animation = "Attack_melee_1"
+animation = "Attack1"

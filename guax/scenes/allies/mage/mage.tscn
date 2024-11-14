@@ -1,0 +1,224 @@
+[gd_scene load_steps=17 format=3 uid="uid://dt0se21ntcu1f"]
+
+[ext_resource type="PackedScene" uid="uid://c333vpdqm6vuj" path="res://scenes/scene_templates/npc_template.tscn" id="1_1ck4v"]
+[ext_resource type="Script" path="res://scripts/ally.gd" id="2_t56v5"]
+[ext_resource type="PackedScene" uid="uid://coy0k3wst2pcj" path="res://scenes/character_sprites/humanoids/basic_purple_human.tscn" id="3_o41n1"]
+[ext_resource type="Resource" uid="uid://ea57yfn7o6gj" path="res://resources/attacks/basic_ranged_attack.tres" id="3_yfy3y"]
+[ext_resource type="Texture2D" uid="uid://bswlqrqrl5ci2" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_pole.png" id="4_y57x2"]
+[ext_resource type="Texture2D" uid="uid://d2vcr2vgst8g5" path="res://art/AI_test/e475cd98-cde2-4362-9d27-16d834ea2873 (1).png" id="5_4su2s"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="5_xnow8"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="6_gl0bt"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="7_8k2s2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pryxp"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_liwft"]
+bg_color = Color(0.113725, 0.403922, 0.184314, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id="Animation_ou8kd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-33, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(34, 12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.86696]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2isqk"]
+_data = {
+"RESET": SubResource("Animation_ou8kd")
+}
+
+[sub_resource type="Animation" id="Animation_5ad1m"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.466667, 0.633333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-33, 10), Vector2(-34.4796, -22.9164), Vector2(-25.7873, 36.6608), Vector2(-29.0283, 32.8536), Vector2(-33, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.466667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(34, 12), Vector2(34.4179, 21.9183), Vector2(38.4212, 5.64027), Vector2(34, 12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.466667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.86696, 1.70417, 1.25351, 1.86696]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/BasicAttackingState")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.466667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"deal_damage"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fwkj5"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.035, 1.035), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-33, 10), Vector2(-32.8502, 5.7971), Vector2(-33, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(34, 12), Vector2(36.715, 6.76328), Vector2(34, 12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ls31q"]
+_data = {
+"Attack1": SubResource("Animation_5ad1m"),
+"Idle": SubResource("Animation_fwkj5")
+}
+
+[node name="Mage" instance=ExtResource("1_1ck4v")]
+script = ExtResource("2_t56v5")
+attack = ExtResource("3_yfy3y")
+title = "Mage"
+
+[node name="ProgressBar" parent="Node2D" index="0"]
+offset_left = -48.0
+offset_top = -82.0
+offset_right = 54.0
+offset_bottom = -55.0
+theme_override_styles/background = SubResource("StyleBoxFlat_pryxp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_liwft")
+show_percentage = false
+
+[node name="Character Sprite" parent="Root" index="0" instance=ExtResource("3_o41n1")]
+texture = ExtResource("5_4su2s")
+
+[node name="Staff" type="Sprite2D" parent="Root/Character Sprite/Hand left" index="0"]
+modulate = Color(0.517624, 0.479214, 0.976662, 1)
+position = Vector2(1.28511, 0.795058)
+rotation = -1.45887
+texture = ExtResource("4_y57x2")
+
+[node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("BasicIdleState")
+
+[node name="BasicIdleState" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("5_xnow8")
+
+[node name="BasicHuntingState" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("6_gl0bt")
+state = 1
+
+[node name="BasicAttackingState" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("7_8k2s2")
+state = 2
+
+[node name="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_2isqk"),
+"Mage": SubResource("AnimationLibrary_ls31q")
+}
+
+[editable path="Root/Character Sprite"]

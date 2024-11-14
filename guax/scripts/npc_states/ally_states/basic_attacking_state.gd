@@ -33,7 +33,8 @@ func exit():
 func attack():
 	if(attackReady):
 		attackReady=false
-		npc.play_animation(npc.attack.animation)
+		npc.play_animation(npc.title+"/Attack1")
+		#deal_damage()
 		print_debug("Attackerade!")
 		await get_tree().create_timer(npc.attackspeed/10).timeout
 		attackReady =  true
