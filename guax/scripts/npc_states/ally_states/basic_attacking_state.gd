@@ -34,6 +34,8 @@ func attack():
 	if(attackReady):
 		attackReady=false
 		var attack = npc.attack
+		# Init the attack before it hits to apply aoe effects etc
+		attack.init(npc.target)
 		npc.play_animation(npc.attack.animation)
 		print_debug("Attackerade!")
 		await get_tree().create_timer(npc.attackspeed/10).timeout
@@ -44,5 +46,5 @@ func on_hit():
 		
 func shoot_projectile():
 	var projectile = npc.attack.get_projectile(npc.target)
-	get_tree().root.add_child(projectile)
 	projectile.global_position = npc.global_position
+	get_tree().root.add_child(projectile)

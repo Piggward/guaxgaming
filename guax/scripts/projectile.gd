@@ -1,3 +1,4 @@
+
 class_name Projectile
 extends RigidBody2D
 
@@ -8,6 +9,7 @@ signal target_reached()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Limit lifetime of a projectile
+	look_at(target.global_position)
 	await get_tree().create_timer(5).timeout
 	self.queue_free()
 	pass # Replace with function body.
