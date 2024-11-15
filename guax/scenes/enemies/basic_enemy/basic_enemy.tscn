@@ -88,7 +88,7 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"deal_damage"
+"method": &"on_hit"
 }]
 }
 tracks/2/type = "value"
@@ -165,7 +165,7 @@ _data = {
 [node name="BasicEnemy" instance=ExtResource("1_2h0ar")]
 bounty = 500
 maxHealth = 75
-speed = 100
+speed = 200
 attack = ExtResource("2_iw0b8")
 title = "BasicEnemy"
 

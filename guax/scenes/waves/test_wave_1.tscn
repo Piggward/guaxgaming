@@ -6,4 +6,13 @@
 [node name="EnemySpawn" instance=ExtResource("1_68mmq")]
 
 [node name="BasicEnemy" parent="." index="1" instance=ExtResource("2_7fixl")]
-position = Vector2(-37, -143)
+position = Vector2(-728, 5)
+speed = 0
+
+[node name="BasicEnemy2" parent="." index="2" instance=ExtResource("2_7fixl")]
+position = Vector2(-806, 3)
+speed = 0
+
+[node name="BasicEnemy3" parent="." index="3" instance=ExtResource("2_7fixl")]
+position = Vector2(-768, 55)
+speed = 0

@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="AoeEffect" load_steps=2 format=3 uid="uid://dhy2fwwkwbko6"]
+
+[ext_resource type="Script" path="res://resources/effects/aoe_effect.gd" id="1_1sg06"]
+
+[resource]
+script = ExtResource("1_1sg06")
+aoe_radius = 100.0
+name = "Exploding shot"
+trigger_window = 0

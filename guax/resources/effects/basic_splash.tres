@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SplashEffect" load_steps=2 format=3 uid="uid://ceiy0dx5hxuh"]
+
+[ext_resource type="Script" path="res://resources/effects/splash_effect.gd" id="1_yavi2"]
+
+[resource]
+script = ExtResource("1_yavi2")
+splash_dmg_ratio = 0.5
+aoe_radius = 200.0
+name = "Basic Splash"
+trigger_window = 0

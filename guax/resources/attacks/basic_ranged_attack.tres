@@ -1,10 +1,15 @@
-[gd_resource type="Resource" script_class="Attack" load_steps=2 format=3 uid="uid://ea57yfn7o6gj"]
+[gd_resource type="Resource" script_class="ProjectileAttack" load_steps=4 format=3 uid="uid://ea57yfn7o6gj"]
 
-[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="1_epirh"]
+[ext_resource type="Script" path="res://resources/effects/effect.gd" id="1_4toyu"]
+[ext_resource type="PackedScene" uid="uid://ci1leftoehrpd" path="res://scenes/projectiles/mage_test_projectile.tscn" id="2_x6fso"]
+[ext_resource type="Script" path="res://resources/attacks/projectile_attack.gd" id="3_122mn"]
 
 [resource]
-script = ExtResource("1_epirh")
-damage = 20
+script = ExtResource("3_122mn")
+projectile = ExtResource("2_x6fso")
+shoot_speed = 2.9
+damage = 19
 range = 400
 types = Array[int]([1, 2])
-animation = "Attack1"
+animation = "Ranged_Attack"
+effects = Array[ExtResource("1_4toyu")]([])
