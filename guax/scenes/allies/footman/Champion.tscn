@@ -1,13 +1,31 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7tfptr704ad4"]
+[gd_scene load_steps=18 format=3 uid="uid://dor3fr4bjgepd"]
 
-[ext_resource type="PackedScene" uid="uid://vd48q4imlpo8" path="res://scenes/scene_templates/enemy_template.tscn" id="1_2h0ar"]
-[ext_resource type="Resource" uid="uid://evtuf3l5x5cs" path="res://resources/attacks/basic_melee_attack.tres" id="2_iw0b8"]
-[ext_resource type="PackedScene" uid="uid://cnjgch3idabq1" path="res://scenes/character_sprites/humanoids/red_soldier.tscn" id="3_e1bgu"]
-[ext_resource type="Script" path="res://scripts/npc_states/enemy_states/basic_enemy_idle_state.gd" id="4_ixryw"]
-[ext_resource type="Script" path="res://scripts/npc_states/enemy_states/basic_enemy_hunting_state.gd" id="5_j21q4"]
-[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="6_a0sn2"]
+[ext_resource type="PackedScene" uid="uid://c333vpdqm6vuj" path="res://scenes/scene_templates/npc_template.tscn" id="1_jilbh"]
+[ext_resource type="Script" path="res://scripts/ally.gd" id="2_53186"]
+[ext_resource type="Resource" uid="uid://evtuf3l5x5cs" path="res://resources/attacks/basic_melee_attack.tres" id="3_vrygw"]
+[ext_resource type="PackedScene" uid="uid://coy0k3wst2pcj" path="res://scenes/character_sprites/humanoids/basic_purple_human.tscn" id="4_d6ryd"]
+[ext_resource type="Texture2D" uid="uid://cp0i8fy5um7f1" path="res://art/AI_test/b27d7a8e-dc2b-43f1-a17b-e488fd318721 (3).png" id="5_dedi8"]
+[ext_resource type="Texture2D" uid="uid://c6vuvneh0oe54" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/yellow_hand.png" id="6_5vyl2"]
+[ext_resource type="Texture2D" uid="uid://bfw4muxb2mupy" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_longsword.png" id="7_g4xx1"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="8_ebdj1"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="9_d7jym"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="10_dskyl"]
 
-[sub_resource type="Animation" id="Animation_a671q"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pryxp"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_liwft"]
+bg_color = Color(0.113725, 0.403922, 0.184314, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="Animation" id="Animation_wfohl"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -58,12 +76,12 @@ tracks/3/keys = {
 "values": [1.86696]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6p1qd"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8l5w8"]
 _data = {
-"RESET": SubResource("Animation_a671q")
+"RESET": SubResource("Animation_wfohl")
 }
 
-[sub_resource type="Animation" id="Animation_kooh3"]
+[sub_resource type="Animation" id="Animation_8ophw"]
 resource_name = "Attack_melee_1"
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -80,7 +98,7 @@ tracks/0/keys = {
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("StateMachine/AttackState")
+tracks/1/path = NodePath("StateMachine/BasicAttackingState")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -88,7 +106,7 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"on_hit"
+"method": &"deal_damage"
 }]
 }
 tracks/2/type = "value"
@@ -116,7 +134,7 @@ tracks/3/keys = {
 "values": [1.86696, 0.325923, 1.18691, 3.44445, 1.86696]
 }
 
-[sub_resource type="Animation" id="Animation_7f36o"]
+[sub_resource type="Animation" id="Animation_438ee"]
 resource_name = "Idle"
 loop_mode = 1
 tracks/0/type = "value"
@@ -156,42 +174,70 @@ tracks/2/keys = {
 "values": [Vector2(34, 12), Vector2(36.715, 6.76328), Vector2(34, 12)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_6l8p8"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_puq0e"]
 _data = {
-"Attack1": SubResource("Animation_kooh3"),
-"Idle": SubResource("Animation_7f36o")
+"Attack1": SubResource("Animation_8ophw"),
+"Idle": SubResource("Animation_438ee")
 }
 
-[node name="BasicEnemy" instance=ExtResource("1_2h0ar")]
-bounty = 500
-maxHealth = 75
-speed = 200
-attack = ExtResource("2_iw0b8")
-title = "BasicEnemy"
+[node name="Champion" instance=ExtResource("1_jilbh")]
+script = ExtResource("2_53186")
+maxHealth = 100
+speed = 100
+attack = ExtResource("3_vrygw")
+title = "Champion"
 
-[node name="Character Sprite" parent="Root" index="0" instance=ExtResource("3_e1bgu")]
+[node name="ProgressBar" parent="Node2D" index="0"]
+offset_left = -48.0
+offset_top = -82.0
+offset_right = 54.0
+offset_bottom = -55.0
+theme_override_styles/background = SubResource("StyleBoxFlat_pryxp")
+theme_override_styles/fill = SubResource("StyleBoxFlat_liwft")
+show_percentage = false
+
+[node name="Root" parent="." index="4"]
+scale = Vector2(1.2, 1.2)
+
+[node name="Character Sprite" parent="Root" index="0" instance=ExtResource("4_d6ryd")]
+modulate = Color(0.741385, 0.741385, 0.741385, 1)
+rotation = -1.57177
+texture = ExtResource("5_dedi8")
+
+[node name="Hand right" parent="Root/Character Sprite" index="0"]
+modulate = Color(0.54099, 0.54099, 0.54099, 1)
+scale = Vector2(0.775, 0.775)
+texture = ExtResource("6_5vyl2")
+
+[node name="Hand left" parent="Root/Character Sprite" index="1"]
+modulate = Color(0.54099, 0.54099, 0.54099, 1)
+scale = Vector2(0.775, 0.775)
+texture = ExtResource("6_5vyl2")
+
+[node name="Sword" type="Sprite2D" parent="Root/Character Sprite/Hand left" index="0"]
+modulate = Color(0.564962, 0.564962, 0.564962, 1)
+position = Vector2(21.2899, 11.4632)
+rotation = 2.04413
+texture = ExtResource("7_g4xx1")
 
 [node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]
-initial_state = NodePath("BasicEnemyIdleState")
+initial_state = NodePath("BasicIdleState")
 
-[node name="BasicEnemyIdleState" type="Node" parent="StateMachine" index="0"]
-script = ExtResource("4_ixryw")
+[node name="BasicIdleState" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("8_ebdj1")
 
-[node name="BasicEnemyHuntingState" type="Node" parent="StateMachine" index="1"]
-script = ExtResource("5_j21q4")
+[node name="BasicHuntingState" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("9_d7jym")
 state = 1
 
-[node name="AttackState" type="Node" parent="StateMachine" index="2"]
-script = ExtResource("6_a0sn2")
+[node name="BasicAttackingState" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("10_dskyl")
 state = 2
 
 [node name="AnimationPlayer" parent="." index="6"]
 libraries = {
-"": SubResource("AnimationLibrary_6p1qd"),
-"BasicEnemy": SubResource("AnimationLibrary_6l8p8")
+"": SubResource("AnimationLibrary_8l5w8"),
+"Champion": SubResource("AnimationLibrary_puq0e")
 }
-
-[node name="Senses2d" parent="." index="8"]
-top_level = false
 
 [editable path="Root/Character Sprite"]

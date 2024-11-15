@@ -36,7 +36,7 @@ func attack():
 		var attack = npc.attack
 		# Init the attack before it hits to apply aoe effects etc
 		attack.init(npc.target)
-		npc.play_animation(npc.attack.animation)
+		npc.play_animation(npc.title+"/Attack1")
 		print_debug("Attackerade!")
 		await get_tree().create_timer(npc.attackspeed/10).timeout
 		attackReady =  true

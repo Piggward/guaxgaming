@@ -81,7 +81,7 @@ func activate():
 #States call this to move character in direction
 func calculate_velocity_towards_target(target_position:Vector2):
 	advanced_navigation.calculate_velocity(target_position)
-	#rotate_towards_target(target_position)
+	rotate_towards_target(target_position)
 func stand_still():
 	advanced_navigation.stand_still()
 

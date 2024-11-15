@@ -10,7 +10,7 @@ func act():
 	transition_requested.emit(self, NpcState.State.HUNTING)
 
 func enter():
-	npc.play_animation("Idle")
+	npc.play_animation(npc.title+"/Idle")
 
 func exit():
 	pass
