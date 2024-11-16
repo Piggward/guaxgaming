@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=4 uid="uid://dqvr3b6w07dr1"]
+[gd_scene load_steps=32 format=4 uid="uid://dqvr3b6w07dr1"]
 
 [ext_resource type="Texture2D" uid="uid://dqiw5k64mi133" path="res://art/kenney_scribble-dungeons/Tilesheet/tilesheet.png" id="1_5n2xs"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_80x34"]
@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c1naarkppitxn" path="res://scenes/waves/test_wave_2.tscn" id="3_h7jwk"]
 [ext_resource type="Texture2D" uid="uid://cigo17wlx6w7u" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_axe_double.png" id="5_4asks"]
 [ext_resource type="Script" path="res://scripts/start_wave_button.gd" id="6_dgeyi"]
-[ext_resource type="PackedScene" uid="uid://cjevh1ieopuam" path="res://scenes/enemy_spawn.tscn" id="6_few75"]
+[ext_resource type="PackedScene" path="res://scenes/enemy_spawn.tscn" id="6_few75"]
 [ext_resource type="Texture2D" uid="uid://c7hxbgj0aa8kt" path="res://art/kenney_scribble-dungeons/PNG/Double (128px)/dragon.png" id="10_xd72q"]
 [ext_resource type="Texture2D" uid="uid://di4u317sqx8hs" path="res://art/kenney_scribble-dungeons/PNG/Double (128px)/puddle.png" id="11_gmbdq"]
 [ext_resource type="Texture2D" uid="uid://jbhlmhec2g4o" path="res://art/kenney_scribble-dungeons/PNG/Double (128px)/campfire.png" id="12_l4nap"]
@@ -19,6 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://b05xc1w1adad" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/wall.png" id="17_nffe2"]
 [ext_resource type="Texture2D" uid="uid://byxpwvlrdu7og" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/wall_demolished.png" id="18_1eb3h"]
 [ext_resource type="PackedScene" uid="uid://b8ixl4nnppqyi" path="res://scenes/allies/ranger/ranger.tscn" id="18_e680i"]
+[ext_resource type="PackedScene" uid="uid://da1w8w6qtcfc6" path="res://scenes/allies/footman/Footman.tscn" id="18_xj2ci"]
+[ext_resource type="PackedScene" uid="uid://dor3fr4bjgepd" path="res://scenes/allies/footman/Champion.tscn" id="19_y5kh5"]
+[ext_resource type="PackedScene" uid="uid://bil7ecudj82t1" path="res://scenes/allies/mage/Mage.tscn" id="20_1gore"]
+[ext_resource type="PackedScene" uid="uid://dm8i5wt5io2ku" path="res://scenes/allies/mage/Sorcerer.tscn" id="21_e34po"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dg0x"]
 texture = ExtResource("1_5n2xs")
@@ -375,7 +379,7 @@ offset_left = 3.0
 offset_top = 3.0
 offset_right = 43.0
 offset_bottom = 43.0
-items = Array[PackedScene]([ExtResource("18_e680i")])
+items = Array[PackedScene]([ExtResource("18_e680i"), ExtResource("18_xj2ci"), ExtResource("19_y5kh5"), ExtResource("20_1gore"), ExtResource("21_e34po")])
 
 [node name="Button" type="Button" parent="."]
 offset_left = 540.0
