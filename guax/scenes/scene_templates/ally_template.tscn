@@ -24,6 +24,7 @@ corner_radius_bottom_left = 5
 
 [node name="AllyTemplate" instance=ExtResource("1_u5yn1")]
 script = ExtResource("2_6o18l")
+cost = 0
 
 [node name="ProgressBar" parent="Node2D" index="0"]
 offset_left = -48.0
