@@ -6,6 +6,7 @@ var current_state: NpcState
 var states := {};
 
 func init(npc:Npc) -> void:
+	npc.on_death.connect(on_npc_death)
 	for child in get_children(): 
 		if child is NpcState: 
 			states[child.state] = child;
@@ -29,3 +30,6 @@ func _on_transition_requested(from: NpcState, to: NpcState.State) -> void:
 		current_state.exit()
 	new_state.enter()
 	current_state = new_state
+	
+func on_npc_death(npc: Npc):
+	_on_transition_requested(current_state, NpcState.State.DEAD)

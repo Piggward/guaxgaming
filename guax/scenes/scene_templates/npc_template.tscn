@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c333vpdqm6vuj"]
+[gd_scene load_steps=8 format=3 uid="uid://c333vpdqm6vuj"]
 
 [ext_resource type="Script" path="res://scripts/health_bar.gd" id="1_864gf"]
 [ext_resource type="Script" path="res://scripts/advanced_navigation.gd" id="1_o1f8a"]
 [ext_resource type="Script" path="res://scripts/npc_states/npc_state_machine.gd" id="2_fvlqa"]
 [ext_resource type="Script" path="res://scripts/animation_player.gd" id="2_m13y3"]
+[ext_resource type="Script" path="res://scripts/npc_states/death_state.gd" id="4_k2kwm"]
 [ext_resource type="PackedScene" uid="uid://bj5nkpv3d8hoy" path="res://scenes/senses_2d.tscn" id="5_ut0qd"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5fgv5"]
@@ -35,6 +36,10 @@ update_rotation = false
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("2_fvlqa")
+
+[node name="DeathState" type="Node" parent="StateMachine"]
+script = ExtResource("4_k2kwm")
+state = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 script = ExtResource("2_m13y3")

@@ -270,8 +270,23 @@ state = 1
 script = ExtResource("7_oqyq0")
 state = 2
 
-[node name="AnimationPlayer" parent="." index="6"]
+[node name="OutOfBattleStateMachine" parent="." index="6" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("ShopDisplayState")
+
+[node name="AnimationPlayer" parent="." index="7"]
 libraries = {
 "": SubResource("AnimationLibrary_886hd"),
 "Ranger": SubResource("AnimationLibrary_ljcjm")
 }
+
+[node name="Control" type="Control" parent="." index="10"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -18.9847
+offset_top = -19.2245
+offset_right = 21.0153
+offset_bottom = 20.7755
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="gui_input" from="Control" to="OutOfBattleStateMachine/PlacedState" method="_on_control_gui_input"]

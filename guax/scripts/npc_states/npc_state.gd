@@ -4,7 +4,8 @@ extends Node
 enum State{
 	IDLE,
 	HUNTING,
-	ATTACKING
+	ATTACKING,
+	DEAD,
 }
 
 var npc:Npc

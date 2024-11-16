@@ -12,8 +12,8 @@ const WAVE_TEXT = preload("res://scenes/wave_text.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	TurnManager.battle_turn.turn_end.connect(_on_turn_end)
-	TurnManager.battle_turn.turn_start.connect(_on_turn_start)
+	TurnManager.battle_turn.turn_end.connect(_on_battle_turn_end)
+	TurnManager.battle_turn.turn_start.connect(_on_battle_turn_start)
 	TurnManager.shop_turn.turn_start.connect(_on_shop_turn_start)
 	
 	GameManager.player_gold = player_starting_gold
@@ -53,12 +53,12 @@ func _on_shop_turn_start():
 		if child is Enemy:
 			enemy_spawn.spawn_enemy(child)
 	
-func _on_turn_end():
+func _on_battle_turn_end():
 	var text = "WAVE " + str(current_wave)
 	display_wave_text(text, WaveText.TextType.WAVE_CLEARED)
 	current_wave += 1
 	
-func _on_turn_start():
+func _on_battle_turn_start():
 	var text = "WAVE " + str(current_wave)
 	display_wave_text(text, WaveText.TextType.WAVE_BEGIN)
 	

@@ -25,26 +25,21 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_gui_input(event):
-	if event.is_action_pressed("left_mouse") && !cd && GameManager.can_purchase(store_front):
-		# create placeholder
-		var placeholder = DragablePlaceholderUnit.new()
-		var ally = npc_scene.instantiate()
-		ally.set_placeholder(placeholder)
-		placeholder.add_child(store_front.root_sprites.duplicate())
-		placeholder.add_child(store_front.collision_shape.duplicate())
-		
-		PlayerControlManager.start_dragging(placeholder)
-		
+	if event.is_action_pressed("left_mouse") && !cd && GameManager.can_purchase(store_front) && PlayerControlManager.can_drag():
+		var ally: Ally = store_front.duplicate()
+		get_tree().root.add_child(ally)
+		ally.out_of_battle_state_machine.current_state.pick_from_shop()
+		ally.activate()
 		# Listen for placed signal to commit the transaction
-		placeholder.placed.connect(commit_transaction)
+		ally.reposition.connect(commit_transaction)
 
 		# Set input CD
 		set_cd()
 		pass
 		
-func commit_transaction(placeholder: PlaceholderUnit):
-	GameManager.ally_purchased.emit(placeholder.actual_unit)
-	placeholder.placed.disconnect(commit_transaction)
+func commit_transaction(ally: Ally):
+	GameManager.ally_purchased.emit(ally)
+	ally.reposition.disconnect(commit_transaction)
 
 func set_cd():
 	cd = true

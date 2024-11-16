@@ -53,7 +53,7 @@ func take_damage(damageTaken:int):
 	
 func die():
 	on_death.emit(self)
-	self.queue_free()
+	deactivate()
 	
 #Animations
 func play_animation(animation: String):
