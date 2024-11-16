@@ -9,17 +9,10 @@ func _ready():
 	pass # Replace with function body.
 
 func spawn_enemy(enemy: Enemy):
-	enemies_alive.append(enemy)
-	enemy.on_death.connect(_on_enemy_death)
-	
-	# Add enemy to EnemySpawn, but deactivate it and add a placeholder instead
-	enemy.reparent(self, false)
-	var ph = PlaceholderUnit.new()
-	enemy.set_placeholder(ph)
-	ph.add_child(enemy.root_sprites.duplicate())
-	ph.position = enemy.position
-	self.add_child(ph)
-	enemy.deactivate()
+	var spawn = enemy.duplicate()
+	enemies_alive.append(spawn)
+	spawn.on_death.connect(_on_enemy_death)
+	self.add_child(spawn)
 	
 func _on_battle_start():
 	# When battle start, replace placeholder with the enemy
@@ -31,7 +24,7 @@ func _on_battle_start():
 func _on_enemy_death(enemy: Npc):
 	enemies_alive.erase(enemy)
 	# No more enemies alive
-	if enemies_alive.size() <= 0:
+	if enemies_alive.size() <= 0 && TurnManager.current_phase.phase == TurnPhase.Phase.BATTLE:
 		TurnManager.end_phase_requested.emit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

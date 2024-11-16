@@ -8,7 +8,7 @@
 script = ExtResource("3_122mn")
 projectile = ExtResource("2_x6fso")
 shoot_speed = 2.9
-damage = 19
+damage = 100
 range = 400
 types = Array[int]([1, 2])
 animation = "Ranged_Attack"

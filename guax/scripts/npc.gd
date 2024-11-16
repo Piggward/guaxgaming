@@ -49,7 +49,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func take_damage(damageTaken:int):
-	if is_dead():
+	if !can_take_damage():
 		return
 	receive_damage.emit(damageTaken)
 	set_health(currentHealth - damageTaken)
@@ -97,6 +97,9 @@ func rotate_towards_target(target_position:Vector2):
 	
 func is_dead():
 	return state_machine.current_state.state == NpcState.State.DEAD
+	
+func can_take_damage():
+	return !is_dead and TurnManager.current_phase.phase == TurnPhase.Phase.BATTLE 
 	
 func is_enemy(npc: Npc):
 	return (npc is Enemy and self is Ally) or (npc is Ally and self is Enemy)

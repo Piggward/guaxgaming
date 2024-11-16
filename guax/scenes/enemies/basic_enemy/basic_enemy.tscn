@@ -172,7 +172,7 @@ title = "BasicEnemy"
 [node name="Character Sprite" parent="Root" index="0" instance=ExtResource("3_e1bgu")]
 
 [node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]
-initial_state = NodePath("BasicEnemyHuntingState")
+initial_state = NodePath("BasicEnemyIdleState")
 
 [node name="BasicEnemyIdleState" type="Node" parent="StateMachine" index="0"]
 script = ExtResource("4_u0q7h")

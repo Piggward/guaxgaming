@@ -5,7 +5,7 @@ extends Button
 func _ready():
 	TurnManager.shop_turn.turn_start.connect(func(): self.visible = true)
 	TurnManager.shop_turn.turn_end.connect(func(): self.visible = false)
-	self.pressed.connect(func(): TurnManager.end_phase_requested.emit())
+	self.pressed.connect(func(): if TurnManager.current_phase.phase == TurnPhase.Phase.SHOPPING: TurnManager.end_phase_requested.emit())
 	pass # Replace with function body.
 
 
