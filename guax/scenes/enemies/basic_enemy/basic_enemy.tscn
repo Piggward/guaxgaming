@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://vd48q4imlpo8" path="res://scenes/scene_templates/enemy_template.tscn" id="1_2h0ar"]
 [ext_resource type="Resource" uid="uid://evtuf3l5x5cs" path="res://resources/attacks/basic_melee_attack.tres" id="2_iw0b8"]
 [ext_resource type="PackedScene" uid="uid://cnjgch3idabq1" path="res://scenes/character_sprites/humanoids/red_soldier.tscn" id="3_e1bgu"]
-[ext_resource type="Script" path="res://scripts/npc_states/enemy_states/basic_enemy_idle_state.gd" id="4_ixryw"]
-[ext_resource type="Script" path="res://scripts/npc_states/enemy_states/basic_enemy_hunting_state.gd" id="5_j21q4"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="4_u0q7h"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="5_vcpwk"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="6_a0sn2"]
 
 [sub_resource type="Animation" id="Animation_a671q"]
@@ -172,13 +172,13 @@ title = "BasicEnemy"
 [node name="Character Sprite" parent="Root" index="0" instance=ExtResource("3_e1bgu")]
 
 [node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]
-initial_state = NodePath("BasicEnemyIdleState")
+initial_state = NodePath("BasicEnemyHuntingState")
 
 [node name="BasicEnemyIdleState" type="Node" parent="StateMachine" index="0"]
-script = ExtResource("4_ixryw")
+script = ExtResource("4_u0q7h")
 
 [node name="BasicEnemyHuntingState" type="Node" parent="StateMachine" index="1"]
-script = ExtResource("5_j21q4")
+script = ExtResource("5_vcpwk")
 state = 1
 
 [node name="AttackState" type="Node" parent="StateMachine" index="2"]

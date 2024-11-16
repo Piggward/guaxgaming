@@ -7,13 +7,13 @@ enum State{
 	ATTACKING,
 	DEAD,
 }
-
-var npc:Npc
+var npc: Npc
+var target: Npc
 
 signal transition_requested(from: NpcState, to: State)
 @export var state:State
 
-func  act():
+func act():
 	pass
 
 func enter():

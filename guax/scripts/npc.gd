@@ -12,7 +12,6 @@ var currentHealth
 #navigation
 @onready var advanced_navigation: AdvancedNavigation = $NavigationAgent2D
 
-var target:Npc #STATES USES THIS, DO NOT DELETE
 var aggrozone: Area2D
 
 #Statemachine
@@ -32,6 +31,12 @@ signal on_death(npc: Npc)
 signal health_updated(new_value: int)
 signal receive_damage(amount: int)
 
+#UI Signals:
+
+signal on_input(event: InputEvent)
+signal on_mouse_enter()
+signal on_mouse_exit()
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	currentHealth = maxHealth
@@ -44,6 +49,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func take_damage(damageTaken:int):
+	if is_dead():
+		return
 	receive_damage.emit(damageTaken)
 	set_health(currentHealth - damageTaken)
 	if currentHealth <= 0:
@@ -88,3 +95,20 @@ func stand_still():
 func rotate_towards_target(target_position:Vector2):
 	look_at(target_position)
 	
+func is_dead():
+	return state_machine.current_state.state == NpcState.State.DEAD
+	
+func is_enemy(npc: Npc):
+	return (npc is Enemy and self is Ally) or (npc is Ally and self is Enemy)
+	
+func _on_ui_control_gui_input(event):
+	input_event.emit(event)
+	pass # Replace with function body.
+
+func _on_ui_control_mouse_entered():
+	mouse_entered.emit()
+	pass # Replace with function body.
+
+func _on_ui_control_mouse_exited():
+	mouse_exited.emit()
+	pass # Replace with function body.
