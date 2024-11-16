@@ -7,6 +7,7 @@ var states := {};
 
 func init(npc:Npc) -> void:
 	npc.on_death.connect(on_npc_death)
+	TurnManager.battle_turn.turn_end.connect(_on_turn_end)
 	for child in get_children(): 
 		if child is NpcState: 
 			states[child.state] = child;
@@ -34,3 +35,6 @@ func _on_transition_requested(from: NpcState, to: NpcState.State) -> void:
 	
 func on_npc_death(npc: Npc):
 	_on_transition_requested(current_state, NpcState.State.DEAD)
+
+func _on_turn_end():
+	_on_transition_requested(current_state, NpcState.State.IDLE)

@@ -1,6 +1,6 @@
 class_name Npc
 extends CharacterBody2D
-#buuu
+
 #NPC stats
 @export var maxHealth = 30
 var currentHealth
@@ -24,15 +24,11 @@ var aggrozone: Area2D
 @onready var root_sprites = $Root
 @onready var collision_shape = $CollisionShape2D
 
-#placeholder
-var placeholder: PlaceholderUnit
-
 signal on_death(npc: Npc)
 signal health_updated(new_value: int)
 signal receive_damage(amount: int)
 
 #UI Signals:
-
 signal on_input(event: InputEvent)
 signal on_mouse_enter()
 signal on_mouse_exit()
@@ -66,10 +62,6 @@ func die():
 func play_animation(animation: String):
 	animation_player.play_animation(animation)
 
-func set_placeholder(ph: PlaceholderUnit):
-	ph.actual_unit = self
-	placeholder = ph
-
 func set_health(new_health: int):
 	currentHealth = new_health
 	health_updated.emit(currentHealth)
@@ -99,7 +91,7 @@ func is_dead():
 	return state_machine.current_state.state == NpcState.State.DEAD
 	
 func can_take_damage():
-	return !is_dead and TurnManager.current_phase.phase == TurnPhase.Phase.BATTLE 
+	return !is_dead() and TurnManager.current_phase.phase == TurnPhase.Phase.BATTLE 
 	
 func is_enemy(npc: Npc):
 	return (npc is Enemy and self is Ally) or (npc is Ally and self is Enemy)

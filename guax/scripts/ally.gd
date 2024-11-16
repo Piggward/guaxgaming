@@ -14,6 +14,5 @@ func _ready():
 	super()
 	
 func refresh():
-	state_machine.current_state = state_machine.initial_state
 	global_position = battle_start_location
 	set_health(maxHealth)
