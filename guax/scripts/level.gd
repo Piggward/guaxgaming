@@ -23,22 +23,6 @@ func _ready():
 	
 	TurnManager.init()
 	pass # Replace with function body.
-	
-func spawn_ally(ally: Ally):
-	aggro_zone.add_child(ally)
-	ally.global_position = ally.placeholder.battle_position
-	
-func spawn_placeholder(placeholder: PlaceholderUnit):
-	aggro_zone.add_child(placeholder)
-	placeholder.global_position = to_local(placeholder.battle_position)
-	
-func get_current_enemies():
-	var count = 0
-	for child in enemy_spawn.get_children:
-		if child is Npc:
-			if child.isEnemy:
-				count += 1
-	return count
 
 func display_wave_text(text: String, type: WaveText.TextType):
 	var wave_text = WAVE_TEXT.instantiate()

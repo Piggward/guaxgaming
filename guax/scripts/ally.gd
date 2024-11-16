@@ -13,6 +13,6 @@ func _ready():
 	super()
 	
 func refresh():
-	global_position = placeholder.battle_position
+	global_position = battle_start_location
 	set_health(maxHealth)
 	state_machine.current_state = state_machine.initial_state
