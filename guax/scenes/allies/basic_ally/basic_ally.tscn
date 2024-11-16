@@ -38,7 +38,7 @@ state = 1
 script = ExtResource("6_layi0")
 state = 2
 
-[node name="AnimationPlayer" parent="." index="6"]
+[node name="AnimationPlayer" parent="." index="7"]
 libraries = {
 "": SubResource("AnimationLibrary_fjp1s")
 }

@@ -272,7 +272,7 @@ state = 1
 script = ExtResource("9_db4m4")
 state = 2
 
-[node name="AnimationPlayer" parent="." index="6"]
+[node name="AnimationPlayer" parent="." index="7"]
 libraries = {
 "": SubResource("AnimationLibrary_886hd"),
 "Marksman": SubResource("AnimationLibrary_ljcjm")
