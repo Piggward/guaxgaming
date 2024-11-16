@@ -14,22 +14,6 @@ func _ready():
 	player_health = 100
 	pass # Replace with function body.
 
-func spawn_allies():
-	for ally in player_allies:
-		ally.placeholder.deactivate()
-		# If parent is null it means that we have never added this npc to the scene tree before.
-		if ally.get_parent() == null:
-			level.spawn_ally(ally)
-		# Otherwise, it is in the scene tree and we just need to set the position and visibility.
-		else:
-			ally.refresh()
-			ally.activate()
-		
-func replace_allies():
-	for ally in player_allies:
-		ally.deactivate()
-		ally.placeholder.activate()
-
 func can_purchase(ally: Ally) -> bool:
 	if !PlayerControlManager.can_drag():
 		print("player is busy")

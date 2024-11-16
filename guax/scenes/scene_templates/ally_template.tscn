@@ -1,7 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://kbkxkn8p4yjl"]
+[gd_scene load_steps=10 format=3 uid="uid://kbkxkn8p4yjl"]
 
 [ext_resource type="PackedScene" uid="uid://c333vpdqm6vuj" path="res://scenes/scene_templates/npc_template.tscn" id="1_u5yn1"]
 [ext_resource type="Script" path="res://scripts/ally.gd" id="2_6o18l"]
+[ext_resource type="Script" path="res://scripts/npc_states/out_of_battle_statemachine.gd" id="3_oj1wb"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/none_state.gd" id="4_77khl"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/placed_state.gd" id="5_26di0"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/draging_state.gd" id="6_7ytyo"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/shop_display_state.gd" id="7_il0tr"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pryxp"]
 bg_color = Color(0, 0, 0, 1)
@@ -19,6 +24,7 @@ corner_radius_bottom_left = 5
 
 [node name="AllyTemplate" instance=ExtResource("1_u5yn1")]
 script = ExtResource("2_6o18l")
+cost = 0
 
 [node name="ProgressBar" parent="Node2D" index="0"]
 offset_left = -48.0
@@ -28,3 +34,22 @@ offset_bottom = -55.0
 theme_override_styles/background = SubResource("StyleBoxFlat_pryxp")
 theme_override_styles/fill = SubResource("StyleBoxFlat_liwft")
 show_percentage = false
+
+[node name="OutOfBattleStateMachine" type="Node" parent="." index="6" node_paths=PackedStringArray("initial_state")]
+script = ExtResource("3_oj1wb")
+initial_state = NodePath("None")
+
+[node name="None" type="Node" parent="OutOfBattleStateMachine" index="0"]
+script = ExtResource("4_77khl")
+
+[node name="PlacedState" type="Node" parent="OutOfBattleStateMachine" index="1"]
+script = ExtResource("5_26di0")
+state = 1
+
+[node name="DragingState" type="Node" parent="OutOfBattleStateMachine" index="2"]
+script = ExtResource("6_7ytyo")
+state = 2
+
+[node name="ShopDisplayState" type="Node" parent="OutOfBattleStateMachine" index="3"]
+script = ExtResource("7_il0tr")
+state = 3

@@ -1,6 +1,6 @@
 class_name Npc
 extends CharacterBody2D
-#buuu
+
 #NPC stats
 @export var maxHealth = 30
 var currentHealth
@@ -12,7 +12,6 @@ var currentHealth
 #navigation
 @onready var advanced_navigation: AdvancedNavigation = $NavigationAgent2D
 
-var target:Npc #STATES USES THIS, DO NOT DELETE
 var aggrozone: Area2D
 
 #Statemachine
@@ -25,12 +24,14 @@ var aggrozone: Area2D
 @onready var root_sprites = $Root
 @onready var collision_shape = $CollisionShape2D
 
-#placeholder
-var placeholder: PlaceholderUnit
-
 signal on_death(npc: Npc)
 signal health_updated(new_value: int)
 signal receive_damage(amount: int)
+
+#UI Signals:
+signal on_input(event: InputEvent)
+signal on_mouse_enter()
+signal on_mouse_exit()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,6 +45,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func take_damage(damageTaken:int):
+	if !can_take_damage():
+		return
 	receive_damage.emit(damageTaken)
 	set_health(currentHealth - damageTaken)
 	if currentHealth <= 0:
@@ -53,15 +56,11 @@ func take_damage(damageTaken:int):
 	
 func die():
 	on_death.emit(self)
-	self.queue_free()
+	deactivate()
 	
 #Animations
 func play_animation(animation: String):
 	animation_player.play_animation(animation)
-
-func set_placeholder(ph: PlaceholderUnit):
-	ph.actual_unit = self
-	placeholder = ph
 
 func set_health(new_health: int):
 	currentHealth = new_health
@@ -88,3 +87,23 @@ func stand_still():
 func rotate_towards_target(target_position:Vector2):
 	look_at(target_position)
 	
+func is_dead():
+	return state_machine.current_state.state == NpcState.State.DEAD
+	
+func can_take_damage():
+	return !is_dead() and TurnManager.current_phase.phase == TurnPhase.Phase.BATTLE 
+	
+func is_enemy(npc: Npc):
+	return (npc is Enemy and self is Ally) or (npc is Ally and self is Enemy)
+	
+func _on_ui_control_gui_input(event):
+	input_event.emit(event)
+	pass # Replace with function body.
+
+func _on_ui_control_mouse_entered():
+	mouse_entered.emit()
+	pass # Replace with function body.
+
+func _on_ui_control_mouse_exited():
+	mouse_exited.emit()
+	pass # Replace with function body.

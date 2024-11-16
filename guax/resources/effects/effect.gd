@@ -11,6 +11,3 @@ func trigger(attack: Attack, target: Npc, projectile: Projectile = null) -> void
 
 func init(attack: Attack, target: Npc, projectile: Projectile = null):
 	pass
-	
-func is_enemy(performer: Npc, target: Npc):
-	return (target is Enemy and performer is Ally) or (target is Ally and performer is Enemy)

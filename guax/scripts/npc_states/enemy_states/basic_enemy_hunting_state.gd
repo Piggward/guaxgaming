@@ -8,7 +8,7 @@ func act():
 		return
 	var target = target_closest_enemy(enemies)
 	if(is_target_in_range(target)):
-		npc.target = target
+		target = target
 		transition_requested.emit(self, NpcState.State.ATTACKING)
 		return
 	npc.calculate_velocity_towards_target(target.global_position)
