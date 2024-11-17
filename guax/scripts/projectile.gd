@@ -18,7 +18,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	# if target is reached (with some margin)
-	if (self.global_position - target.global_position).length() < 5:
+	if (self.global_position - target.global_position).length() < 15:
 		target_reached.emit(target)
 		#here we can play some kind of explosion effect or something
 		self.queue_free()

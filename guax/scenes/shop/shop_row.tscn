@@ -1,4 +1,0 @@
-[gd_scene format=3 uid="uid://blk6weaukj4um"]
-
-[node name="ShopRow" type="VBoxContainer"]
-theme_override_constants/separation = 15

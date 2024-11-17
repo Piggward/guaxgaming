@@ -1,0 +1,106 @@
+[gd_scene load_steps=5 format=3 uid="uid://dppoqopbvm4xp"]
+
+[ext_resource type="Script" path="res://scripts/upgrade_item.gd" id="1_lspls"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dulgb"]
+bg_color = Color(0.754647, 0.74703, 0.542539, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gvy8f"]
+bg_color = Color(0.34902, 0.694118, 0.278431, 1)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ddvkm"]
+bg_color = Color(0.624357, 0.439388, 0.221287, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+
+[node name="UpgradeItem" type="Control"]
+custom_minimum_size = Vector2(125, 175)
+layout_mode = 3
+anchor_right = 0.089
+anchor_bottom = 0.273
+offset_right = -0.490005
+offset_bottom = 0.279999
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lspls")
+
+[node name="UpgradeItemVbox" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="UpgradeItemPanel" type="PanelContainer" parent="UpgradeItemVbox"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_dulgb")
+
+[node name="UpgradeItemVBoxContainer" type="VBoxContainer" parent="UpgradeItemVbox/UpgradeItemPanel"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="UpgradeItemHeaderPanel" type="PanelContainer" parent="UpgradeItemVbox/UpgradeItemPanel/UpgradeItemVBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_gvy8f")
+
+[node name="UpgradeItemTitle" type="Label" parent="UpgradeItemVbox/UpgradeItemPanel/UpgradeItemVBoxContainer/UpgradeItemHeaderPanel"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 0
+mouse_filter = 1
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 22
+text = "Soldier"
+horizontal_alignment = 1
+
+[node name="UpgradeItemInfo" type="Label" parent="UpgradeItemVbox/UpgradeItemPanel/UpgradeItemVBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = -5
+theme_override_font_sizes/font_size = 15
+text = "test
+
+
+
+
+"
+autowrap_mode = 2
+
+[node name="UpgradeItemCostPanel" type="PanelContainer" parent="UpgradeItemVbox"]
+texture_filter = 1
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_ddvkm")
+
+[node name="UpgradeItemCost" type="Label" parent="UpgradeItemVbox/UpgradeItemCostPanel"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.779513, 0.723424, 0, 1)
+text = "2000 gold
+"
+horizontal_alignment = 1
+
+[connection signal="gui_input" from="UpgradeItemVbox/UpgradeItemCostPanel" to="." method="_on_upgrade_item_cost_panel_gui_input"]

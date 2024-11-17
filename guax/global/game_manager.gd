@@ -6,30 +6,45 @@ var player_max_health: int
 var player_allies: Array[Ally]
 var level: Level
 
-signal ally_purchased(soldier: Ally)
+signal display_information_card(npc: Npc)
+signal ally_promotion(ally: Ally, new_ally: Ally)
+signal ally_purchased(ally: Ally)
+
+signal player_gold_updated(new_gold: int)
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	ally_purchased.connect(on_purchase)
-	player_gold = 5000
-	player_health = 100
+	ally_purchased.connect(on_ally_purchased)
+	ally_promotion.connect(on_ally_promotion)
 	pass # Replace with function body.
 
-func can_purchase(ally: Ally) -> bool:
-	if !PlayerControlManager.can_drag():
-		print("player is busy")
-		return false
-		
-	if ally.cost > GameManager.player_gold:
-		print("player cant afford")
-		return false
-		
-	if TurnManager.current_phase.phase != TurnPhase.Phase.SHOPPING:
-		print("Not in shop phase")
-		return false
+func can_purchase(cost: int) -> bool:
+	return PlayerControlManager.can_drag() && can_afford(cost) && can_shop()
 	
-	return true
-	
-func on_purchase(ally: Ally):
-	player_gold -= ally.cost
+func on_ally_purchased(ally: Ally):
+	transaction(ally.cost)
 	player_allies.append(ally)
-	print(player_gold)
+	
+func transaction(cost: int):
+	player_gold -= cost
+	player_gold_updated.emit(player_gold)
+	
+func on_ally_promotion(ally: Ally, new_ally: Ally):
+	# TODO: Implement transaction of rubies
+	var parent = ally.get_parent()
+	parent.add_child(new_ally)
+	new_ally.global_position = ally.global_position
+	parent.remove_child(ally)
+	ally.promoting.emit(ally, new_ally)
+	var ally_index = player_allies.find(ally)
+	player_allies[ally_index] = new_ally
+	ally.queue_free()
+	
+
+func can_upgrade(ally: Ally) -> bool:
+	return can_shop() and can_afford(ally.upgrade.cost)
+	
+func can_shop() -> bool:
+	return TurnManager.current_phase.phase == TurnPhase.Phase.SHOPPING
+	
+func can_afford(cost: int) -> bool:
+	return GameManager.player_gold >= cost

@@ -1,0 +1,94 @@
+[gd_scene load_steps=6 format=3 uid="uid://tbs5ltjh2ykq"]
+
+[ext_resource type="Script" path="res://scripts/upgrade_card.gd" id="1_p07tu"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xfi5h"]
+bg_color = Color(0.34902, 0.694118, 0.278431, 1)
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e1msy"]
+bg_color = Color(0.754647, 0.74703, 0.542539, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_68dxq"]
+bg_color = Color(0.4847, 0.441724, 0.460957, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqw7n"]
+bg_color = Color(0.624357, 0.439388, 0.221287, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+border_blend = true
+
+[node name="UpgradeCard" type="VBoxContainer"]
+anchors_preset = -1
+anchor_right = 0.157
+anchor_bottom = 0.262
+offset_right = 30.63
+offset_bottom = 230.32
+grow_vertical = 2
+theme_override_constants/separation = 0
+script = ExtResource("1_p07tu")
+
+[node name="HeaderShopItemPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_xfi5h")
+
+[node name="UnitName" type="Label" parent="HeaderShopItemPanel"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 1
+mouse_filter = 1
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 22
+text = "Soldier"
+horizontal_alignment = 1
+
+[node name="CoreShopItemPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+mouse_filter = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_e1msy")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CoreShopItemPanel"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="UpgradeContainer" type="PanelContainer" parent="CoreShopItemPanel/VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_68dxq")
+
+[node name="StatsLabel" type="Label" parent="CoreShopItemPanel/VBoxContainer/UpgradeContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Damage:
+Range:
+Attackspeed:
+Base health:"
+
+[node name="UpgradeCostPanel" type="PanelContainer" parent="CoreShopItemPanel/VBoxContainer"]
+texture_filter = 1
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_jqw7n")
+
+[node name="UpgradeCost" type="Label" parent="CoreShopItemPanel/VBoxContainer/UpgradeCostPanel"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.779513, 0.723424, 0, 1)
+text = "UPGRADE: 2000 GOLD"
+horizontal_alignment = 1
+
+[node name="PromotionContainer" type="HBoxContainer" parent="CoreShopItemPanel/VBoxContainer"]
+layout_mode = 2
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="gui_input" from="CoreShopItemPanel/VBoxContainer/UpgradeCostPanel" to="." method="_on_upgrade_cost_panel_gui_input"]

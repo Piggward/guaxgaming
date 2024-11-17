@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=2 format=3 uid="uid://cb4ckwy2xe6p"]
+
+[ext_resource type="Script" path="res://resources/upgrades/upgrade.gd" id="1_oq3xn"]
+
+[resource]
+script = ExtResource("1_oq3xn")
+cost = 500
+bonus_health = 10
+bonus_damage = 10
+bonus_range = 10.0
+bonus_attack_speed = 10.0
