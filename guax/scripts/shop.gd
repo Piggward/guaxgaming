@@ -1,7 +1,7 @@
 class_name Shop
 extends Control
 
-@onready var container = $VBoxContainer/PanelContainer/MarginContainer/HBoxContainer
+@onready var container = $PanelContainer/MarginContainer/HBoxContainer
 const SHOP_ITEM = preload("res://scenes/shop_item.tscn")
 @export var items: Array[PackedScene]
 

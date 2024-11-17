@@ -14,16 +14,12 @@ func _ready():
 	set_display_text(upg)
 	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-func set_display_text(store_front: Ally):
-	upgrade_item_title.text = store_front.title
-	upgrade_item_info.text = "damage: " + str(store_front.attack.damage) + "\n"
-	upgrade_item_info.text += "speed: " + str(store_front.speed) + "\n"
-	upgrade_item_info.text += "range: " + str(store_front.attack.range) + "\n"
+func set_display_text(upg: Ally):
+	upgrade_item_title.text = upg.title
+	upgrade_item_info.text = "damage: " + str(upg.attack.damage) + "\n"
+	upgrade_item_info.text += "speed: " + str(upg.speed) + "\n"
+	upgrade_item_info.text += "range: " + str(upg.attack.range) + "\n"
+	upgrade_item_info.text += "health: " + str(upg.maxHealth) + "\n"
 	upgrade_item_cost.text = str(promotion.cost) + " " + promotion.cost_type
 
 

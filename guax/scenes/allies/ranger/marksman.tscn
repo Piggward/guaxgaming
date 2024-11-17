@@ -230,6 +230,7 @@ _data = {
 rotation = -0.111155
 cost = 2000
 upgrade = ExtResource("2_h3xqx")
+maxHealth = 100
 speed = 100
 attack = ExtResource("2_c53ej")
 title = "Marksman"

@@ -1,6 +1,6 @@
 extends Marker2D
 
-const UPGRADE_CARD = preload("res://scenes/upgrade_card2.tscn")
+const UPGRADE_CARD = preload("res://scenes/upgrade_card.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

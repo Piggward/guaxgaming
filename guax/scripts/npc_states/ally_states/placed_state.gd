@@ -1,7 +1,6 @@
 class_name PlacedState
 extends OutOfBattleState
 
-const UPGRADE_CARD = preload("res://scenes/upgrade_card2.tscn")
 func enter():
 	ally.battle_start_location = ally.global_position
 	ally.input_event.connect(_on_input_event)

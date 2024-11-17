@@ -49,4 +49,4 @@ func can_shop() -> bool:
 	return TurnManager.current_phase.phase == TurnPhase.Phase.SHOPPING
 	
 func can_afford(cost: int) -> bool:
-	return GameManager.player_gold > cost
+	return GameManager.player_gold >= cost
