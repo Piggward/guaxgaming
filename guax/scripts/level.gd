@@ -19,6 +19,7 @@ func _ready():
 	GameManager.player_gold = player_starting_gold
 	GameManager.player_max_health = player_starting_health
 	GameManager.player_health = player_starting_health
+	GameManager.player_gold_updated.emit(player_starting_gold)
 	GameManager.level = self
 	
 	TurnManager.init()

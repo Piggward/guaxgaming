@@ -15,8 +15,6 @@ signal player_gold_updated(new_gold: int)
 func _ready():
 	ally_purchased.connect(on_ally_purchased)
 	ally_promotion.connect(on_ally_promotion)
-	player_gold = 5000
-	player_health = 100
 	pass # Replace with function body.
 
 func can_purchase(cost: int) -> bool:
