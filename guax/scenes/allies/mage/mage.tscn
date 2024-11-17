@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://c333vpdqm6vuj" path="res://scenes/scene_templates/npc_template.tscn" id="1_1ck4v"]
 [ext_resource type="Script" path="res://scripts/ally.gd" id="2_t56v5"]
-[ext_resource type="Script" path="res://resources/classes/promotion.gd" id="3_jreoh"]
+[ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_jreoh"]
 [ext_resource type="PackedScene" uid="uid://coy0k3wst2pcj" path="res://scenes/character_sprites/humanoids/basic_purple_human.tscn" id="3_o41n1"]
 [ext_resource type="Resource" uid="uid://ea57yfn7o6gj" path="res://resources/attacks/basic_ranged_attack.tres" id="3_yfy3y"]
 [ext_resource type="Texture2D" uid="uid://bswlqrqrl5ci2" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_pole.png" id="4_y57x2"]

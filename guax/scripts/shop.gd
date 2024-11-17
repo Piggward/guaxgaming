@@ -13,6 +13,9 @@ func _ready():
 		var sitem = SHOP_ITEM.instantiate()
 		sitem.npc_scene = item
 		container.add_child(sitem)
+		
+	#var offset = self.size.x
+	#position -= offset / 2
 	pass # Replace with function body.
 
 func _on_shop_turn_start():

@@ -25,7 +25,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_gui_input(event):
-	if event.is_action_pressed("left_mouse") && !cd && GameManager.can_purchase(store_front) && PlayerControlManager.can_drag():
+	if event.is_action_pressed("left_mouse") && !cd && GameManager.can_purchase(store_front.cost) && PlayerControlManager.can_drag():
 		var ally: Ally = store_front.duplicate()
 		get_tree().root.add_child(ally)
 		ally.out_of_battle_state_machine.current_state.pick_from_shop()

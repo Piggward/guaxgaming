@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_r8kjx"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="3_2cyso"]
 [ext_resource type="Texture2D" uid="uid://drjxemlp6fypk" path="res://art/AI_test/20b2a804-0e44-49a3-a305-0cadbff55f38.png" id="3_ce4an"]
-[ext_resource type="Script" path="res://resources/classes/promotion.gd" id="3_meqh2"]
+[ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_meqh2"]
 [ext_resource type="PackedScene" uid="uid://cwpltej0y2rkb" path="res://scenes/allies/ranger/marksman.tscn" id="4_pnx5b"]
 [ext_resource type="Texture2D" uid="uid://dfse6le3rh5kv" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_bow.png" id="4_vdyar"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="5_23tlb"]

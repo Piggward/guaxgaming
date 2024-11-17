@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_oq3xn")
-cost = 0
+cost = 500
 bonus_health = 10
 bonus_damage = 10
 bonus_range = 10.0

@@ -51,10 +51,6 @@ theme_override_font_sizes/font_size = 30
 text = "SHOP
 "
 
-[node name="Button" type="Button" parent="VBoxContainer/PanelContainer2/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 8
-
 [node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_34lgt")

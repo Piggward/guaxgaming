@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c333vpdqm6vuj" path="res://scenes/scene_templates/npc_template.tscn" id="1_u5yn1"]
 [ext_resource type="Script" path="res://scripts/ally.gd" id="2_6o18l"]
 [ext_resource type="Script" path="res://scripts/npc_states/out_of_battle_statemachine.gd" id="3_oj1wb"]
-[ext_resource type="Script" path="res://resources/classes/promotion.gd" id="3_q4lff"]
+[ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_q4lff"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/none_state.gd" id="4_77khl"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/placed_state.gd" id="5_26di0"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/draging_state.gd" id="6_7ytyo"]
