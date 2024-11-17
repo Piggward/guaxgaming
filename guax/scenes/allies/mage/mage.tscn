@@ -180,6 +180,8 @@ _data = {
 
 [node name="Mage" instance=ExtResource("1_1ck4v")]
 script = ExtResource("2_t56v5")
+cost = 0
+ally_class = null
 attack = ExtResource("3_yfy3y")
 title = "Mage"
 

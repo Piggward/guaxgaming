@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://dc2k3h3hg841k"]
+[gd_scene load_steps=16 format=3 uid="uid://cwpltej0y2rkb"]
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_l77dx"]
+[ext_resource type="Resource" uid="uid://b80coxu8ihmp1" path="res://resources/classes/marksman_class.tres" id="2_0v5as"]
 [ext_resource type="Resource" uid="uid://ea57yfn7o6gj" path="res://resources/attacks/basic_ranged_attack.tres" id="2_c53ej"]
 [ext_resource type="Texture2D" uid="uid://drjxemlp6fypk" path="res://art/AI_test/20b2a804-0e44-49a3-a305-0cadbff55f38.png" id="3_6e7k0"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="4_ji6o8"]
@@ -228,13 +229,14 @@ _data = {
 [node name="Marksman" instance=ExtResource("1_l77dx")]
 rotation = -0.111155
 cost = 2000
+ally_class = ExtResource("2_0v5as")
 speed = 100
 attack = ExtResource("2_c53ej")
 title = "Marksman"
 
 [node name="Root" parent="." index="4"]
 rotation = -1.49814
-scale = Vector2(1.105, 1.105)
+scale = Vector2(1.7404, 1.9902)
 
 [node name="Character Sprite" type="Sprite2D" parent="Root" index="0"]
 modulate = Color(0.629675, 0.629675, 0.629675, 1)
@@ -272,7 +274,10 @@ state = 1
 script = ExtResource("9_db4m4")
 state = 2
 
-[node name="AnimationPlayer" parent="." index="6"]
+[node name="OutOfBattleStateMachine" parent="." index="6" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("PlacedState")
+
+[node name="AnimationPlayer" parent="." index="7"]
 libraries = {
 "": SubResource("AnimationLibrary_886hd"),
 "Marksman": SubResource("AnimationLibrary_ljcjm")

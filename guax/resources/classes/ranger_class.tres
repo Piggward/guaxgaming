@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Class" load_steps=4 format=3 uid="uid://61nduhlmdrqh"]
+
+[ext_resource type="Script" path="res://resources/classes/class.gd" id="1_wf1ij"]
+[ext_resource type="Resource" uid="uid://b80coxu8ihmp1" path="res://resources/classes/marksman_class.tres" id="2_0qo5e"]
+[ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="3_4ohru"]
+
+[resource]
+script = ExtResource("1_wf1ij")
+cost = 0
+upgrade = ExtResource("3_4ohru")
+class_upgrades = Array[ExtResource("1_wf1ij")]([ExtResource("2_0qo5e"), ExtResource("2_0qo5e"), ExtResource("2_0qo5e")])
+class_scene_path = "ranger/ranger"

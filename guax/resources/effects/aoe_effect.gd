@@ -8,7 +8,7 @@ var aoe: AreaOfEffect
 func trigger(attack: Attack, target: Npc, projectile: Projectile = null) -> void:
 	# Extend AoeEffect script and overwrite this method to customize the aoe-effect.
 	for body in aoe.get_overlapping_bodies():
-		if body is Npc and is_enemy(attack.performer, body):
+		if body is Npc and attack.performer.is_enemy(body):
 			body.take_damage(attack.damage)
 			
 	aoe.queue_free()

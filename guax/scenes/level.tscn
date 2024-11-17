@@ -1,10 +1,10 @@
-[gd_scene load_steps=28 format=4 uid="uid://dqvr3b6w07dr1"]
+[gd_scene load_steps=30 format=4 uid="uid://dqvr3b6w07dr1"]
 
 [ext_resource type="Texture2D" uid="uid://dqiw5k64mi133" path="res://art/kenney_scribble-dungeons/Tilesheet/tilesheet.png" id="1_5n2xs"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_80x34"]
-[ext_resource type="PackedScene" uid="uid://cbvo22bysuwrk" path="res://scenes/shop.tscn" id="2_b8kgr"]
 [ext_resource type="PackedScene" uid="uid://7kwja2wq63gd" path="res://scenes/waves/test_wave_1.tscn" id="2_hoagx"]
 [ext_resource type="PackedScene" uid="uid://c1naarkppitxn" path="res://scenes/waves/test_wave_2.tscn" id="3_h7jwk"]
+[ext_resource type="PackedScene" uid="uid://vafbojecxpb6" path="res://scenes/waves/test_wave_3.tscn" id="4_2fewv"]
 [ext_resource type="Texture2D" uid="uid://cigo17wlx6w7u" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_axe_double.png" id="5_4asks"]
 [ext_resource type="Script" path="res://scripts/start_wave_button.gd" id="6_dgeyi"]
 [ext_resource type="PackedScene" uid="uid://cjevh1ieopuam" path="res://scenes/enemy_spawn.tscn" id="6_few75"]
@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://b05xc1w1adad" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/wall.png" id="17_nffe2"]
 [ext_resource type="Texture2D" uid="uid://byxpwvlrdu7og" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/wall_demolished.png" id="18_1eb3h"]
 [ext_resource type="PackedScene" uid="uid://b8ixl4nnppqyi" path="res://scenes/allies/ranger/ranger.tscn" id="18_e680i"]
+[ext_resource type="PackedScene" uid="uid://dpkuxxq5vnie7" path="res://scenes/shop_2.tscn" id="19_40hc1"]
+[ext_resource type="Script" path="res://scripts/upgrade_card_marker.gd" id="22_smyi1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dg0x"]
 texture = ExtResource("1_5n2xs")
@@ -206,7 +208,7 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(0, -1, 1420, -9, 1407, 
 script = ExtResource("1_80x34")
 player_starting_gold = 5000
 player_starting_health = 100
-waves = Array[PackedScene]([ExtResource("3_h7jwk"), ExtResource("2_hoagx")])
+waves = Array[PackedScene]([ExtResource("3_h7jwk"), ExtResource("2_hoagx"), ExtResource("4_2fewv"), ExtResource("4_2fewv"), ExtResource("4_2fewv")])
 metadata/_edit_horizontal_guides_ = [623.0]
 
 [node name="Tilemaps" type="Node2D" parent="."]
@@ -369,14 +371,6 @@ shape = SubResource("RectangleShape2D_ggb80")
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 navigation_polygon = SubResource("NavigationPolygon_man46")
 
-[node name="Shop" parent="." instance=ExtResource("2_b8kgr")]
-z_index = 2
-offset_left = 3.0
-offset_top = 3.0
-offset_right = 43.0
-offset_bottom = 43.0
-items = Array[PackedScene]([ExtResource("18_e680i")])
-
 [node name="Button" type="Button" parent="."]
 offset_left = 540.0
 offset_top = 5.0
@@ -390,3 +384,15 @@ icon = ExtResource("5_4asks")
 script = ExtResource("6_dgeyi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Shop2" parent="CanvasLayer" instance=ExtResource("19_40hc1")]
+offset_left = 521.0
+offset_top = 411.0
+offset_right = 521.0
+offset_bottom = 411.0
+items = Array[PackedScene]([ExtResource("18_e680i"), ExtResource("18_e680i"), ExtResource("18_e680i")])
+
+[node name="UpgradeCardMarker" type="Marker2D" parent="CanvasLayer"]
+z_index = -1
+position = Vector2(63, 127)
+script = ExtResource("22_smyi1")

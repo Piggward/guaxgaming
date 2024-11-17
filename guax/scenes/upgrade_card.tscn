@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://tbs5ltjh2ykq"]
+
+[ext_resource type="Script" path="res://scripts/upgrade_card.gd" id="1_u2y3l"]
+[ext_resource type="PackedScene" uid="uid://betckb6cvj60" path="res://scenes/upgrade_card2.tscn" id="2_x5bm0"]
+
+[node name="UpgradeCard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1182.0
+offset_bottom = -465.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_u2y3l")
+
+[node name="UpgradeCard" parent="." instance=ExtResource("2_x5bm0")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+grow_vertical = 1

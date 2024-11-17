@@ -21,3 +21,6 @@ func enter():
 
 func exit():
 	pass
+
+func _ready(): 
+	TurnManager.battle_turn.turn_end.connect(func(): target = null)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://b8ixl4nnppqyi"]
+[gd_scene load_steps=16 format=3 uid="uid://b8ixl4nnppqyi"]
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_djvip"]
 [ext_resource type="Resource" uid="uid://ea57yfn7o6gj" path="res://resources/attacks/basic_ranged_attack.tres" id="2_jcuwh"]
+[ext_resource type="Resource" uid="uid://61nduhlmdrqh" path="res://resources/classes/ranger_class.tres" id="2_mmwqg"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="3_2cyso"]
 [ext_resource type="Texture2D" uid="uid://drjxemlp6fypk" path="res://art/AI_test/20b2a804-0e44-49a3-a305-0cadbff55f38.png" id="3_ce4an"]
 [ext_resource type="Texture2D" uid="uid://dfse6le3rh5kv" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_bow.png" id="4_vdyar"]
@@ -228,10 +229,15 @@ _data = {
 [node name="Ranger" instance=ExtResource("1_djvip")]
 rotation = -0.111155
 cost = 2000
+ally_class = ExtResource("2_mmwqg")
+maxHealth = 50
 speed = 100
 attackspeed = 1
 attack = ExtResource("2_jcuwh")
 title = "Ranger"
+
+[node name="ProgressBar" parent="Node2D" index="0"]
+metadata/_edit_use_anchors_ = true
 
 [node name="Root" parent="." index="4"]
 rotation = -1.49814
@@ -279,6 +285,9 @@ libraries = {
 "": SubResource("AnimationLibrary_886hd"),
 "Ranger": SubResource("AnimationLibrary_ljcjm")
 }
+
+[node name="UIControl" parent="." index="10"]
+metadata/_edit_use_anchors_ = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
