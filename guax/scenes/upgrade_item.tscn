@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dppoqopbvm4xp"]
+[gd_scene load_steps=5 format=3 uid="uid://dppoqopbvm4xp"]
 
 [ext_resource type="Script" path="res://scripts/upgrade_item.gd" id="1_lspls"]
-[ext_resource type="Resource" uid="uid://b80coxu8ihmp1" path="res://resources/classes/marksman_class.tres" id="2_hsbir"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dulgb"]
 bg_color = Color(0.754647, 0.74703, 0.542539, 1)
@@ -40,7 +39,6 @@ offset_bottom = 0.279999
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_lspls")
-upgrade = ExtResource("2_hsbir")
 
 [node name="UpgradeItemVbox" type="VBoxContainer" parent="."]
 layout_mode = 1

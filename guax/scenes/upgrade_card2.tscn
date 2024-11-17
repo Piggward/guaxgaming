@@ -87,7 +87,7 @@ theme_override_colors/font_color = Color(0.779513, 0.723424, 0, 1)
 text = "UPGRADE: 2000 GOLD"
 horizontal_alignment = 1
 
-[node name="ClassUpgradeContainer" type="HBoxContainer" parent="CoreShopItemPanel/VBoxContainer"]
+[node name="PromotionContainer" type="HBoxContainer" parent="CoreShopItemPanel/VBoxContainer"]
 layout_mode = 2
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

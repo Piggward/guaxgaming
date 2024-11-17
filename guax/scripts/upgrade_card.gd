@@ -6,8 +6,8 @@ extends Control
 @onready var stats_label = $CoreShopItemPanel/VBoxContainer/UpgradeContainer/StatsLabel
 @onready var upgrade_cost_panel = $CoreShopItemPanel/VBoxContainer/UpgradeCostPanel
 @export var ally: Ally
-@onready var class_upgrade_container = $CoreShopItemPanel/VBoxContainer/ClassUpgradeContainer
 const UPGRADE_ITEM = preload("res://scenes/upgrade_item.tscn")
+@onready var promotion_container = $CoreShopItemPanel/VBoxContainer/PromotionContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -16,15 +16,15 @@ func _ready():
 Range: {rng}
 Attackspeed: {atsp}
 Base health: {bsh}".format({"dmg": str(ally.attack.damage), "rng": str(ally.attack.range),"atsp": ally.attackspeed, "bsh": ally.maxHealth})
-	upgrade_cost.text = str(ally.ally_class.upgrade.cost) + " gold"
+	upgrade_cost.text = str(ally.upgrade.cost) + " gold"
 	unit_name.text = ally.title + " level: " + str(ally.upgrade_level)
-	for upgrade in ally.ally_class.class_upgrades:
+	for promotion in ally.promotion_path:
 		var cont = VBoxContainer.new()
 		var upgrade_item = UPGRADE_ITEM.instantiate()
-		upgrade_item.upgrade = upgrade
+		upgrade_item.promotion = promotion
 		upgrade_item.ally = ally
 		cont.add_child(upgrade_item)
-		class_upgrade_container.add_child(cont)
+		promotion_container.add_child(cont)
 	pass # Replace with function body.
 
 
