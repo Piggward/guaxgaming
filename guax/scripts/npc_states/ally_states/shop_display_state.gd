@@ -2,6 +2,7 @@ class_name ShopDisplayState
 extends OutOfBattleState
 
 func enter():
+	ally.battle_start_location = Vector2.ZERO
 	pass
 
 func exit():
