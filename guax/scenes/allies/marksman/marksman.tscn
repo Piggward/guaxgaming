@@ -1,15 +1,15 @@
 [gd_scene load_steps=16 format=3 uid="uid://cwpltej0y2rkb"]
 
-[ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_l77dx"]
-[ext_resource type="Resource" uid="uid://ea57yfn7o6gj" path="res://resources/attacks/basic_ranged_attack.tres" id="2_c53ej"]
-[ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_h3xqx"]
-[ext_resource type="Texture2D" uid="uid://drjxemlp6fypk" path="res://art/AI_test/20b2a804-0e44-49a3-a305-0cadbff55f38.png" id="3_6e7k0"]
-[ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="4_ji6o8"]
-[ext_resource type="Texture2D" uid="uid://mcv3rtscdpag" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_arrow.png" id="5_gimh3"]
-[ext_resource type="Texture2D" uid="uid://dfse6le3rh5kv" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_bow.png" id="6_bb5ac"]
-[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="7_3yu85"]
-[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="8_3bxi8"]
-[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="9_db4m4"]
+[ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_qlki8"]
+[ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_hqent"]
+[ext_resource type="Resource" uid="uid://ea57yfn7o6gj" path="res://resources/attacks/basic_ranged_attack.tres" id="3_nggn6"]
+[ext_resource type="Texture2D" uid="uid://drjxemlp6fypk" path="res://art/AI_test/20b2a804-0e44-49a3-a305-0cadbff55f38.png" id="4_5eh5m"]
+[ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="5_1qn2y"]
+[ext_resource type="Texture2D" uid="uid://mcv3rtscdpag" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_arrow.png" id="6_2fl2l"]
+[ext_resource type="Texture2D" uid="uid://dfse6le3rh5kv" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_bow.png" id="7_mbps2"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="8_igcsk"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="9_p68gv"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="10_oekt4"]
 
 [sub_resource type="Animation" id="Animation_0ebak"]
 length = 0.001
@@ -226,13 +226,13 @@ _data = {
 "Idle": SubResource("Animation_deet6")
 }
 
-[node name="Marksman" instance=ExtResource("1_l77dx")]
+[node name="Marksman" instance=ExtResource("1_qlki8")]
 rotation = -0.111155
 cost = 2000
-upgrade = ExtResource("2_h3xqx")
+upgrade = ExtResource("2_hqent")
 maxHealth = 100
 speed = 100
-attack = ExtResource("2_c53ej")
+attack = ExtResource("3_nggn6")
 title = "Marksman"
 
 [node name="Root" parent="." index="4"]
@@ -240,39 +240,39 @@ rotation = -1.49814
 scale = Vector2(1.7404, 1.9902)
 
 [node name="Character Sprite" type="Sprite2D" parent="Root" index="0"]
-modulate = Color(0.629675, 0.629675, 0.629675, 1)
-texture = ExtResource("3_6e7k0")
+modulate = Color(0.61339, 0.61339, 0.61339, 1)
+texture = ExtResource("4_5eh5m")
 
 [node name="Hand right" type="Sprite2D" parent="Root/Character Sprite" index="0"]
 position = Vector2(-33, 10)
-texture = ExtResource("4_ji6o8")
+texture = ExtResource("5_1qn2y")
 
 [node name="Arrow" type="Sprite2D" parent="Root/Character Sprite/Hand right" index="0"]
 position = Vector2(1, 18)
 rotation = 3.13587
-texture = ExtResource("5_gimh3")
+texture = ExtResource("6_2fl2l")
 
 [node name="Hand left" type="Sprite2D" parent="Root/Character Sprite" index="1"]
 position = Vector2(34, 12)
 rotation = 1.86696
-texture = ExtResource("4_ji6o8")
+texture = ExtResource("5_1qn2y")
 
 [node name="Bow" type="Sprite2D" parent="Root/Character Sprite/Hand left" index="0"]
 modulate = Color(0.465489, 0.403875, 0.101977, 1)
-texture = ExtResource("6_bb5ac")
+texture = ExtResource("7_mbps2")
 
 [node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("BasicIdleState")
 
 [node name="BasicIdleState" type="Node" parent="StateMachine" index="0"]
-script = ExtResource("7_3yu85")
+script = ExtResource("8_igcsk")
 
 [node name="BasicHuntingState" type="Node" parent="StateMachine" index="1"]
-script = ExtResource("8_3bxi8")
+script = ExtResource("9_p68gv")
 state = 1
 
 [node name="BasicAttackingState" type="Node" parent="StateMachine" index="2"]
-script = ExtResource("9_db4m4")
+script = ExtResource("10_oekt4")
 state = 2
 
 [node name="OutOfBattleStateMachine" parent="." index="6" node_paths=PackedStringArray("initial_state")]

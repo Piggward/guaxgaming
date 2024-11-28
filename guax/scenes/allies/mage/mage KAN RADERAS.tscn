@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://dt0se21ntcu1f"]
+[gd_scene load_steps=18 format=3 uid="uid://dt0se21ntcu1f"]
 
 [ext_resource type="PackedScene" uid="uid://c333vpdqm6vuj" path="res://scenes/scene_templates/npc_template.tscn" id="1_mgtgw"]
 [ext_resource type="Script" path="res://scripts/ally.gd" id="2_jm3aj"]
 [ext_resource type="Resource" uid="uid://ea57yfn7o6gj" path="res://resources/attacks/basic_ranged_attack.tres" id="3_g0qab"]
+[ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_lthvu"]
 [ext_resource type="PackedScene" uid="uid://coy0k3wst2pcj" path="res://scenes/character_sprites/humanoids/basic_purple_human.tscn" id="4_mjjng"]
 [ext_resource type="Texture2D" uid="uid://d2vcr2vgst8g5" path="res://art/AI_test/e475cd98-cde2-4362-9d27-16d834ea2873 (1).png" id="5_va88b"]
 [ext_resource type="Texture2D" uid="uid://bswlqrqrl5ci2" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_pole.png" id="6_d5sh1"]
@@ -181,6 +182,8 @@ _data = {
 [node name="Mage" instance=ExtResource("1_mgtgw")]
 script = ExtResource("2_jm3aj")
 cost = 0
+upgrade = null
+promotion_path = Array[ExtResource("3_lthvu")]([])
 attack = ExtResource("3_g0qab")
 title = "Mage"
 
