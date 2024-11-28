@@ -1,0 +1,239 @@
+[gd_scene load_steps=18 format=3 uid="uid://ci0tfreekqfdy"]
+
+[ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_fhmrl"]
+[ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_g28na"]
+[ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_qcuoe"]
+[ext_resource type="PackedScene" uid="uid://cwpltej0y2rkb" path="res://scenes/allies/marksman/marksman.tscn" id="4_uivni"]
+[ext_resource type="Resource" uid="uid://djct0uybjmc2m" path="res://scenes/allies/ranger/muskateer/attack_muskateer.tres" id="5_ew0kf"]
+[ext_resource type="Texture2D" uid="uid://c5jhwrqfjf56y" path="res://art/AI_test/DALL·E 2024-11-19 17.55.28 - Top-down view of a medieval archer veteran, consistent with the previous style inspired by Hotline Miami. The focus is on the head and shoulders, with.png" id="6_jg1ym"]
+[ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="7_thgyr"]
+[ext_resource type="Texture2D" uid="uid://b1beepwry4u8e" path="res://art/Gustav best artist in world xd/musket_fylld_färgad.png" id="9_acibn"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="10_nvk3k"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="11_gt4s3"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="12_kfkvr"]
+
+[sub_resource type="Resource" id="Resource_od51v"]
+script = ExtResource("3_qcuoe")
+cost = 4
+cost_type = "EMERALD"
+promotion_scene = ExtResource("4_uivni")
+
+[sub_resource type="Animation" id="Animation_0ebak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.86696]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(34, 12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-33, 10)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_886hd"]
+_data = {
+"RESET": SubResource("Animation_0ebak")
+}
+
+[sub_resource type="Animation" id="Animation_ee0c2"]
+resource_name = "Attack1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.666667, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [3.05655, 1.89088, 1.89088, 1.89088, 3.05655]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.4, 0.5, 0.666667, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(25.211, 20.9859), Vector2(14.718, 33.5914), Vector2(14.718, 33.5914), Vector2(16.0252, 25.6358), Vector2(12.681, 34.5137), Vector2(12.681, 34.5137), Vector2(25.211, 20.9859)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.4, 0.5, 0.666667, 0.833333, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-11.1858, 30.5921), Vector2(9.56629, 63.4152), Vector2(9.56629, 63.4152), Vector2(10.912, 54.4603), Vector2(7.52928, 64.3375), Vector2(7.52929, 64.3375), Vector2(-11.1858, 30.5921)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/BasicAttackingState")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot_projectile"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_deet6"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.035, 1.035), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-11.1858, 30.5921), Vector2(-8.98812, 32.5284), Vector2(-11.1858, 30.5921)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(25.211, 20.9859), Vector2(24.284, 22.2072), Vector2(25.211, 20.9859)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [3.05655, 3.05655]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ljcjm"]
+_data = {
+"Attack1": SubResource("Animation_ee0c2"),
+"Idle": SubResource("Animation_deet6")
+}
+
+[node name="Muskateer" instance=ExtResource("1_fhmrl")]
+rotation = -0.111155
+cost = 2000
+upgrade = ExtResource("2_g28na")
+promotion_path = Array[ExtResource("3_qcuoe")]([SubResource("Resource_od51v"), SubResource("Resource_od51v"), SubResource("Resource_od51v")])
+maxHealth = 50
+speed = 100
+attackspeed = 60
+attack = ExtResource("5_ew0kf")
+title = "Muskateer"
+
+[node name="ProgressBar" parent="Node2D" index="0"]
+metadata/_edit_use_anchors_ = true
+
+[node name="Root" parent="." index="4"]
+rotation = -1.49814
+
+[node name="Character Sprite" type="Sprite2D" parent="Root" index="0"]
+texture = ExtResource("6_jg1ym")
+
+[node name="Hand right" type="Sprite2D" parent="Root/Character Sprite" index="0"]
+position = Vector2(-33, 10)
+texture = ExtResource("7_thgyr")
+
+[node name="Hand left" type="Sprite2D" parent="Root/Character Sprite" index="1"]
+position = Vector2(34, 12)
+rotation = 1.86696
+texture = ExtResource("7_thgyr")
+
+[node name="Bow" type="Sprite2D" parent="Root/Character Sprite/Hand left" index="0"]
+modulate = Color(0.546225, 0.515741, 0.48686, 1)
+position = Vector2(19.2022, -4.50289)
+rotation = -0.257484
+scale = Vector2(0.525, 0.525)
+texture = ExtResource("9_acibn")
+
+[node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("BasicIdleState")
+
+[node name="BasicIdleState" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("10_nvk3k")
+
+[node name="BasicHuntingState" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("11_gt4s3")
+state = 1
+
+[node name="BasicAttackingState" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("12_kfkvr")
+state = 2
+
+[node name="OutOfBattleStateMachine" parent="." index="6" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("ShopDisplayState")
+
+[node name="AnimationPlayer" parent="." index="7"]
+libraries = {
+"": SubResource("AnimationLibrary_886hd"),
+"Muskateer": SubResource("AnimationLibrary_ljcjm")
+}
+
+[node name="UIControl" parent="." index="10"]
+metadata/_edit_use_anchors_ = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

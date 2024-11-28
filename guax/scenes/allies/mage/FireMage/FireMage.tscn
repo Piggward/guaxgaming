@@ -1,13 +1,22 @@
-[gd_scene load_steps=14 format=3 uid="uid://dm8i5wt5io2ku"]
+[gd_scene load_steps=18 format=3 uid="uid://csndihtqywnah"]
 
-[ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_qyxk4"]
-[ext_resource type="Resource" uid="uid://ea57yfn7o6gj" path="res://resources/attacks/basic_ranged_attack.tres" id="2_nl4d6"]
-[ext_resource type="Texture2D" uid="uid://d2vcr2vgst8g5" path="res://art/AI_test/e475cd98-cde2-4362-9d27-16d834ea2873 (1).png" id="3_wukgy"]
-[ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="4_x00wk"]
-[ext_resource type="Texture2D" uid="uid://bswlqrqrl5ci2" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_pole.png" id="5_lftqe"]
-[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="6_wxvwx"]
-[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="7_5fk7n"]
-[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="8_gb6fd"]
+[ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_py8k5"]
+[ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_b6y6p"]
+[ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_rpm3x"]
+[ext_resource type="PackedScene" uid="uid://dbb8cxyq4meoc" path="res://scenes/allies/mage/sorcerer Kan raderas.tscn" id="4_xigs7"]
+[ext_resource type="Resource" uid="uid://dpe5atyakg6r3" path="res://scenes/allies/mage/FireMage/fire_mage_attack.tres" id="5_2hcnp"]
+[ext_resource type="Texture2D" uid="uid://bvx8lc2qmljxw" path="res://art/AI_test/DALL·E 2024-11-21 19.48.49 - Top-down view of a medieval mage in vibrant red robes, inspired by the style of Hotline Miami. The focus is on the head and shoulders, with no arms vi.png" id="6_lv8qy"]
+[ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="7_sjeg8"]
+[ext_resource type="Texture2D" uid="uid://drhx3dqbfv4dg" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_staff.png" id="8_rs14u"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="9_sskv6"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="10_1nnwp"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="11_xdy6k"]
+
+[sub_resource type="Resource" id="Resource_fuwrp"]
+script = ExtResource("3_rpm3x")
+cost = 0
+cost_type = "SAPHIRE"
+promotion_scene = ExtResource("4_xigs7")
 
 [sub_resource type="Animation" id="Animation_0ebak"]
 length = 0.001
@@ -163,47 +172,50 @@ _data = {
 "Idle": SubResource("Animation_8vwtc")
 }
 
-[node name="Sorcerer" instance=ExtResource("1_qyxk4")]
+[node name="Fire Mage" instance=ExtResource("1_py8k5")]
 rotation = -0.111155
 cost = 2000
+upgrade = ExtResource("2_b6y6p")
+promotion_path = Array[ExtResource("3_rpm3x")]([SubResource("Resource_fuwrp"), SubResource("Resource_fuwrp"), SubResource("Resource_fuwrp")])
 speed = 100
 attackspeed = 1
-attack = ExtResource("2_nl4d6")
-title = "Sorcerer"
+attack = ExtResource("5_2hcnp")
+title = "Fire Mage"
 
 [node name="Root" parent="." index="4"]
 rotation = -1.49814
 
 [node name="Character Sprite" type="Sprite2D" parent="Root" index="0"]
-texture = ExtResource("3_wukgy")
+scale = Vector2(1.00233, 1.00233)
+texture = ExtResource("6_lv8qy")
 
 [node name="Hand right" type="Sprite2D" parent="Root/Character Sprite" index="0"]
 position = Vector2(-33, 10)
-texture = ExtResource("4_x00wk")
+texture = ExtResource("7_sjeg8")
 
 [node name="Hand left" type="Sprite2D" parent="Root/Character Sprite" index="1"]
 position = Vector2(34, 12)
 rotation = 1.86696
-texture = ExtResource("4_x00wk")
+texture = ExtResource("7_sjeg8")
 
 [node name="Staff" type="Sprite2D" parent="Root/Character Sprite/Hand left" index="0"]
-modulate = Color(0.517624, 0.479214, 0.976662, 1)
+modulate = Color(0.933333, 0.12549, 0.156863, 1)
 position = Vector2(1.28511, 0.795058)
 rotation = -1.45887
-texture = ExtResource("5_lftqe")
+texture = ExtResource("8_rs14u")
 
 [node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("BasicIdleState")
 
 [node name="BasicIdleState" type="Node" parent="StateMachine" index="0"]
-script = ExtResource("6_wxvwx")
+script = ExtResource("9_sskv6")
 
 [node name="BasicHuntingState" type="Node" parent="StateMachine" index="1"]
-script = ExtResource("7_5fk7n")
+script = ExtResource("10_1nnwp")
 state = 1
 
 [node name="BasicAttackingState" type="Node" parent="StateMachine" index="2"]
-script = ExtResource("8_gb6fd")
+script = ExtResource("11_xdy6k")
 state = 2
 
 [node name="OutOfBattleStateMachine" parent="." index="6" node_paths=PackedStringArray("initial_state")]
@@ -212,7 +224,7 @@ initial_state = NodePath("ShopDisplayState")
 [node name="AnimationPlayer" parent="." index="7"]
 libraries = {
 "": SubResource("AnimationLibrary_886hd"),
-"Sorcerer": SubResource("AnimationLibrary_ljcjm")
+"Fire Mage": SubResource("AnimationLibrary_ljcjm")
 }
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

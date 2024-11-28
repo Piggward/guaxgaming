@@ -9,6 +9,7 @@ script = ExtResource("1_4626l")
 travel_speed = 2.9
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-42, 0)
+position = Vector2(-18, 2.27371e-13)
 rotation = 1.5708
+scale = Vector2(0.46, 0.46)
 texture = ExtResource("2_1wrbq")

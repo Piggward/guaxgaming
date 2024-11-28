@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://bxtrgmcftymij"]
+[gd_scene load_steps=19 format=3 uid="uid://dg4v5mr6o4yu6"]
 
 [ext_resource type="PackedScene" uid="uid://c333vpdqm6vuj" path="res://scenes/scene_templates/npc_template.tscn" id="1_3d84b"]
 [ext_resource type="Script" path="res://scripts/ally.gd" id="2_n72ca"]
+[ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_bj67s"]
 [ext_resource type="Resource" uid="uid://evtuf3l5x5cs" path="res://resources/attacks/basic_melee_attack.tres" id="3_ywj07"]
 [ext_resource type="PackedScene" uid="uid://coy0k3wst2pcj" path="res://scenes/character_sprites/humanoids/basic_purple_human.tscn" id="4_5sclk"]
 [ext_resource type="Texture2D" uid="uid://cp0i8fy5um7f1" path="res://art/AI_test/b27d7a8e-dc2b-43f1-a17b-e488fd318721 (3).png" id="5_anhlg"]
@@ -183,6 +184,8 @@ _data = {
 [node name="Footman" instance=ExtResource("1_3d84b")]
 script = ExtResource("2_n72ca")
 cost = 0
+upgrade = null
+promotion_path = Array[ExtResource("3_bj67s")]([])
 maxHealth = 100
 speed = 100
 attack = ExtResource("3_ywj07")

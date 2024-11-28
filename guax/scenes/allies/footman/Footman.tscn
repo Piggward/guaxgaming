@@ -1,22 +1,37 @@
-[gd_scene load_steps=18 format=3 uid="uid://bxtrgmcftymij"]
+[gd_scene load_steps=21 format=3 uid="uid://dhowsoe3olcid"]
 
-[ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_p6ofr"]
-[ext_resource type="Resource" uid="uid://evtuf3l5x5cs" path="res://resources/attacks/basic_melee_attack.tres" id="2_nolmo"]
-[ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_w8agl"]
-[ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_73inj"]
-[ext_resource type="Texture2D" uid="uid://cp0i8fy5um7f1" path="res://art/AI_test/b27d7a8e-dc2b-43f1-a17b-e488fd318721 (3).png" id="3_xysx7"]
-[ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="4_v8g86"]
-[ext_resource type="PackedScene" uid="uid://dor3fr4bjgepd" path="res://scenes/allies/footman/Champion.tscn" id="4_w4afv"]
-[ext_resource type="Texture2D" uid="uid://bfw4muxb2mupy" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_longsword.png" id="5_sr5x8"]
-[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="7_h41ed"]
-[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="8_k0uj4"]
-[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="9_ou0kx"]
+[ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_vqdik"]
+[ext_resource type="Script" path="res://resources/upgrades/upgrade.gd" id="2_3x0rq"]
+[ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_vjwvv"]
+[ext_resource type="PackedScene" uid="uid://bxtrgmcftymij" path="res://scenes/allies/footman/Barbarian/Barbarian.tscn" id="4_2xl7i"]
+[ext_resource type="PackedScene" uid="uid://dor3fr4bjgepd" path="res://scenes/allies/champion/Champion.tscn" id="5_5djjd"]
+[ext_resource type="Resource" uid="uid://evtuf3l5x5cs" path="res://resources/attacks/basic_melee_attack.tres" id="5_xdgqr"]
+[ext_resource type="Texture2D" uid="uid://cp0i8fy5um7f1" path="res://art/AI_test/b27d7a8e-dc2b-43f1-a17b-e488fd318721 (3).png" id="6_3se0g"]
+[ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="7_kd4b4"]
+[ext_resource type="Texture2D" uid="uid://bfw4muxb2mupy" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_longsword.png" id="8_utvpp"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="9_bklxo"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="10_2kh11"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="11_rbeww"]
+
+[sub_resource type="Resource" id="Resource_0h3s4"]
+script = ExtResource("2_3x0rq")
+cost = 0
+bonus_health = 0
+bonus_damage = 0
+bonus_range = 0.0
+bonus_attack_speed = 0.0
 
 [sub_resource type="Resource" id="Resource_pcu0e"]
-script = ExtResource("3_73inj")
+script = ExtResource("3_vjwvv")
 cost = 0
 cost_type = "RUBY"
-promotion_scene = ExtResource("4_w4afv")
+promotion_scene = ExtResource("4_2xl7i")
+
+[sub_resource type="Resource" id="Resource_h5rf8"]
+script = ExtResource("3_vjwvv")
+cost = 0
+cost_type = "EMERALD"
+promotion_scene = ExtResource("5_5djjd")
 
 [sub_resource type="Animation" id="Animation_0ebak"]
 length = 0.001
@@ -161,49 +176,49 @@ _data = {
 "Idle": SubResource("Animation_ivckp")
 }
 
-[node name="Footman" instance=ExtResource("1_p6ofr")]
+[node name="Footman" instance=ExtResource("1_vqdik")]
 rotation = -0.111155
 cost = 2000
-upgrade = ExtResource("2_w8agl")
-promotion_path = Array[ExtResource("3_73inj")]([SubResource("Resource_pcu0e"), SubResource("Resource_pcu0e"), SubResource("Resource_pcu0e")])
+upgrade = SubResource("Resource_0h3s4")
+promotion_path = Array[ExtResource("3_vjwvv")]([SubResource("Resource_pcu0e"), SubResource("Resource_h5rf8")])
 speed = 100
 attackspeed = 1
-attack = ExtResource("2_nolmo")
+attack = ExtResource("5_xdgqr")
 title = "Footman"
 
 [node name="Root" parent="." index="4"]
 rotation = -1.49814
 
 [node name="Character Sprite" type="Sprite2D" parent="Root" index="0"]
-texture = ExtResource("3_xysx7")
+texture = ExtResource("6_3se0g")
 
 [node name="Hand right" type="Sprite2D" parent="Root/Character Sprite" index="0"]
 position = Vector2(-33, 10)
-texture = ExtResource("4_v8g86")
+texture = ExtResource("7_kd4b4")
 
 [node name="Hand left" type="Sprite2D" parent="Root/Character Sprite" index="1"]
 position = Vector2(34, 12)
 rotation = 1.86696
-texture = ExtResource("4_v8g86")
+texture = ExtResource("7_kd4b4")
 
 [node name="Sword" type="Sprite2D" parent="Root/Character Sprite/Hand left" index="0"]
 modulate = Color(0.564962, 0.564962, 0.564962, 1)
 position = Vector2(21.2899, 11.4632)
 rotation = 2.04413
-texture = ExtResource("5_sr5x8")
+texture = ExtResource("8_utvpp")
 
 [node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]
 initial_state = NodePath("BasicIdleState")
 
 [node name="BasicIdleState" type="Node" parent="StateMachine" index="0"]
-script = ExtResource("7_h41ed")
+script = ExtResource("9_bklxo")
 
 [node name="BasicHuntingState" type="Node" parent="StateMachine" index="1"]
-script = ExtResource("8_k0uj4")
+script = ExtResource("10_2kh11")
 state = 1
 
 [node name="BasicAttackingState" type="Node" parent="StateMachine" index="2"]
-script = ExtResource("9_ou0kx")
+script = ExtResource("11_rbeww")
 state = 2
 
 [node name="OutOfBattleStateMachine" parent="." index="6" node_paths=PackedStringArray("initial_state")]

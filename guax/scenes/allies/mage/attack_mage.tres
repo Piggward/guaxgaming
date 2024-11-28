@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ProjectileAttack" load_steps=6 format=3 uid="uid://rv1enwq2w7ac"]
+
+[ext_resource type="Script" path="res://resources/effects/effect.gd" id="1_e2482"]
+[ext_resource type="Script" path="res://resources/effects/splash_effect.gd" id="2_egs10"]
+[ext_resource type="PackedScene" uid="uid://ci1leftoehrpd" path="res://scenes/projectiles/mage_test_projectile.tscn" id="2_l3pug"]
+[ext_resource type="Script" path="res://resources/attacks/projectile_attack.gd" id="2_se7sh"]
+
+[sub_resource type="Resource" id="Resource_caao3"]
+script = ExtResource("2_egs10")
+splash_dmg_ratio = 1.0
+aoe_radius = 70.0
+name = "Arcane bolt"
+trigger_window = 0
+
+[resource]
+script = ExtResource("2_se7sh")
+projectile = ExtResource("2_l3pug")
+shoot_speed = 15.0
+damage = 30
+range = 400
+types = Array[int]([1, 3])
+animation = ""
+effects = Array[ExtResource("1_e2482")]([SubResource("Resource_caao3")])
