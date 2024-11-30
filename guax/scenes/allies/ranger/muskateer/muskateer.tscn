@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_qcuoe"]
 [ext_resource type="PackedScene" uid="uid://cwpltej0y2rkb" path="res://scenes/allies/marksman/marksman.tscn" id="4_uivni"]
 [ext_resource type="Resource" uid="uid://djct0uybjmc2m" path="res://scenes/allies/ranger/muskateer/attack_muskateer.tres" id="5_ew0kf"]
-[ext_resource type="Texture2D" uid="uid://c5jhwrqfjf56y" path="res://art/AI_test/DALL·E 2024-11-19 17.55.28 - Top-down view of a medieval archer veteran, consistent with the previous style inspired by Hotline Miami. The focus is on the head and shoulders, with.png" id="6_jg1ym"]
+[ext_resource type="Texture2D" uid="uid://cpyahj6fxiqrd" path="res://art/AI_test/archer.png" id="6_jg1ym"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="7_thgyr"]
 [ext_resource type="Texture2D" uid="uid://b1beepwry4u8e" path="res://art/Gustav best artist in world xd/musket_fylld_färgad.png" id="9_acibn"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="10_nvk3k"]
@@ -181,7 +181,7 @@ promotion_path = Array[ExtResource("3_qcuoe")]([SubResource("Resource_od51v"), S
 maxHealth = 50
 speed = 100
 attackspeed = 60
-attack = ExtResource("5_ew0kf")
+starting_attack = ExtResource("5_ew0kf")
 title = "Muskateer"
 
 [node name="ProgressBar" parent="Node2D" index="0"]

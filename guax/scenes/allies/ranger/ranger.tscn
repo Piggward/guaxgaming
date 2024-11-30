@@ -1,7 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://b8ixl4nnppqyi"]
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_djvip"]
-[ext_resource type="Resource" uid="uid://ea57yfn7o6gj" path="res://resources/attacks/basic_ranged_attack.tres" id="2_jcuwh"]
 [ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_r8kjx"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="3_2cyso"]
 [ext_resource type="Texture2D" uid="uid://drjxemlp6fypk" path="res://art/AI_test/20b2a804-0e44-49a3-a305-0cadbff55f38.png" id="3_ce4an"]
@@ -12,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://mcv3rtscdpag" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_arrow.png" id="5_i2kuk"]
 [ext_resource type="PackedScene" uid="uid://dm8i5wt5io2ku" path="res://scenes/allies/sorcerer/Sorcerer.tscn" id="5_wplt0"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="6_igs2r"]
+[ext_resource type="Resource" uid="uid://kjnlb7vkq6o6" path="res://scenes/allies/ranger/attack_ranger.tres" id="6_vjwna"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="7_oqyq0"]
 
 [sub_resource type="Resource" id="Resource_35is3"]
@@ -255,7 +255,7 @@ promotion_path = Array[ExtResource("3_meqh2")]([SubResource("Resource_35is3"), S
 maxHealth = 50
 speed = 100
 attackspeed = 1
-attack = ExtResource("2_jcuwh")
+starting_attack = ExtResource("6_vjwna")
 title = "Ranger"
 
 [node name="ProgressBar" parent="Node2D" index="0"]

@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://dm8i5wt5io2ku"]
+[gd_scene load_steps=13 format=3 uid="uid://dm8i5wt5io2ku"]
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_2kq3b"]
-[ext_resource type="Resource" uid="uid://ea57yfn7o6gj" path="res://resources/attacks/basic_ranged_attack.tres" id="2_eglq2"]
 [ext_resource type="Texture2D" uid="uid://d2vcr2vgst8g5" path="res://art/AI_test/e475cd98-cde2-4362-9d27-16d834ea2873 (1).png" id="3_j1vj1"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="4_xec7f"]
 [ext_resource type="Texture2D" uid="uid://bswlqrqrl5ci2" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_pole.png" id="5_wp3st"]
@@ -168,7 +167,6 @@ rotation = -0.111155
 cost = 2000
 speed = 100
 attackspeed = 1
-attack = ExtResource("2_eglq2")
 title = "Sorcerer"
 
 [node name="Root" parent="." index="4"]

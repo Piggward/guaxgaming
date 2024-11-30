@@ -2,7 +2,7 @@ extends Control
 
 @export var npc_scene: PackedScene
 
-@onready var unit_name = $VBoxContainer/CoreShopItemPanel/VBoxContainer/HeaderShopItemPanel/UnitName
+@onready var unit_name = $VBoxContainer/CoreShopItemPanel/VBoxContainer/HeaderShopItemPanel/MarginContainer/UnitName
 @onready var unit_info = $VBoxContainer/CoreShopItemPanel/VBoxContainer/UnitInfo
 @onready var unit_cost = $VBoxContainer/CostPanel/UnitCost
 

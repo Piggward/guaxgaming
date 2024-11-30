@@ -6,8 +6,9 @@ extends CharacterBody2D
 var currentHealth
 @export var speed = 30
 @export var attackspeed = 30
-@export var attack: Attack
+@export var starting_attack: Attack
 @export var title: String
+var attack: Attack
 
 #navigation
 @onready var advanced_navigation: AdvancedNavigation = $NavigationAgent2D
@@ -38,7 +39,12 @@ func _ready():
 	currentHealth = maxHealth
 	advanced_navigation.set_agent_target(position)
 	state_machine.init(self)
+	# Important to duplicate the starting_attack here, upgrades applied to the attack will 
+	# effect all starting attacks otherwise. 
+	attack = starting_attack.duplicate()
+	print(attack)
 	attack.performer = self
+	
 
 func _physics_process(delta: float) -> void:
 	state_machine.act()

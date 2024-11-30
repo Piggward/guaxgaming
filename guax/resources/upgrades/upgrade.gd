@@ -12,3 +12,5 @@ func apply(ally: Ally):
 	ally.attack.damage += bonus_damage
 	ally.attack.range += bonus_range
 	ally.attackspeed += bonus_attack_speed
+	print(bonus_damage)
+	print(ally.attack.damage)

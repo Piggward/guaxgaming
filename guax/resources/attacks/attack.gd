@@ -6,7 +6,6 @@ enum Type {MELEE, RANGED, PHYSICAL, MAGICAL}
 @export var damage: int
 @export var range: int
 @export var types: Array[Type]
-@export var animation: String
 
 @export var effects: Array[Effect]
 # Who is performing the attack.

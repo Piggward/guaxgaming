@@ -16,9 +16,9 @@ func _ready():
 
 func set_display_text(upg: Ally):
 	upgrade_item_title.text = upg.title
-	upgrade_item_info.text = "damage: " + str(upg.attack.damage) + "\n"
+	upgrade_item_info.text = "damage: " + str(upg.starting_attack.damage) + "\n"
 	upgrade_item_info.text += "speed: " + str(upg.speed) + "\n"
-	upgrade_item_info.text += "range: " + str(upg.attack.range) + "\n"
+	upgrade_item_info.text += "range: " + str(upg.starting_attack.range) + "\n"
 	upgrade_item_info.text += "health: " + str(upg.maxHealth) + "\n"
 	upgrade_item_cost.text = str(promotion.cost) + " " + promotion.cost_type
 

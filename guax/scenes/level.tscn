@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dqvr3b6w07dr1"]
+[gd_scene load_steps=37 format=4 uid="uid://dqvr3b6w07dr1"]
 
 [ext_resource type="Texture2D" uid="uid://dqiw5k64mi133" path="res://art/kenney_scribble-dungeons/Tilesheet/tilesheet.png" id="1_5n2xs"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_80x34"]
@@ -21,9 +21,12 @@
 [ext_resource type="PackedScene" uid="uid://b8ixl4nnppqyi" path="res://scenes/allies/ranger/ranger.tscn" id="18_e680i"]
 [ext_resource type="PackedScene" uid="uid://cq7kcdnm7mdwk" path="res://scenes/shop.tscn" id="21_0v8fp"]
 [ext_resource type="PackedScene" uid="uid://dhowsoe3olcid" path="res://scenes/allies/footman/Footman.tscn" id="21_ubgfh"]
-[ext_resource type="PackedScene" uid="uid://dt0se21ntcu1f" path="res://scenes/allies/mage/Mage.tscn" id="22_6c8tb"]
+[ext_resource type="PackedScene" uid="uid://dt0se21ntcu1f" path="res://scenes/allies/mage/mage.tscn" id="22_6c8tb"]
 [ext_resource type="Script" path="res://scripts/upgrade_card_marker.gd" id="22_smyi1"]
 [ext_resource type="Script" path="res://scripts/gold_display_label.gd" id="22_ywdx1"]
+[ext_resource type="PackedScene" uid="uid://dor3fr4bjgepd" path="res://scenes/allies/champion/Champion.tscn" id="23_ucl4y"]
+[ext_resource type="PackedScene" uid="uid://ci0tfreekqfdy" path="res://scenes/allies/ranger/muskateer/muskateer.tscn" id="24_ynvmq"]
+[ext_resource type="PackedScene" uid="uid://csndihtqywnah" path="res://scenes/allies/mage/FireMage/FireMage.tscn" id="25_emhk5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dg0x"]
 texture = ExtResource("1_5n2xs")
@@ -403,7 +406,7 @@ offset_right = 100.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
-items = Array[PackedScene]([ExtResource("18_e680i"), ExtResource("21_ubgfh"), ExtResource("22_6c8tb")])
+items = Array[PackedScene]([ExtResource("18_e680i"), ExtResource("21_ubgfh"), ExtResource("22_6c8tb"), ExtResource("23_ucl4y"), ExtResource("24_ynvmq"), ExtResource("25_emhk5")])
 
 [node name="DisplayInformationMarker" type="Marker2D" parent="CanvasLayer"]
 position = Vector2(62, 130)

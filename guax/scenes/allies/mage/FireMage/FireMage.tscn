@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_rpm3x"]
 [ext_resource type="PackedScene" uid="uid://dbb8cxyq4meoc" path="res://scenes/allies/mage/sorcerer Kan raderas.tscn" id="4_xigs7"]
 [ext_resource type="Resource" uid="uid://dpe5atyakg6r3" path="res://scenes/allies/mage/FireMage/fire_mage_attack.tres" id="5_2hcnp"]
-[ext_resource type="Texture2D" uid="uid://bvx8lc2qmljxw" path="res://art/AI_test/DALL·E 2024-11-21 19.48.49 - Top-down view of a medieval mage in vibrant red robes, inspired by the style of Hotline Miami. The focus is on the head and shoulders, with no arms vi.png" id="6_lv8qy"]
+[ext_resource type="Texture2D" uid="uid://dkq1djpuekhru" path="res://art/AI_test/mage.png" id="6_lv8qy"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="7_sjeg8"]
 [ext_resource type="Texture2D" uid="uid://drhx3dqbfv4dg" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_staff.png" id="8_rs14u"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="9_sskv6"]
@@ -179,7 +179,7 @@ upgrade = ExtResource("2_b6y6p")
 promotion_path = Array[ExtResource("3_rpm3x")]([SubResource("Resource_fuwrp"), SubResource("Resource_fuwrp"), SubResource("Resource_fuwrp")])
 speed = 100
 attackspeed = 1
-attack = ExtResource("5_2hcnp")
+starting_attack = ExtResource("5_2hcnp")
 title = "Fire Mage"
 
 [node name="Root" parent="." index="4"]
