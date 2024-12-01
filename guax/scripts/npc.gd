@@ -43,6 +43,7 @@ func _ready():
 	# effect all starting attacks otherwise. 
 	attack = starting_attack.duplicate()
 	attack.performer = self
+	attack.effects = attack.starting_effects.filter(func(se): return se.duplicate())
 	
 
 func _physics_process(delta: float) -> void:

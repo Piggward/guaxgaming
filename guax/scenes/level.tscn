@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b8ixl4nnppqyi" path="res://scenes/allies/ranger/ranger.tscn" id="18_e680i"]
 [ext_resource type="PackedScene" uid="uid://cq7kcdnm7mdwk" path="res://scenes/shop.tscn" id="21_0v8fp"]
 [ext_resource type="PackedScene" uid="uid://dhowsoe3olcid" path="res://scenes/allies/footman/Footman.tscn" id="21_ubgfh"]
-[ext_resource type="PackedScene" uid="uid://dt0se21ntcu1f" path="res://scenes/allies/mage/Mage.tscn" id="22_6c8tb"]
+[ext_resource type="PackedScene" uid="uid://dt0se21ntcu1f" path="res://scenes/allies/mage/mage.tscn" id="22_6c8tb"]
 [ext_resource type="Script" path="res://scripts/upgrade_card_marker.gd" id="22_smyi1"]
 [ext_resource type="Script" path="res://scripts/gold_display_label.gd" id="22_ywdx1"]
 [ext_resource type="Script" path="res://scenes/income_display_label.gd" id="25_8frh7"]

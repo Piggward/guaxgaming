@@ -7,7 +7,11 @@ enum Type {MELEE, RANGED, PHYSICAL, MAGICAL}
 @export var range: int
 @export var types: Array[Type]
 
-@export var effects: Array[Effect]
+# These exported values needs to be duplicated otherwise they cannot be modified.
+# Currently starting_effects is duplicated to effects in npc script. 
+@export var starting_effects: Array[Effect]
+var effects: Array[Effect]
+
 # Who is performing the attack.
 var performer: Npc
 
@@ -24,3 +28,4 @@ func init(target: Npc):
 	# It adds the aoes to our attack so its collision is ready when the attack hits. 
 	for effect in effects:
 		effect.init(self, target)
+		

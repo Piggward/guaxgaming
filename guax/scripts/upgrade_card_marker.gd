@@ -9,6 +9,7 @@ func _ready():
 
 func display_upgrade_card(ally: Ally):
 	for child in get_children():
+		# If upgrade_card is already displayed for this ally, we want to close the upgrade card.
 		if child.ally == ally:
 			child.queue_free()
 			return
