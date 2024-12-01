@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://7kwja2wq63gd"]
 
-[ext_resource type="PackedScene" path="res://scenes/scene_templates/wave_template.tscn" id="1_68mmq"]
+[ext_resource type="PackedScene" uid="uid://4qq5j0av5itd" path="res://scenes/scene_templates/wave_template.tscn" id="1_68mmq"]
 [ext_resource type="PackedScene" uid="uid://b7tfptr704ad4" path="res://scenes/enemies/basic_enemy/basic_enemy.tscn" id="2_7fixl"]
 
 [node name="EnemySpawn" instance=ExtResource("1_68mmq")]
@@ -15,3 +15,6 @@ speed = 0
 [node name="BasicEnemy2" parent="." index="2" instance=ExtResource("2_7fixl")]
 position = Vector2(-730, 52)
 speed = 0
+
+[node name="goldreward" parent="." index="3"]
+gold_rewarded = 2000
