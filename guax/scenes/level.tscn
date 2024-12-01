@@ -1,10 +1,8 @@
-[gd_scene load_steps=36 format=4 uid="uid://dqvr3b6w07dr1"]
+[gd_scene load_steps=39 format=4 uid="uid://dqvr3b6w07dr1"]
 
 [ext_resource type="Texture2D" uid="uid://dqiw5k64mi133" path="res://art/kenney_scribble-dungeons/Tilesheet/tilesheet.png" id="1_5n2xs"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_80x34"]
 [ext_resource type="PackedScene" uid="uid://7kwja2wq63gd" path="res://scenes/waves/test_wave_1.tscn" id="2_hoagx"]
-[ext_resource type="PackedScene" uid="uid://c1naarkppitxn" path="res://scenes/waves/test_wave_2.tscn" id="3_h7jwk"]
-[ext_resource type="PackedScene" uid="uid://vafbojecxpb6" path="res://scenes/waves/test_wave_3.tscn" id="4_2fewv"]
 [ext_resource type="Texture2D" uid="uid://cigo17wlx6w7u" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_axe_double.png" id="5_4asks"]
 [ext_resource type="Script" path="res://scripts/start_wave_button.gd" id="6_dgeyi"]
 [ext_resource type="PackedScene" uid="uid://cjevh1ieopuam" path="res://scenes/enemy_spawn.tscn" id="6_few75"]
@@ -17,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dm1ifii0xavtx" path="res://art/kenney_scribble-dungeons/PNG/Double (128px)/barrel.png" id="15_x3mwj"]
 [ext_resource type="Texture2D" uid="uid://ox5o8n1f6ywj" path="res://art/kenney_scribble-dungeons/PNG/Double (128px)/barrels.png" id="16_r7el6"]
 [ext_resource type="Texture2D" uid="uid://b05xc1w1adad" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/wall.png" id="17_nffe2"]
+[ext_resource type="Script" path="res://scripts/damage_zone.gd" id="17_xsd5w"]
 [ext_resource type="Texture2D" uid="uid://byxpwvlrdu7og" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/wall_demolished.png" id="18_1eb3h"]
 [ext_resource type="PackedScene" uid="uid://b8ixl4nnppqyi" path="res://scenes/allies/ranger/ranger.tscn" id="18_e680i"]
 [ext_resource type="PackedScene" uid="uid://cq7kcdnm7mdwk" path="res://scenes/shop.tscn" id="21_0v8fp"]
@@ -25,6 +24,7 @@
 [ext_resource type="Script" path="res://scripts/upgrade_card_marker.gd" id="22_smyi1"]
 [ext_resource type="Script" path="res://scripts/gold_display_label.gd" id="22_ywdx1"]
 [ext_resource type="Script" path="res://scenes/income_display_label.gd" id="25_8frh7"]
+[ext_resource type="Script" path="res://scripts/player_health.gd" id="25_oxe5w"]
 [ext_resource type="Script" path="res://scripts/increase_income_button.gd" id="25_tdu61"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dg0x"]
@@ -212,11 +212,26 @@ outlines = Array[PackedVector2Array]([PackedVector2Array(0, -1, 1420, -9, 1407, 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prtmn"]
 bg_color = Color(0.661854, 0.602322, 0.332098, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f02xb"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sx5g2"]
+bg_color = Color(1, 0, 0, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vhh6t"]
+bg_color = Color(0, 1, 0, 1)
+corner_radius_top_left = 8
+corner_radius_bottom_left = 8
+
 [node name="Level" type="Node2D"]
 script = ExtResource("1_80x34")
 player_starting_gold = 10000
 player_starting_health = 100
-waves = Array[PackedScene]([ExtResource("2_hoagx"), ExtResource("3_h7jwk"), ExtResource("4_2fewv"), ExtResource("4_2fewv"), ExtResource("4_2fewv")])
+waves = Array[PackedScene]([ExtResource("2_hoagx")])
 metadata/_edit_horizontal_guides_ = [623.0]
 
 [node name="Tilemaps" type="Node2D" parent="."]
@@ -370,6 +385,7 @@ shape = SubResource("RectangleShape2D_nj3vr")
 
 [node name="DamageZone" type="Area2D" parent="."]
 position = Vector2(28, 320)
+script = ExtResource("17_xsd5w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageZone"]
 position = Vector2(0.5, 0)
@@ -407,10 +423,6 @@ grow_horizontal = 2
 grow_vertical = 0
 items = Array[PackedScene]([ExtResource("18_e680i"), ExtResource("21_ubgfh"), ExtResource("22_6c8tb")])
 
-[node name="DisplayInformationMarker" type="Marker2D" parent="CanvasLayer"]
-position = Vector2(62, 130)
-script = ExtResource("22_smyi1")
-
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 8
 anchor_left = 0.5
@@ -437,10 +449,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -554.0
-offset_top = -244.0
-offset_right = -470.0
-offset_bottom = -202.0
+offset_left = 271.0
+offset_top = -260.0
+offset_right = 378.0
+offset_bottom = -218.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_prtmn")
@@ -452,13 +464,47 @@ text = "Income"
 script = ExtResource("25_8frh7")
 income_text = "Income: "
 
+[node name="PlayerHealthContainer" type="PanelContainer" parent="CanvasLayer"]
+offset_left = 71.0
+offset_top = 22.0
+offset_right = 313.0
+offset_bottom = 48.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_f02xb")
+script = ExtResource("25_oxe5w")
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/PlayerHealthContainer"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_sx5g2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_vhh6t")
+value = 45.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="CanvasLayer/PlayerHealthContainer/HealthBar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "500/1000"
+horizontal_alignment = 1
+
+[node name="DisplayInformationMarker" type="Marker2D" parent="."]
+position = Vector2(62, 130)
+script = ExtResource("22_smyi1")
+
 [node name="IncreaseIncomeButton" type="Button" parent="."]
-offset_left = 68.0
-offset_top = 19.0
-offset_right = 304.0
-offset_bottom = 73.0
+offset_left = 67.0
+offset_top = 565.0
+offset_right = 303.0
+offset_bottom = 619.0
 text = "Increase income by 5. 
 Cost 50"
 script = ExtResource("25_tdu61")
 income_increase = 15
 cost = 50
+
+[connection signal="body_entered" from="DamageZone" to="DamageZone" method="_on_body_entered"]

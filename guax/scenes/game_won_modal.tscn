@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba5f3h76pup0h"]
+
+[ext_resource type="PackedScene" uid="uid://kk86qwosfdr7" path="res://scenes/game_over_modal.tscn" id="1_n05yq"]
+
+[node name="GameWonModal" instance=ExtResource("1_n05yq")]
+z_index = 5
+
+[node name="Label" parent="." index="0"]
+text = "YOU WIN!"
+
+[node name="Button" parent="MarginContainer/VBoxContainer" index="0"]
+text = "PLAY AGAIN"
+
+[node name="Button2" parent="MarginContainer/VBoxContainer" index="1"]
+text = "RETURN TO MAIN MENU"

@@ -21,6 +21,7 @@ corner_radius_bottom_left = 5
 
 [node name="EnemyTemplate" instance=ExtResource("1_kg6xc")]
 script = ExtResource("2_nrd26")
+bounty = 0
 
 [node name="ProgressBar" parent="Node2D" index="0"]
 offset_left = -66.0

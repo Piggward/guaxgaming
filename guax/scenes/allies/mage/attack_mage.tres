@@ -8,7 +8,7 @@
 [resource]
 script = ExtResource("2_se7sh")
 projectile = ExtResource("2_l3pug")
-shoot_speed = 15.0
+shoot_speed = 5.0
 damage = 30
 range = 400
 types = Array[int]([1, 3])

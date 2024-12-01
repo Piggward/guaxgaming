@@ -19,6 +19,7 @@ enum TextType {WAVE_BEGIN, WAVE_CLEARED}
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	process_mode = PROCESS_MODE_ALWAYS
 	wave_display.text = display_text
 	wave_display_shadow.text = display_text
 	wave_display_2.text = display_text

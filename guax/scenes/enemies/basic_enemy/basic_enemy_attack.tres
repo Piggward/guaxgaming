@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://cayd4jtoeimsq"]
+[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://e4s7kfm4cmbk"]
 
 [ext_resource type="Script" path="res://resources/effects/effect.gd" id="1_s42sh"]
 [ext_resource type="Script" path="res://resources/attacks/attack.gd" id="2_opiva"]
@@ -8,5 +8,4 @@ script = ExtResource("2_opiva")
 damage = 30
 range = 100
 types = Array[int]([])
-animation = ""
-effects = Array[ExtResource("1_s42sh")]([])
+starting_effects = Array[ExtResource("1_s42sh")]([])

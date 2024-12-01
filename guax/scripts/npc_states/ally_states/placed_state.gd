@@ -3,11 +3,11 @@ extends OutOfBattleState
 
 func enter():
 	ally.battle_start_location = ally.global_position
-	ally.input_event.connect(_on_input_event)
+	ally.on_input.connect(_on_input_event)
 	pass
 
 func exit():
-	ally.input_event.disconnect(_on_input_event)
+	ally.on_input.disconnect(_on_input_event)
 	pass
 
 func _on_input_event(event: InputEvent):

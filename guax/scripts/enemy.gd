@@ -3,6 +3,7 @@ extends Npc
 
 @export var bounty: int
 @onready var enemy_aggrozone = $Aggrozone
+@onready var ui_control = $UIControl
 
 func _ready():
 	aggrozone = enemy_aggrozone
