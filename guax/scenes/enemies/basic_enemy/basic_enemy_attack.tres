@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_opiva")
-damage = 100
+damage = 30
 range = 100
 types = Array[int]([])
 starting_effects = Array[ExtResource("1_s42sh")]([])

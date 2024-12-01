@@ -13,7 +13,7 @@ position = Vector2(-728, 5)
 speed = 300
 
 [node name="BasicEnemy2" parent="." index="2" instance=ExtResource("2_7fixl")]
-position = Vector2(-730, 52)
+position = Vector2(-413, 48)
 speed = 300
 
 [node name="goldreward" parent="." index="3"]
