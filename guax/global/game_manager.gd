@@ -1,6 +1,7 @@
 extends Node
 
 var player_gold: int
+var player_income: int
 var player_health: int
 var player_max_health: int
 var player_allies: Array[Ally]
@@ -11,6 +12,7 @@ signal ally_promotion(ally: Ally, new_ally: Ally)
 signal ally_purchased(ally: Ally)
 
 signal player_gold_updated(new_gold: int)
+signal player_income_updated(new_income: int)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ally_purchased.connect(on_ally_purchased)
@@ -27,6 +29,10 @@ func on_ally_purchased(ally: Ally):
 func transaction(cost: int):
 	player_gold -= cost
 	player_gold_updated.emit(player_gold)
+	
+func increase_income(increase: int):
+	player_income += increase
+	player_income_updated.emit(player_income)
 	
 func on_ally_promotion(ally: Ally, new_ally: Ally):
 	# TODO: Implement transaction of rubies

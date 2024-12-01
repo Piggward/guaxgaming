@@ -10,6 +10,9 @@ var current_wave = 1
 const WAVE_TEXT = preload("res://scenes/wave_text.tscn")
 @onready var canvas_layer = $CanvasLayer
 
+#save current gold reward
+var current_wave_gold_reward
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	TurnManager.battle_turn.turn_end.connect(_on_battle_turn_end)
@@ -37,12 +40,15 @@ func _on_shop_turn_start():
 	for child in wave.get_children():
 		if child is Enemy:
 			enemy_spawn.spawn_enemy(child)
-	
+		if child is gold_reward:
+			current_wave_gold_reward = child.gold_rewarded
 func _on_battle_turn_end():
 	var text = "WAVE " + str(current_wave)
 	display_wave_text(text, WaveText.TextType.WAVE_CLEARED)
 	current_wave += 1
-	
+	#Reward gold from wave reward and income
+	GameManager.transaction(-current_wave_gold_reward)
+	GameManager.transaction(-GameManager.player_income)
 func _on_battle_turn_start():
 	var text = "WAVE " + str(current_wave)
 	display_wave_text(text, WaveText.TextType.WAVE_BEGIN)
