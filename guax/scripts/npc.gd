@@ -42,7 +42,6 @@ func _ready():
 	# Important to duplicate the starting_attack here, upgrades applied to the attack will 
 	# effect all starting attacks otherwise. 
 	attack = starting_attack.duplicate()
-	print(attack)
 	attack.performer = self
 	
 

@@ -25,7 +25,7 @@
 [ext_resource type="Script" path="res://scripts/upgrade_card_marker.gd" id="22_smyi1"]
 [ext_resource type="Script" path="res://scripts/gold_display_label.gd" id="22_ywdx1"]
 [ext_resource type="PackedScene" uid="uid://dor3fr4bjgepd" path="res://scenes/allies/champion/Champion.tscn" id="23_ucl4y"]
-[ext_resource type="PackedScene" uid="uid://ci0tfreekqfdy" path="res://scenes/allies/ranger/muskateer/muskateer.tscn" id="24_ynvmq"]
+[ext_resource type="PackedScene" uid="uid://ci0tfreekqfdy" path="res://scenes/allies/ranger/musketeer/musketeer.tscn" id="24_ynvmq"]
 [ext_resource type="PackedScene" uid="uid://csndihtqywnah" path="res://scenes/allies/mage/FireMage/FireMage.tscn" id="25_emhk5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4dg0x"]
@@ -217,7 +217,7 @@ bg_color = Color(0.661854, 0.602322, 0.332098, 1)
 script = ExtResource("1_80x34")
 player_starting_gold = 10000
 player_starting_health = 100
-waves = Array[PackedScene]([ExtResource("2_hoagx"), ExtResource("3_h7jwk"), ExtResource("4_2fewv"), ExtResource("4_2fewv"), ExtResource("4_2fewv")])
+waves = Array[PackedScene]([ExtResource("3_h7jwk"), ExtResource("4_2fewv"), ExtResource("4_2fewv"), ExtResource("4_2fewv"), ExtResource("2_hoagx")])
 metadata/_edit_horizontal_guides_ = [623.0]
 
 [node name="Tilemaps" type="Node2D" parent="."]

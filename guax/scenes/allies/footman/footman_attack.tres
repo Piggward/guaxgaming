@@ -8,5 +8,4 @@ script = ExtResource("2_7gla2")
 damage = 30
 range = 100
 types = Array[int]([])
-animation = ""
 effects = Array[ExtResource("1_u0baw")]([])
