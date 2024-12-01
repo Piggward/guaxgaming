@@ -106,7 +106,7 @@ func is_enemy(npc: Npc):
 	return (npc is Enemy and self is Ally) or (npc is Ally and self is Enemy)
 	
 func _on_ui_control_gui_input(event):
-	input_event.emit(event)
+	on_input.emit(event)
 	pass # Replace with function body.
 
 func _on_ui_control_mouse_entered():

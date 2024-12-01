@@ -1,21 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://3ya2y1umglwg"]
+[gd_scene load_steps=2 format=3 uid="uid://3ya2y1umglwg"]
 
 [ext_resource type="Script" path="res://scripts/npc_states/npc_state_machine.gd" id="1_5isax"]
-[ext_resource type="Script" path="res://scripts/npc_states/enemy_states/basic_enemy_idle_state.gd" id="2_qnr56"]
-[ext_resource type="Script" path="res://scripts/npc_states/enemy_states/basic_enemy_hunting_state.gd" id="3_kep4m"]
-[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="4_pqvic"]
 
 [node name="BasicEnemyStateMachine" type="Node" node_paths=PackedStringArray("initial_state")]
 script = ExtResource("1_5isax")
 initial_state = NodePath("BasicEnemyIdleState")
 
 [node name="BasicEnemyIdleState" type="Node" parent="."]
-script = ExtResource("2_qnr56")
 
 [node name="BasicEnemyHuntingState" type="Node" parent="."]
-script = ExtResource("3_kep4m")
-state = 1
 
 [node name="BasicEnemyAttackingState" type="Node" parent="."]
-script = ExtResource("4_pqvic")
-state = 2

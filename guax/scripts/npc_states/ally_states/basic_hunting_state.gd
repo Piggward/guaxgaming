@@ -1,4 +1,4 @@
-class_name SoldatHuntingState
+class_name BasicHuntingState
 extends NpcState
 
 func act():
