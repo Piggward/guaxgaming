@@ -39,12 +39,15 @@ func _ready():
 	currentHealth = maxHealth
 	advanced_navigation.set_agent_target(position)
 	state_machine.init(self)
+	init_attack()
+	
+func init_attack():
 	# Important to duplicate the starting_attack here, upgrades applied to the attack will 
 	# effect all starting attacks otherwise. 
-	attack = starting_attack.duplicate()
+	attack = starting_attack.duplicate(true)
 	attack.performer = self
-	attack.effects = attack.starting_effects.filter(func(se): return se.duplicate())
-	
+	for effect in attack.starting_effects:
+		attack.effects.append(effect.duplicate())
 
 func _physics_process(delta: float) -> void:
 	state_machine.act()

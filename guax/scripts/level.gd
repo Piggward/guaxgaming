@@ -10,6 +10,7 @@ var current_wave = 1
 const WAVE_TEXT = preload("res://scenes/wave_text.tscn")
 @onready var canvas_layer = $CanvasLayer
 
+
 #save current gold reward
 var current_wave_gold_reward
 
@@ -32,7 +33,7 @@ func display_wave_text(text: String, type: WaveText.TextType):
 	var wave_text = WAVE_TEXT.instantiate()
 	wave_text.display_text = text
 	wave_text.text_type = type
-	wave_text.position = Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
+	wave_text.position += Vector2(get_viewport_rect().size.x / 2, get_viewport_rect().size.y / 2)
 	canvas_layer.add_child(wave_text)
 	
 func _on_shop_turn_start():
@@ -43,12 +44,16 @@ func _on_shop_turn_start():
 		if child is gold_reward:
 			current_wave_gold_reward = child.gold_rewarded
 func _on_battle_turn_end():
+	if current_wave == waves.size(): 
+		GameManager.game_won()
+		return
 	var text = "WAVE " + str(current_wave)
 	display_wave_text(text, WaveText.TextType.WAVE_CLEARED)
 	current_wave += 1
 	#Reward gold from wave reward and income
 	GameManager.transaction(-current_wave_gold_reward)
 	GameManager.transaction(-GameManager.player_income)
+	
 func _on_battle_turn_start():
 	var text = "WAVE " + str(current_wave)
 	display_wave_text(text, WaveText.TextType.WAVE_BEGIN)

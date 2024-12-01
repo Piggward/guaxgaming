@@ -7,12 +7,16 @@ var player_max_health: int
 var player_allies: Array[Ally]
 var level: Level
 
+const GAME_OVER_MODAL = preload("res://scenes/game_over_modal.tscn")
+const GAME_WON_MODAL = preload("res://scenes/game_won_modal.tscn")
+
 signal display_information_card(npc: Npc)
 signal ally_promotion(ally: Ally, new_ally: Ally)
 signal ally_purchased(ally: Ally)
 
 signal player_gold_updated(new_gold: int)
 signal player_income_updated(new_income: int)
+signal player_health_updated(new_health: int)
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	ally_purchased.connect(on_ally_purchased)
@@ -62,3 +66,25 @@ func can_shop() -> bool:
 	
 func can_afford(cost: int) -> bool:
 	return GameManager.player_gold >= cost
+	
+func player_take_damage(damage: int):
+	player_health = clamp(player_health - damage, 0, player_max_health)
+	if player_health == 0: 
+		game_over()
+	player_health_updated.emit(player_health)
+	
+func game_over():
+	var modal = GAME_OVER_MODAL.instantiate()
+	var og_pos = modal.position
+	level.add_child(modal)
+	modal.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	modal.position = Vector2(level.get_viewport_rect().size.x / 2, level.get_viewport_rect().size.y / 2) + og_pos
+	level.get_tree().paused = true
+	
+func game_won():
+	var modal = GAME_WON_MODAL.instantiate()
+	var og_pos = modal.position
+	level.add_child(modal)
+	modal.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	modal.position = Vector2(level.get_viewport_rect().size.x / 2, level.get_viewport_rect().size.y / 2) + og_pos
+	level.get_tree().paused = true
