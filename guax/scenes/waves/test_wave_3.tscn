@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://vafbojecxpb6"]
 
-[ext_resource type="PackedScene" uid="uid://msxduomjfhjr" path="res://scenes/scene_templates/wave_template.tscn" id="1_cpvsk"]
+[ext_resource type="PackedScene" uid="uid://4qq5j0av5itd" path="res://scenes/scene_templates/wave_template.tscn" id="1_cpvsk"]
 [ext_resource type="PackedScene" uid="uid://b7tfptr704ad4" path="res://scenes/enemies/basic_enemy/basic_enemy.tscn" id="2_8ksnn"]
 
 [node name="EnemySpawn" instance=ExtResource("1_cpvsk")]
