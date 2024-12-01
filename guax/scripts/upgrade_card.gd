@@ -13,7 +13,6 @@ const UPGRADE_ITEM = preload("res://scenes/upgrade_item.tscn")
 func _ready():
 	self.visible = true
 	refresh_card()
-	ally.promoting.connect(on_promotion)
 	pass # Replace with function body.
 
 
@@ -46,8 +45,10 @@ func refresh_card():
 	promotion_container.get_children().map(func(c): c.queue_free())
 	set_display_text()
 	populate_promotion_container()
+	ally.promoting.connect(on_promotion)
 	
 func on_promotion(from, to):
+	from.promoting.disconnect(on_promotion)
 	ally = to
 	refresh_card()
 
@@ -55,6 +56,6 @@ func set_display_text():
 	stats_label.text = "Damage: {dmg}
 Range: {rng}
 Attackspeed: {atsp}
-Base health: {bsh}".format({"dmg": str(ally.attack.damage), "rng": str(ally.attack.range),"atsp": ally.attackspeed, "bsh": ally.maxHealth})
+Base health: {bsh}".format({"dmg": str(ally.starting_attack.damage), "rng": str(ally.starting_attack.range),"atsp": ally.attackspeed, "bsh": ally.maxHealth})
 	upgrade_cost.text = str(ally.upgrade.cost) + " gold"
 	unit_name.text = ally.title + " level: " + str(ally.upgrade_level)

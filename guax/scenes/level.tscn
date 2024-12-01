@@ -21,7 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://b8ixl4nnppqyi" path="res://scenes/allies/ranger/ranger.tscn" id="18_e680i"]
 [ext_resource type="PackedScene" uid="uid://cq7kcdnm7mdwk" path="res://scenes/shop.tscn" id="21_0v8fp"]
 [ext_resource type="PackedScene" uid="uid://dhowsoe3olcid" path="res://scenes/allies/footman/Footman.tscn" id="21_ubgfh"]
-[ext_resource type="PackedScene" uid="uid://dt0se21ntcu1f" path="res://scenes/allies/mage/Mage.tscn" id="22_6c8tb"]
+[ext_resource type="PackedScene" uid="uid://dt0se21ntcu1f" path="res://scenes/allies/mage/mage.tscn" id="22_6c8tb"]
 [ext_resource type="Script" path="res://scripts/upgrade_card_marker.gd" id="22_smyi1"]
 [ext_resource type="Script" path="res://scripts/gold_display_label.gd" id="22_ywdx1"]
 [ext_resource type="Script" path="res://scenes/income_display_label.gd" id="25_8frh7"]
@@ -216,7 +216,7 @@ bg_color = Color(0.661854, 0.602322, 0.332098, 1)
 script = ExtResource("1_80x34")
 player_starting_gold = 10000
 player_starting_health = 100
-waves = Array[PackedScene]([ExtResource("2_hoagx"), ExtResource("3_h7jwk"), ExtResource("4_2fewv"), ExtResource("4_2fewv"), ExtResource("4_2fewv")])
+waves = Array[PackedScene]([ExtResource("3_h7jwk"), ExtResource("4_2fewv"), ExtResource("4_2fewv"), ExtResource("4_2fewv"), ExtResource("2_hoagx")])
 metadata/_edit_horizontal_guides_ = [623.0]
 
 [node name="Tilemaps" type="Node2D" parent="."]
@@ -405,7 +405,7 @@ offset_right = 100.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
-items = Array[PackedScene]([ExtResource("18_e680i"), ExtResource("21_ubgfh"), ExtResource("22_6c8tb")])
+items = Array[PackedScene]([ExtResource("18_e680i"), ExtResource("21_ubgfh"), ExtResource("22_6c8tb"), ExtResource("23_ucl4y"), ExtResource("24_ynvmq"), ExtResource("25_emhk5")])
 
 [node name="DisplayInformationMarker" type="Marker2D" parent="CanvasLayer"]
 position = Vector2(62, 130)

@@ -179,7 +179,7 @@ upgrade = ExtResource("2_dnfyn")
 promotion_path = Array[ExtResource("3_q61hc")]([SubResource("Resource_fuwrp"), SubResource("Resource_fuwrp"), SubResource("Resource_fuwrp")])
 speed = 100
 attackspeed = 1
-attack = ExtResource("5_un8ev")
+starting_attack = ExtResource("5_un8ev")
 title = "Mage"
 
 [node name="Root" parent="." index="4"]

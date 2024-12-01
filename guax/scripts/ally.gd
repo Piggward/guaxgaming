@@ -26,10 +26,11 @@ func refresh():
 
 func promote(promotion: Promotion):
 	if !promotion_path.any(func(p): return p == promotion):
-		print_debug("promotion not possible")
+		print_debug("promotion not found")
 		return
 	var new_scene: Ally = promotion.promotion_scene.instantiate()
 	new_scene.battle_start_location = battle_start_location
+	new_scene.upgrade_level = upgrade_level
 	promoting.emit(self, new_scene)
 	GameManager.ally_promotion.emit(self, new_scene)
 	

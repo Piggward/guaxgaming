@@ -19,5 +19,4 @@ shoot_speed = 15.0
 damage = 30
 range = 400
 types = Array[int]([1, 3])
-animation = ""
 effects = Array[ExtResource("1_e2482")]([SubResource("Resource_caao3")])

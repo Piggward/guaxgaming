@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="ProjectileAttack" load_steps=4 format=3 uid="uid://dv2gtmwanncth"]
+
+[ext_resource type="Script" path="res://resources/effects/effect.gd" id="1_o6uve"]
+[ext_resource type="Script" path="res://resources/attacks/projectile_attack.gd" id="2_c2k5g"]
+[ext_resource type="PackedScene" uid="uid://cd35by30uyhja" path="res://scenes/projectiles/projectile.tscn" id="2_gg26a"]
+
+[resource]
+script = ExtResource("2_c2k5g")
+projectile = ExtResource("2_gg26a")
+shoot_speed = 30.0
+damage = 30
+range = 400
+types = Array[int]([])
+effects = Array[ExtResource("1_o6uve")]([])

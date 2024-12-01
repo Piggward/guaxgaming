@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://b7tfptr704ad4"]
 
 [ext_resource type="PackedScene" uid="uid://vd48q4imlpo8" path="res://scenes/scene_templates/enemy_template.tscn" id="1_2h0ar"]
-[ext_resource type="Resource" uid="uid://evtuf3l5x5cs" path="res://resources/attacks/basic_melee_attack.tres" id="2_iw0b8"]
+[ext_resource type="Resource" uid="uid://cayd4jtoeimsq" path="res://scenes/enemies/basic_enemy/basic_enemy_attack.tres" id="2_qnyn5"]
 [ext_resource type="PackedScene" uid="uid://cnjgch3idabq1" path="res://scenes/character_sprites/humanoids/red_soldier.tscn" id="3_e1bgu"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="4_u0q7h"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="5_vcpwk"]
@@ -166,7 +166,7 @@ _data = {
 bounty = 500
 maxHealth = 75
 speed = 200
-attack = ExtResource("2_iw0b8")
+starting_attack = ExtResource("2_qnyn5")
 title = "BasicEnemy"
 
 [node name="Character Sprite" parent="Root" index="0" instance=ExtResource("3_e1bgu")]

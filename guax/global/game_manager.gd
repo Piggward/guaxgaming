@@ -36,15 +36,23 @@ func increase_income(increase: int):
 	
 func on_ally_promotion(ally: Ally, new_ally: Ally):
 	# TODO: Implement transaction of rubies
+	
+	#Add new ally to scene
 	var parent = ally.get_parent()
 	parent.add_child(new_ally)
 	new_ally.global_position = ally.global_position
+	
+	# Upgrade the new ally to the same upgrade level
+	for i in new_ally.upgrade_level:
+		new_ally.basic_upgrade()
+		
+	# Replace the old ally with the new
 	parent.remove_child(ally)
-	ally.promoting.emit(ally, new_ally)
 	var ally_index = player_allies.find(ally)
 	player_allies[ally_index] = new_ally
 	ally.queue_free()
 	
+	ally.promoting.emit(ally, new_ally)
 
 func can_upgrade(ally: Ally) -> bool:
 	return can_shop() and can_afford(ally.upgrade.cost)

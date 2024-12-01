@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://tbs5ltjh2ykq"]
+[gd_scene load_steps=6 format=3 uid="uid://bwgbfca4sp7uu"]
 
 [ext_resource type="Script" path="res://scripts/upgrade_card.gd" id="1_p07tu"]
 
