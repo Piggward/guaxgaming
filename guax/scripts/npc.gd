@@ -40,7 +40,6 @@ func _ready():
 	currentHealth = maxHealth
 	advanced_navigation.set_agent_target(position)
 	state_machine.init(self)
-	collision_shape.process_mode = Node.PROCESS_MODE_ALWAYS
 	init_attack()
 	
 func init_attack():
