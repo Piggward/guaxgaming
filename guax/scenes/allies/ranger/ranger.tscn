@@ -241,7 +241,7 @@ upgrade = ExtResource("2_r8kjx")
 promotion_path = Array[ExtResource("3_meqh2")]([SubResource("Resource_35is3")])
 maxHealth = 50
 speed = 100
-attackspeed = 1
+attackspeed = 10
 starting_attack = ExtResource("6_vjwna")
 title = "Ranger"
 

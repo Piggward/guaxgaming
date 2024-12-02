@@ -62,6 +62,8 @@ offset_right = 17.0
 offset_bottom = 18.0
 scale = Vector2(1.15572, 1.14714)
 
+[node name="Debuffs" type="Node" parent="."]
+
 [connection signal="gui_input" from="UIControl" to="." method="_on_ui_control_gui_input"]
 [connection signal="mouse_entered" from="UIControl" to="." method="_on_ui_control_mouse_entered"]
 [connection signal="mouse_exited" from="UIControl" to="." method="_on_ui_control_mouse_exited"]

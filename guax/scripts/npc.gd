@@ -24,6 +24,7 @@ var aggrozone: Area2D
 #sprites and collisions
 @onready var root_sprites = $Root
 @onready var collision_shape = $CollisionShape2D
+@onready var debuffs: Node = $Debuffs
 
 signal on_death(npc: Npc)
 signal health_updated(new_value: int)
@@ -39,6 +40,7 @@ func _ready():
 	currentHealth = maxHealth
 	advanced_navigation.set_agent_target(position)
 	state_machine.init(self)
+	collision_shape.process_mode = Node.PROCESS_MODE_ALWAYS
 	init_attack()
 	
 func init_attack():
@@ -104,6 +106,16 @@ func can_take_damage():
 	
 func is_enemy(npc: Npc):
 	return (npc is Enemy and self is Ally) or (npc is Ally and self is Enemy)
+	
+func apply_debuff(debuff_node: DebuffNode):
+	print("applying debuff")
+	for child: DebuffNode in debuffs.get_children():
+		if child.debuff_name == debuff_node.debuff_name:
+			child.reapply_debuff()
+			print("just reapplying")
+			return
+	debuffs.add_child(debuff_node)
+	debuff_node.apply_debuff(self)
 	
 func _on_ui_control_gui_input(event):
 	on_input.emit(event)

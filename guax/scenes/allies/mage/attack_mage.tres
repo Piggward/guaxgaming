@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://resources/effects/effect.gd" id="1_e2482"]
 [ext_resource type="PackedScene" uid="uid://ci1leftoehrpd" path="res://scenes/projectiles/mage_test_projectile.tscn" id="2_l3pug"]
 [ext_resource type="Script" path="res://resources/attacks/projectile_attack.gd" id="2_se7sh"]
-[ext_resource type="Resource" uid="uid://ceiy0dx5hxuh" path="res://resources/effects/basic_splash.tres" id="4_hcbrf"]
+[ext_resource type="Resource" path="res://resources/effects/basic_splash.tres" id="4_hcbrf"]
 
 [resource]
 script = ExtResource("2_se7sh")

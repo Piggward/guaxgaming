@@ -231,7 +231,7 @@ corner_radius_bottom_left = 8
 script = ExtResource("1_80x34")
 player_starting_gold = 10000
 player_starting_health = 100
-waves = Array[PackedScene]([ExtResource("2_hoagx")])
+waves = Array[PackedScene]([ExtResource("2_hoagx"), ExtResource("2_hoagx"), ExtResource("2_hoagx")])
 metadata/_edit_horizontal_guides_ = [623.0]
 
 [node name="Tilemaps" type="Node2D" parent="."]
