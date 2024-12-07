@@ -5,7 +5,7 @@
 
 [resource]
 script = ExtResource("2_7gla2")
-damage = 30
+damage = 25
 range = 100
 types = Array[int]([])
-effects = Array[ExtResource("1_u0baw")]([])
+starting_effects = Array[ExtResource("1_u0baw")]([])

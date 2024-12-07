@@ -1,0 +1,243 @@
+[gd_scene load_steps=17 format=3 uid="uid://bbpmwfecfbmfm"]
+
+[ext_resource type="PackedScene" uid="uid://vd48q4imlpo8" path="res://scenes/scene_templates/enemy_template.tscn" id="1_mwvjx"]
+[ext_resource type="PackedScene" uid="uid://drl8ql26o0fc1" path="res://scenes/projectiles/projectile_goblin_spear.tscn" id="2_wdqw0"]
+[ext_resource type="Script" path="res://resources/attacks/projectile_attack.gd" id="3_77qx5"]
+[ext_resource type="PackedScene" uid="uid://cnjgch3idabq1" path="res://scenes/character_sprites/humanoids/red_soldier.tscn" id="3_hn0do"]
+[ext_resource type="Script" path="res://resources/effects/effect.gd" id="4_exih0"]
+[ext_resource type="Texture2D" uid="uid://c8n06gmmqyfx2" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_spear.png" id="5_deelh"]
+[ext_resource type="Texture2D" uid="uid://b7b0ln86ypsb6" path="res://art/AI_test/orc.png" id="6_bv8b2"]
+[ext_resource type="Script" path="res://scripts/npc_states/enemy_states/enemy_idle_state.gd" id="6_n7j68"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="7_hn7iq"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="8_yi5ro"]
+
+[sub_resource type="Resource" id="Resource_rxo8p"]
+script = ExtResource("3_77qx5")
+projectile = ExtResource("2_wdqw0")
+shoot_speed = 15.0
+damage = 50
+range = 400
+types = Array[int]([])
+starting_effects = Array[ExtResource("4_exih0")]([])
+
+[sub_resource type="Animation" id="Animation_a671q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-33, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(34, 12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.86696]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Root/Character Sprite/Hand left/Sword:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6p1qd"]
+_data = {
+"RESET": SubResource("Animation_a671q")
+}
+
+[sub_resource type="Animation" id="Animation_2lr24"]
+resource_name = "Attack_melee_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.333333, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-33, 10), Vector2(-37, 24), Vector2(-33, -10), Vector2(-33, 10)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/AttackState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot_projectile"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.333333, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(34, 12), Vector2(37, -17), Vector2(32, 33), Vector2(34, 12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.333333, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.86696, 1.93352, 1.92794, 1.86696]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Root/Character Sprite/Hand left/Sword:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3, 0.333333, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_7f36o"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.035, 1.035), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-33, 10), Vector2(-32.8502, 5.7971), Vector2(-33, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(34, 12), Vector2(36.715, 6.76328), Vector2(34, 12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6l8p8"]
+_data = {
+"Attack1": SubResource("Animation_2lr24"),
+"Idle": SubResource("Animation_7f36o")
+}
+
+[node name="orc_ranger" instance=ExtResource("1_mwvjx")]
+bounty = 500
+maxHealth = 50
+speed = 100
+starting_attack = SubResource("Resource_rxo8p")
+title = "Orc ranger"
+
+[node name="Root" parent="." index="4"]
+rotation = -1.5435
+
+[node name="Character Sprite" parent="Root" index="0" instance=ExtResource("3_hn0do")]
+texture = ExtResource("6_bv8b2")
+
+[node name="Sword" parent="Root/Character Sprite/Hand left" index="0"]
+position = Vector2(-1.62107, 1.54017)
+rotation = 1.27923
+texture = ExtResource("5_deelh")
+
+[node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("BasicIdleState")
+
+[node name="BasicIdleState" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("6_n7j68")
+
+[node name="BasicHuntingState" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("7_hn7iq")
+state = 1
+
+[node name="AttackState" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("8_yi5ro")
+state = 2
+
+[node name="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_6p1qd"),
+"Orc ranger": SubResource("AnimationLibrary_6l8p8")
+}
+
+[node name="Senses2d" parent="." index="8"]
+top_level = false
+
+[editable path="Root/Character Sprite"]
