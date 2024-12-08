@@ -211,7 +211,7 @@ texture = ExtResource("5_vmbal")
 [node name="Sword" parent="Root/Character Sprite/Hand left" index="0"]
 position = Vector2(23.8992, -12.3248)
 rotation = 1.09377
-scale = Vector2(0.879286, 1.57871)
+scale = Vector2(1.13946, 1.11216)
 texture = ExtResource("6_1cbse")
 
 [node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]

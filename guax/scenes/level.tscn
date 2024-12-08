@@ -233,7 +233,7 @@ corner_radius_bottom_left = 8
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_80x34")
-player_starting_gold = 100000
+player_starting_gold = 20000
 player_starting_health = 100
 waves = Array[PackedScene]([ExtResource("2_ss6v4"), ExtResource("3_t4tcq"), ExtResource("4_fe40b"), ExtResource("5_54fyo"), ExtResource("6_liacg")])
 metadata/_edit_horizontal_guides_ = [623.0]
