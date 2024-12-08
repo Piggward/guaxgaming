@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlo52wyg0288g"]
+
+[ext_resource type="PackedScene" uid="uid://4qq5j0av5itd" path="res://scenes/scene_templates/wave_template.tscn" id="1_wwyyi"]
+[ext_resource type="PackedScene" uid="uid://dqmxqpsf4wtr0" path="res://scenes/enemies/goblin slave/enemy_goblin_slave.tscn" id="3_f38nh"]
+[ext_resource type="PackedScene" uid="uid://bp2uy2klonwtn" path="res://scenes/enemies/goblin spearthrower/enemy_goblin_spearthrower.tscn" id="3_x2i2t"]
+
+[node name="EnemySpawn" instance=ExtResource("1_wwyyi")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+scale = Vector2(0.890233, 1)
+
+[node name="goldreward" parent="." index="1"]
+gold_rewarded = 50
+
+[node name="goblin_spear_thrower" parent="." index="2" instance=ExtResource("3_x2i2t")]
+position = Vector2(89, -130)
+
+[node name="goblin_slave" parent="." index="3" instance=ExtResource("3_f38nh")]
+position = Vector2(-39, -136)
+
+[node name="goblin_slave2" parent="." index="4" instance=ExtResource("3_f38nh")]
+position = Vector2(-42, 116)
+
+[node name="goblin_slave3" parent="." index="5" instance=ExtResource("3_f38nh")]
+position = Vector2(63, 113)

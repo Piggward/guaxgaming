@@ -1,0 +1,240 @@
+[gd_scene load_steps=18 format=3 uid="uid://bwqnv5yo2ilie"]
+
+[ext_resource type="PackedScene" uid="uid://vd48q4imlpo8" path="res://scenes/scene_templates/enemy_template.tscn" id="1_t40at"]
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="2_bf3eu"]
+[ext_resource type="Script" path="res://resources/effects/effect.gd" id="3_w6le4"]
+[ext_resource type="Script" path="res://resources/effects/splash_effect.gd" id="4_3pwee"]
+[ext_resource type="PackedScene" uid="uid://cnjgch3idabq1" path="res://scenes/character_sprites/humanoids/red_soldier.tscn" id="4_ojqqj"]
+[ext_resource type="Texture2D" uid="uid://cs3avi50kseni" path="res://art/AI_test/Minotaur.png" id="5_vmbal"]
+[ext_resource type="Texture2D" uid="uid://dhwxvidon88de" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_hammer.png" id="6_1cbse"]
+[ext_resource type="Script" path="res://scripts/npc_states/enemy_states/enemy_idle_state.gd" id="7_j86r5"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="8_shpqs"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="9_u4c3e"]
+
+[sub_resource type="Resource" id="Resource_m16bl"]
+script = ExtResource("4_3pwee")
+splash_dmg_ratio = 1.0
+aoe_radius = 100.0
+name = ""
+trigger_window = 0
+
+[sub_resource type="Resource" id="Resource_71q4v"]
+script = ExtResource("2_bf3eu")
+damage = 100
+range = 150
+types = Array[int]([])
+starting_effects = Array[ExtResource("3_w6le4")]([SubResource("Resource_m16bl")])
+
+[sub_resource type="Animation" id="Animation_a671q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-33, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(34, 12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.86696]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6p1qd"]
+_data = {
+"RESET": SubResource("Animation_a671q")
+}
+
+[sub_resource type="Animation" id="Animation_2lr24"]
+resource_name = "Attack_melee_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.333333, 0.433333, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-13.4947, 30.343), Vector2(-40.249, 0.454565), Vector2(12.6876, 65.2697), Vector2(34.3365, 32.9477), Vector2(-13.4947, 30.343)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/AttackState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_hit"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3, 0.433333, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(17.3139, 29.3661), Vector2(-16.7386, 21.5741), Vector2(4.30603, 47.1242), Vector2(11.0605, 32.5816), Vector2(17.3139, 29.3661)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3, 0.433333, 0.833333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [3.493, 4.35813, 2.039, 0.525388, 3.493]
+}
+
+[sub_resource type="Animation" id="Animation_7f36o"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.035, 1.035), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-14.7311, 32.2439), Vector2(-11.1125, 38.4107), Vector2(-14.7311, 32.2439)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(17.3139, 29.3661), Vector2(17.3703, 31.4043), Vector2(17.3139, 29.3661)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [3.493]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6l8p8"]
+_data = {
+"Attack1": SubResource("Animation_2lr24"),
+"Idle": SubResource("Animation_7f36o")
+}
+
+[node name="minotaur" instance=ExtResource("1_t40at")]
+rotation = 0.00852703
+scale = Vector2(1.59, 1.59)
+bounty = 500
+maxHealth = 150
+speed = 100
+starting_attack = SubResource("Resource_71q4v")
+title = "Minotaur"
+
+[node name="Node2D" parent="." index="2"]
+scale = Vector2(1.59, 1.59)
+
+[node name="Character Sprite" parent="Root" index="0" instance=ExtResource("4_ojqqj")]
+rotation = -1.56803
+texture = ExtResource("5_vmbal")
+
+[node name="Sword" parent="Root/Character Sprite/Hand left" index="0"]
+position = Vector2(23.8992, -12.3248)
+rotation = 1.09377
+scale = Vector2(1.13946, 1.11216)
+texture = ExtResource("6_1cbse")
+
+[node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("BasicIdleState")
+
+[node name="BasicIdleState" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("7_j86r5")
+
+[node name="BasicHuntingState" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("8_shpqs")
+state = 1
+
+[node name="AttackState" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("9_u4c3e")
+state = 2
+
+[node name="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_6p1qd"),
+"Minotaur": SubResource("AnimationLibrary_6l8p8")
+}
+
+[node name="Senses2d" parent="." index="8"]
+top_level = false
+
+[editable path="Root/Character Sprite"]

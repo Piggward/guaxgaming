@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://hwnf3u1kph6k"]
+
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="1_3w33b"]
+[ext_resource type="Script" path="res://resources/effects/effect.gd" id="2_bjl3r"]
+
+[resource]
+script = ExtResource("1_3w33b")
+damage = 15
+range = 100
+types = Array[int]([])
+starting_effects = Array[ExtResource("2_bjl3r")]([])

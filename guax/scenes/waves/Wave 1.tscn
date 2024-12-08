@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://drwikpwdj133y"]
+
+[ext_resource type="PackedScene" uid="uid://4qq5j0av5itd" path="res://scenes/scene_templates/wave_template.tscn" id="1_ugbn3"]
+[ext_resource type="PackedScene" uid="uid://dqmxqpsf4wtr0" path="res://scenes/enemies/goblin slave/enemy_goblin_slave.tscn" id="2_bmcu2"]
+
+[node name="EnemySpawn" instance=ExtResource("1_ugbn3")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+scale = Vector2(0.890233, 1)
+
+[node name="goldreward" parent="." index="1"]
+gold_rewarded = 25
+
+[node name="goblin_slave" parent="." index="2" instance=ExtResource("2_bmcu2")]
+position = Vector2(2, -93)
+
+[node name="goblin_slave2" parent="." index="3" instance=ExtResource("2_bmcu2")]
+position = Vector2(-1, 50)
