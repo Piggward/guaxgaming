@@ -29,7 +29,7 @@ func _on_upgrade_cost_panel_gui_input(event):
 		stats_label.text = "Damage: {dmg}
 	Range: {rng}
 	Attackspeed: {atsp}
-	Base health: {bsh}".format({"dmg": str(ally.attack.damage), "rng": str(ally.attack.range),"atsp": ally.attackspeed, "bsh": ally.maxHealth})
+	Base health: {bsh}".format({"dmg": str(ally.base_attack.damage), "rng": str(ally.base_attack.range),"atsp": ally.attackspeed, "bsh": ally.maxHealth})
 	pass # Replace with function body.
 	
 func populate_promotion_container():
@@ -56,6 +56,6 @@ func set_display_text():
 	stats_label.text = "Damage: {dmg}
 Range: {rng}
 Attackspeed: {atsp}
-Base health: {bsh}".format({"dmg": str(ally.starting_attack.damage), "rng": str(ally.starting_attack.range),"atsp": ally.attackspeed, "bsh": ally.maxHealth})
+Base health: {bsh}".format({"dmg": str(ally.attack_manager.attacks[0].damage), "rng": str(ally.attack_manager.attacks[0].range),"atsp": ally.attackspeed, "bsh": ally.maxHealth})
 	upgrade_cost.text = str(ally.upgrade.cost) + " gold"
 	unit_name.text = ally.title + " level: " + str(ally.upgrade_level)

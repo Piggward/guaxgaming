@@ -48,7 +48,7 @@ func set_cd():
 	
 func set_display_text():
 	unit_name.text = store_front.title
-	unit_info.text = "damage: " + str(store_front.attack.damage) + "\n"
+	unit_info.text = "damage: " + str(store_front.base_attack.damage) + "\n"
 	unit_info.text += "speed: " + str(store_front.speed) + "\n"
-	unit_info.text += "range: " + str(store_front.attack.range) + "\n"
+	unit_info.text += "range: " + str(store_front.base_attack.range) + "\n"
 	unit_cost.text = str(store_front.cost)

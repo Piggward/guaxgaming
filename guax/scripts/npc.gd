@@ -6,17 +6,17 @@ extends CharacterBody2D
 var currentHealth
 @export var speed = 30
 @export var attackspeed = 30
-@export var starting_attack: Attack
 @export var title: String
-var attack: Attack
-
 #navigation
 @onready var advanced_navigation: AdvancedNavigation = $NavigationAgent2D
 
 var aggrozone: Area2D
+var base_attack: Attack
 
 #Statemachine
 @onready var state_machine = $StateMachine
+
+@onready var attack_manager = $AttackManager
 
 #animator
 @onready var animation_player = $AnimationPlayer
@@ -39,15 +39,6 @@ func _ready():
 	currentHealth = maxHealth
 	advanced_navigation.set_agent_target(position)
 	state_machine.init(self)
-	init_attack()
-	
-func init_attack():
-	# Important to duplicate the starting_attack here, upgrades applied to the attack will 
-	# effect all starting attacks otherwise. 
-	attack = starting_attack.duplicate(true)
-	attack.performer = self
-	for effect in attack.starting_effects:
-		attack.effects.append(effect.duplicate())
 
 func _physics_process(delta: float) -> void:
 	state_machine.act()

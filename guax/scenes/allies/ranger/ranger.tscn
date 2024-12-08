@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8ixl4nnppqyi"]
+[gd_scene load_steps=23 format=3 uid="uid://b8ixl4nnppqyi"]
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_djvip"]
 [ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_r8kjx"]
@@ -10,8 +10,11 @@
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="5_23tlb"]
 [ext_resource type="Texture2D" uid="uid://mcv3rtscdpag" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_arrow.png" id="5_i2kuk"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="6_igs2r"]
-[ext_resource type="Resource" uid="uid://kjnlb7vkq6o6" path="res://scenes/allies/ranger/attack_ranger.tres" id="6_vjwna"]
+[ext_resource type="Resource" path="res://scenes/allies/ranger/attack_ranger.tres" id="6_vjwna"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="7_oqyq0"]
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="12_dkqr4"]
+[ext_resource type="Script" path="res://resources/effects/effect.gd" id="14_uyuvm"]
+[ext_resource type="Script" path="res://resources/attacks/heal_ally.gd" id="15_3mmgj"]
 
 [sub_resource type="Resource" id="Resource_35is3"]
 script = ExtResource("3_meqh2")
@@ -234,6 +237,16 @@ _data = {
 "Idle": SubResource("Animation_deet6")
 }
 
+[sub_resource type="Resource" id="Resource_plxk8"]
+script = ExtResource("15_3mmgj")
+cd_time = 3.0
+initial_cd = true
+damage = 5
+range = 300
+types = Array[int]([])
+target_type = 2
+effects = Array[ExtResource("14_uyuvm")]([])
+
 [node name="Ranger" instance=ExtResource("1_djvip")]
 rotation = -0.111155
 cost = 2000
@@ -242,7 +255,6 @@ promotion_path = Array[ExtResource("3_meqh2")]([SubResource("Resource_35is3")])
 maxHealth = 50
 speed = 100
 attackspeed = 1
-starting_attack = ExtResource("6_vjwna")
 title = "Ranger"
 
 [node name="ProgressBar" parent="Node2D" index="0"]
@@ -297,6 +309,9 @@ libraries = {
 
 [node name="UIControl" parent="." index="10"]
 metadata/_edit_use_anchors_ = true
+
+[node name="AttackManager" parent="." index="11"]
+attacks = Array[ExtResource("12_dkqr4")]([ExtResource("6_vjwna"), SubResource("Resource_plxk8")])
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

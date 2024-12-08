@@ -24,5 +24,5 @@ func set_display_text():
 	stats_label.text = "Damage: {dmg}
 Range: {rng}
 Attackspeed: {atsp}
-Base health: {bsh}".format({"dmg": str(enemy.starting_attack.damage), "rng": str(enemy.starting_attack.range),"atsp": enemy.attackspeed, "bsh": enemy.maxHealth})
+Base health: {bsh}".format({"dmg": str(enemy.attack_manager.attacks[0].damage), "rng": str(enemy.attack_manager.attacks[0].range),"atsp": enemy.attackspeed, "bsh": enemy.maxHealth})
 	unit_name.text = enemy.title

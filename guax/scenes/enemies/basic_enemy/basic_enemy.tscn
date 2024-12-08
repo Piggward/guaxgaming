@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7tfptr704ad4"]
+[gd_scene load_steps=13 format=3 uid="uid://b7tfptr704ad4"]
 
 [ext_resource type="PackedScene" uid="uid://vd48q4imlpo8" path="res://scenes/scene_templates/enemy_template.tscn" id="1_2h0ar"]
 [ext_resource type="Resource" uid="uid://e4s7kfm4cmbk" path="res://scenes/enemies/basic_enemy/basic_enemy_attack.tres" id="2_qnyn5"]
 [ext_resource type="PackedScene" uid="uid://cnjgch3idabq1" path="res://scenes/character_sprites/humanoids/red_soldier.tscn" id="3_e1bgu"]
 [ext_resource type="Script" path="res://scripts/npc_states/enemy_states/enemy_idle_state.gd" id="4_ebt6d"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="5_vcpwk"]
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="6_452bd"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="6_a0sn2"]
 
 [sub_resource type="Animation" id="Animation_a671q"]
@@ -166,7 +167,6 @@ _data = {
 bounty = 500
 maxHealth = 75
 speed = 200
-starting_attack = ExtResource("2_qnyn5")
 title = "BasicEnemy"
 
 [node name="Character Sprite" parent="Root" index="0" instance=ExtResource("3_e1bgu")]
@@ -193,5 +193,8 @@ libraries = {
 
 [node name="Senses2d" parent="." index="8"]
 top_level = false
+
+[node name="AttackManager" parent="." index="11"]
+attacks = Array[ExtResource("6_452bd")]([ExtResource("2_qnyn5")])
 
 [editable path="Root/Character Sprite"]

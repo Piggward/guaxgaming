@@ -20,7 +20,9 @@ func _on_enemy_death(enemy: Npc):
 	if enemies_alive.size() <= 0 && TurnManager.current_phase.phase == TurnPhase.Phase.BATTLE:
 		TurnManager.end_phase_requested.emit()
 
-func _on_enemy_removed(enemy: Npc):
+func _on_enemy_removed(enemy: Enemy):
+	if get_tree() == null:
+		return
 	if enemies_alive.has(enemy):
 		enemies_alive.erase(enemy)
 	if enemies_alive.size() <= 0 && TurnManager.current_phase.phase == TurnPhase.Phase.BATTLE:

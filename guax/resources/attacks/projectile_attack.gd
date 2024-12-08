@@ -24,3 +24,4 @@ func init_ranged(target, projectile):
 	# This method will add the aoe to our projectile so its collision is ready when it hits. 
 	for effect in effects:
 		effect.init(self, target, projectile)
+	set_cooldown()
