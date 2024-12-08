@@ -9,7 +9,7 @@
 scale = Vector2(0.890233, 1)
 
 [node name="BasicEnemy" parent="." index="1" instance=ExtResource("2_7fixl")]
-position = Vector2(-728, 5)
+position = Vector2(-213, 7)
 
 [node name="goldreward" parent="." index="2"]
 gold_rewarded = 2000

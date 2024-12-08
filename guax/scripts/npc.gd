@@ -109,7 +109,7 @@ func is_enemy(npc: Npc):
 func apply_debuff(debuff_node: DebuffNode):
 	print("applying debuff")
 	for child: DebuffNode in debuffs.get_children():
-		if child.debuff_name == debuff_node.debuff_name:
+		if child.debuff.debuff_name == debuff_node.debuff.debuff_name:
 			child.reapply_debuff()
 			print("just reapplying")
 			return
