@@ -59,6 +59,10 @@ func on_attack_animation_finished(animation):
 	attacking = false
 		
 func shoot_projectile():
+	if attack.projectile == null:
+		attack.set_cooldown()
+		on_hit()
+		return
 	var projectile = attack.get_projectile(target)
 	projectile.global_position = npc.global_position
 	get_tree().root.add_child(projectile)

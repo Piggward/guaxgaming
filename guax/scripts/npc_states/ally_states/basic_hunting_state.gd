@@ -2,8 +2,6 @@ class_name BasicHuntingState
 extends NpcState
 
 func act():
-	if (npc.title == "Ranger"):
-		var d = 1
 	var targets = find_targets()
 	match attack.target_type:
 		Attack.Target.SELF:

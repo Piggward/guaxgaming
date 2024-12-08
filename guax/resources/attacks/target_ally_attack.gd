@@ -1,13 +1,13 @@
 class_name TargetAllyAttack
-extends Attack
+extends ProjectileAttack
 
 @export var cd_time: float
-@export var initial_cd: bool
 
 func ready():
 	super()
 	performer.aggrozone.body_entered.connect(_on_aggrozone_update)
 	performer.aggrozone.body_exited.connect(_on_aggrozone_update)
+	is_ready = !cd_on_battle_start && check_conditions()
 		
 func _on_aggrozone_update(body):
 	if not body is Npc:
@@ -24,7 +24,7 @@ func cooldown_time():
 	return cd_time
 	
 func reset():
-	if initial_cd:
+	if cd_on_battle_start:
 		set_cooldown()
 	else:
 		super()

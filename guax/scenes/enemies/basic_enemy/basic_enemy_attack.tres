@@ -5,8 +5,10 @@
 
 [resource]
 script = ExtResource("2_opiva")
-damage = 30
+damage = 10
 range = 100
 types = Array[int]([])
 target_type = 0
 effects = Array[ExtResource("1_s42sh")]([])
+cd_on_battle_start = null
+ranged_attack = false

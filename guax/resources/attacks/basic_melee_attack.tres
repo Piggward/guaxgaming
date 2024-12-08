@@ -8,5 +8,6 @@ script = ExtResource("1_v8iiy")
 damage = 30
 range = 100
 types = Array[int]([0, 2])
-animation = "Attack1"
+target_type = 0
 effects = Array[ExtResource("1_nwwei")]([])
+ranged_attack = false

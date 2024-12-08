@@ -11,4 +11,6 @@ shoot_speed = 15.0
 damage = 100
 range = 400
 types = Array[int]([1, 2])
+target_type = 0
+ranged_attack = false
 effects = Array[ExtResource("1_4toyu")]([])

@@ -22,9 +22,3 @@ func check_conditions():
 	
 func cooldown_time():
 	return cd_time
-	
-func reset():
-	if initial_cd:
-		set_cooldown()
-	else:
-		super()

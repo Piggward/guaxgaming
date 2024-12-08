@@ -165,7 +165,7 @@ _data = {
 
 [node name="BasicEnemy" instance=ExtResource("1_2h0ar")]
 bounty = 500
-maxHealth = 75
+maxHealth = 500
 speed = 200
 title = "BasicEnemy"
 
