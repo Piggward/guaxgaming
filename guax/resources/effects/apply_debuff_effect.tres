@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="ApplyDebuff" load_steps=4 format=3 uid="uid://cyd11f8hrj7yg"]
+[gd_resource type="Resource" script_class="ApplyDebuff" load_steps=4 format=3 uid="uid://d0pllu02f28tv"]
 
 [ext_resource type="Script" path="res://resources/debuffs/stun_debuff.gd" id="1_r802n"]
 [ext_resource type="Script" path="res://resources/effects/apply_debuff.gd" id="1_wx2kg"]

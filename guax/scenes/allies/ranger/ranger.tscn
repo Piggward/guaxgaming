@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="5_23tlb"]
 [ext_resource type="Texture2D" uid="uid://mcv3rtscdpag" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_arrow.png" id="5_i2kuk"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="6_igs2r"]
-[ext_resource type="Resource" uid="uid://kjnlb7vkq6o6" path="res://scenes/allies/ranger/attack_ranger.tres" id="6_vjwna"]
+[ext_resource type="Resource" uid="uid://dnmicg56y5kfu" path="res://scenes/allies/ranger/attack_ranger.tres" id="6_vjwna"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="7_oqyq0"]
 
 [sub_resource type="Resource" id="Resource_35is3"]

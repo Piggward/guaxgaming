@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="ProjectileAttack" load_steps=5 format=3 uid="uid://kjnlb7vkq6o6"]
+[gd_resource type="Resource" script_class="ProjectileAttack" load_steps=5 format=3 uid="uid://dnmicg56y5kfu"]
 
 [ext_resource type="Script" path="res://resources/effects/effect.gd" id="1_cmuke"]
 [ext_resource type="PackedScene" uid="uid://cd35by30uyhja" path="res://scenes/projectiles/projectile.tscn" id="2_shrku"]
 [ext_resource type="Script" path="res://resources/attacks/projectile_attack.gd" id="3_ipf12"]
-[ext_resource type="Resource" uid="uid://cyd11f8hrj7yg" path="res://resources/effects/apply_debuff_effect.tres" id="4_vfnqb"]
+[ext_resource type="Resource" uid="uid://d0pllu02f28tv" path="res://resources/effects/apply_debuff_effect.tres" id="4_vfnqb"]
 
 [resource]
 script = ExtResource("3_ipf12")
