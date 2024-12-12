@@ -21,6 +21,7 @@ func _ready():
 	super()
 	
 func refresh():
+	activate()
 	global_position = battle_start_location
 	set_health(maxHealth)
 

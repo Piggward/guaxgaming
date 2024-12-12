@@ -2,10 +2,10 @@
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_py8k5"]
 [ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_b6y6p"]
-[ext_resource type="Resource" uid="uid://dpe5atyakg6r3" path="res://scenes/allies/mage/FireMage/fire_mage_attack.tres" id="5_2hcnp"]
 [ext_resource type="Texture2D" uid="uid://ddhi2fp71hm3" path="res://art/AI_test/firemage.png" id="6_482wa"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="7_sjeg8"]
 [ext_resource type="Texture2D" uid="uid://drhx3dqbfv4dg" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_staff.png" id="8_rs14u"]
+[ext_resource type="Resource" uid="uid://c26sygerw20c2" path="res://scenes/allies/mage/FireMage/attack_firemage.tres" id="9_2apcl"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="9_sskv6"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="10_1nnwp"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="11_xdy6k"]
@@ -170,7 +170,6 @@ cost = 2000
 upgrade = ExtResource("2_b6y6p")
 speed = 100
 attackspeed = 1
-starting_attack = ExtResource("5_2hcnp")
 title = "Fire Mage"
 
 [node name="Root" parent="." index="4"]
@@ -217,6 +216,9 @@ libraries = {
 "": SubResource("AnimationLibrary_886hd"),
 "Fire Mage": SubResource("AnimationLibrary_ljcjm")
 }
+
+[node name="AttackManager" parent="." index="11"]
+base_attack = ExtResource("9_2apcl")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

@@ -7,11 +7,11 @@ var currentHealth
 @export var speed = 30
 @export var attackspeed = 30
 @export var title: String
+
 #navigation
 @onready var advanced_navigation: AdvancedNavigation = $NavigationAgent2D
 
 var aggrozone: Area2D
-var base_attack: Attack
 
 #Statemachine
 @onready var state_machine = $StateMachine

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dhowsoe3olcid"]
+[gd_scene load_steps=18 format=3 uid="uid://dhowsoe3olcid"]
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_vqdik"]
 [ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_se881"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://bfw4muxb2mupy" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_longsword.png" id="8_utvpp"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="9_bklxo"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="10_2kh11"]
-[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="11_3ru3v"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="11_rbeww"]
 
 [sub_resource type="Resource" id="Resource_h5rf8"]
@@ -217,7 +216,7 @@ libraries = {
 }
 
 [node name="AttackManager" parent="." index="11"]
-attacks = Array[ExtResource("11_3ru3v")]([ExtResource("5_d8232")])
+base_attack = ExtResource("5_d8232")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

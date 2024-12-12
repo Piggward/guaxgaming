@@ -1,15 +1,15 @@
-[gd_resource type="Resource" script_class="ProjectileAttack" load_steps=4 format=3 uid="uid://djct0uybjmc2m"]
+[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://djct0uybjmc2m"]
 
 [ext_resource type="Script" path="res://resources/effects/effect.gd" id="1_llcub"]
-[ext_resource type="PackedScene" uid="uid://c8po8wsav0k2q" path="res://scenes/projectiles/projectile_bullet.tscn" id="2_x4wwg"]
-[ext_resource type="Script" path="res://resources/attacks/projectile_attack.gd" id="3_bd60q"]
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="2_tvasn"]
 
 [resource]
-script = ExtResource("3_bd60q")
-projectile = ExtResource("2_x4wwg")
-shoot_speed = 20.0
-damage = 200
-range = 800
-types = Array[int]([1, 2])
-animation = "Ranged_Attack"
+script = ExtResource("2_tvasn")
+damage = 0
+range = 0
+types = Array[int]([])
+target_type = 0
 effects = Array[ExtResource("1_llcub")]([])
+cd_on_battle_start = false
+cd_time = 0.0
+ranged_attack = false

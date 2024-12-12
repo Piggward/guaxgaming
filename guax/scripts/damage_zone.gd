@@ -15,5 +15,5 @@ func _process(delta):
 func _on_body_entered(body):
 	if body is Enemy:
 		body.queue_free()
-		GameManager.player_take_damage(body.base_attack.damage)
+		GameManager.player_take_damage(body.attack_manager.base_attack.damage)
 	pass # Replace with function body.

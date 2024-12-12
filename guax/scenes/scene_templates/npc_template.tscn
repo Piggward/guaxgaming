@@ -13,6 +13,7 @@
 
 [node name="NpcTemplate" type="CharacterBody2D"]
 script = ExtResource("1_7auws")
+attackspeed = 15
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 radius = 32.32

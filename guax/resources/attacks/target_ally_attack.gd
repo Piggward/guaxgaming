@@ -1,8 +1,6 @@
 class_name TargetAllyAttack
 extends ProjectileAttack
 
-@export var cd_time: float
-
 func ready():
 	super()
 	performer.aggrozone.body_entered.connect(_on_aggrozone_update)

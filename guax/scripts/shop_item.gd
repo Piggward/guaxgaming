@@ -14,12 +14,12 @@ func _ready():
 	if not npc is Ally:
 		print_debug("ERROR: scene needs to be an ally")
 		return
-
-	# We need to instantiate a store front where we can access the sprites and collision shapes from. 
 	store_front = npc
-	add_child(store_front)
-	store_front.deactivate()
-	store_front.visible = false
+	## We need to instantiate a store front where we can access the sprites and collision shapes from. 
+	#store_front = npc
+	#add_child(store_front)
+	#store_front.deactivate()
+	#store_front.visible = false
 	
 	set_display_text()
 	pass # Replace with function body.
@@ -48,7 +48,7 @@ func set_cd():
 	
 func set_display_text():
 	unit_name.text = store_front.title
-	unit_info.text = "damage: " + str(store_front.base_attack.damage) + "\n"
+	unit_info.text = "damage: " + str(store_front.attack_manager.base_attack.damage) + "\n"
 	unit_info.text += "speed: " + str(store_front.speed) + "\n"
-	unit_info.text += "range: " + str(store_front.base_attack.range) + "\n"
+	unit_info.text += "range: " + str(store_front.attack_manager.base_attack.range) + "\n"
 	unit_cost.text = str(store_front.cost)
