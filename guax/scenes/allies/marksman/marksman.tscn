@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_qlki8"]
 [ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_hqent"]
 [ext_resource type="Resource" uid="uid://dw2ot1g57xtup" path="res://scenes/allies/marksman/attributes_marksman.tres" id="3_sdju1"]
-[ext_resource type="Texture2D" uid="uid://drjxemlp6fypk" path="res://art/AI_test/20b2a804-0e44-49a3-a305-0cadbff55f38.png" id="4_5eh5m"]
+[ext_resource type="Texture2D" uid="uid://drjxemlp6fypk" path="res://art/AI_test/Ranger AI art.png" id="4_5eh5m"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="5_1qn2y"]
 [ext_resource type="Texture2D" uid="uid://mcv3rtscdpag" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_arrow.png" id="6_2fl2l"]
 [ext_resource type="Texture2D" uid="uid://dfse6le3rh5kv" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_bow.png" id="7_mbps2"]

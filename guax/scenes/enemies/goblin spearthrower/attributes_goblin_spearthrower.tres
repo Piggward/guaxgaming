@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="BaseAttributes" load_steps=6 format=3 uid="uid://drawtanblra4q"]
+
+[ext_resource type="Script" path="res://resources/effects/effect.gd" id="1_h8v0o"]
+[ext_resource type="PackedScene" path="res://scenes/projectiles/projectile_goblin_spear.tscn" id="2_4i6ol"]
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="3_vt4ww"]
+[ext_resource type="Script" path="res://resources/base_attributes/base_attributes.gd" id="4_2se54"]
+
+[sub_resource type="Resource" id="Resource_82b5u"]
+script = ExtResource("3_vt4ww")
+damage = 0
+range = 0
+types = Array[int]([])
+target_type = 0
+effects = Array[ExtResource("1_h8v0o")]([])
+cd_on_battle_start = false
+cd_time = 0.0
+ranged_attack = true
+projectile = ExtResource("2_4i6ol")
+shoot_speed = 15.0
+
+[resource]
+script = ExtResource("4_2se54")
+title = "Goblin Spearthrower"
+maxHealth = 30
+attackspeed = 30
+speed = 30
+base_attack = SubResource("Resource_82b5u")
+special_attacks = Array[ExtResource("3_vt4ww")]([])

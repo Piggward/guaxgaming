@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_choib"]
 [ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_dnfyn"]
-[ext_resource type="Texture2D" uid="uid://d2vcr2vgst8g5" path="res://art/AI_test/e475cd98-cde2-4362-9d27-16d834ea2873 (1).png" id="3_ckabk"]
+[ext_resource type="Texture2D" uid="uid://d2vcr2vgst8g5" path="res://art/AI_test/mage ai.png" id="3_ckabk"]
 [ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_q61hc"]
 [ext_resource type="PackedScene" uid="uid://csndihtqywnah" path="res://scenes/allies/mage/FireMage/FireMage.tscn" id="4_74pem"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="4_rbu3a"]
@@ -174,7 +174,7 @@ _data = {
 
 [node name="Mage" instance=ExtResource("1_choib")]
 rotation = -0.111155
-cost = 2000
+cost = 200
 upgrade = ExtResource("2_dnfyn")
 promotion_path = Array[ExtResource("3_q61hc")]([SubResource("Resource_fuwrp"), SubResource("Resource_fuwrp"), SubResource("Resource_fuwrp")])
 base_attributes = ExtResource("5_auqks")

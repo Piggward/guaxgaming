@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BaseAttributes" load_steps=4 format=3 uid="uid://dlrma76gt0aed"]
+
+[ext_resource type="Resource" uid="uid://caws4tba4l1is" path="res://scenes/enemies/orc_warrior/attack_orc_warrior.tres" id="1_sd0tl"]
+[ext_resource type="Script" path="res://resources/base_attributes/base_attributes.gd" id="2_3ok12"]
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="3_qhgxu"]
+
+[resource]
+script = ExtResource("2_3ok12")
+title = "Orc Warrior"
+maxHealth = 30
+attackspeed = 30
+speed = 30
+base_attack = ExtResource("1_sd0tl")
+special_attacks = Array[ExtResource("3_qhgxu")]([])

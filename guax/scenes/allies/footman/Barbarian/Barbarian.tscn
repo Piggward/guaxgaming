@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://1t2enkr70uhl" path="res://art/AI_test/footman.png" id="6_y5b5t"]
 [ext_resource type="PackedScene" uid="uid://coy0k3wst2pcj" path="res://scenes/character_sprites/humanoids/basic_purple_human.tscn" id="7_8y2ca"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="7_kd4b4"]
-[ext_resource type="Texture2D" uid="uid://cp0i8fy5um7f1" path="res://art/AI_test/b27d7a8e-dc2b-43f1-a17b-e488fd318721 (3).png" id="8_3u7eq"]
+[ext_resource type="Texture2D" uid="uid://cp0i8fy5um7f1" path="res://art/AI_test/Footman ai art 2.png" id="8_3u7eq"]
 [ext_resource type="Texture2D" uid="uid://b7u7qy3c1y0pk" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_axe_large.png" id="8_agquh"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="9_bklxo"]
 [ext_resource type="Texture2D" uid="uid://c6vuvneh0oe54" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/yellow_hand.png" id="9_mr1if"]

@@ -44,6 +44,8 @@ func exit():
 	pass
 
 func try_attack():
+	if(npc.title == "Goblin Slave"):
+		print("hej")
 	if(attack.is_ready):
 		attacking = true
 		attack.init(target)
