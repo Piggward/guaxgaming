@@ -13,3 +13,4 @@ func _ready():
 func _on_battle_turn_end():
 	await get_tree().create_timer(1).timeout
 	self.queue_free()
+	

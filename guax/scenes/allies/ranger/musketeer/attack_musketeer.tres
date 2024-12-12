@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("2_tvasn")
-damage = 0
-range = 0
+damage = 20
+range = 600
 types = Array[int]([])
 target_type = 0
 effects = Array[ExtResource("1_llcub")]([])

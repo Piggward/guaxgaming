@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BaseAttributes" load_steps=4 format=3 uid="uid://dw2ot1g57xtup"]
+
+[ext_resource type="Resource" uid="uid://d4dya0x34qhp7" path="res://scenes/allies/marksman/attack_marksman.tres" id="1_24nf8"]
+[ext_resource type="Script" path="res://resources/base_attributes/base_attributes.gd" id="2_vvtx4"]
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="3_i0ihw"]
+
+[resource]
+script = ExtResource("2_vvtx4")
+title = "Marksman"
+maxHealth = 30
+attackspeed = 30
+speed = 30
+base_attack = ExtResource("1_24nf8")
+special_attacks = Array[ExtResource("3_i0ihw")]([])

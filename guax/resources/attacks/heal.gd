@@ -1,5 +1,5 @@
 @tool
-class_name HealAlly
+class_name Heal
 extends Attack
 
 func apply_attack(target: Npc):

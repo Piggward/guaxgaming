@@ -4,8 +4,11 @@ extends Node
 @export var initial_state: OutOfBattleState
 var current_state: OutOfBattleState
 var states := {};
+@onready var placed_state = $PlacedState
 
 func init(ally: Ally) -> void:
+	if ally.is_promotion:
+		initial_state = placed_state
 	for child in get_children(): 
 		if child is OutOfBattleState: 
 			states[child.state] = child;

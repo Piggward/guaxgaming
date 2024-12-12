@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://ci0tfreekqfdy"]
+[gd_scene load_steps=18 format=3 uid="uid://ci0tfreekqfdy"]
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_fhmrl"]
 [ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_g28na"]
 [ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_qcuoe"]
 [ext_resource type="PackedScene" uid="uid://cwpltej0y2rkb" path="res://scenes/allies/marksman/marksman.tscn" id="4_uivni"]
+[ext_resource type="Resource" uid="uid://bnbwxhh11r47c" path="res://scenes/allies/ranger/musketeer/attributes_musketeer.tres" id="5_c3afp"]
 [ext_resource type="Texture2D" uid="uid://ctviwjgsl7r1x" path="res://art/AI_test/musketeer.png" id="6_0kknu"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="7_thgyr"]
 [ext_resource type="Texture2D" uid="uid://b1beepwry4u8e" path="res://art/Gustav best artist in world xd/musket_fylld_färgad.png" id="9_acibn"]
@@ -177,10 +178,7 @@ rotation = -0.111155
 cost = 2000
 upgrade = ExtResource("2_g28na")
 promotion_path = Array[ExtResource("3_qcuoe")]([SubResource("Resource_od51v"), SubResource("Resource_od51v"), SubResource("Resource_od51v")])
-maxHealth = 50
-speed = 100
-attackspeed = 60
-title = "Musketeer"
+base_attributes = ExtResource("5_c3afp")
 
 [node name="ProgressBar" parent="Node2D" index="0"]
 metadata/_edit_use_anchors_ = true

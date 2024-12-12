@@ -6,8 +6,8 @@
 [ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_q61hc"]
 [ext_resource type="PackedScene" uid="uid://csndihtqywnah" path="res://scenes/allies/mage/FireMage/FireMage.tscn" id="4_74pem"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="4_rbu3a"]
+[ext_resource type="Resource" uid="uid://df0i24sjrwms3" path="res://scenes/allies/mage/attributes_mage.tres" id="5_auqks"]
 [ext_resource type="Texture2D" uid="uid://bswlqrqrl5ci2" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_pole.png" id="5_thi56"]
-[ext_resource type="Resource" uid="uid://4yba0emh6ttl" path="res://scenes/allies/mage/attack_mage.tres" id="5_un8ev"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="7_5mrlm"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="8_q48vd"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="9_st5j2"]
@@ -177,9 +177,7 @@ rotation = -0.111155
 cost = 2000
 upgrade = ExtResource("2_dnfyn")
 promotion_path = Array[ExtResource("3_q61hc")]([SubResource("Resource_fuwrp"), SubResource("Resource_fuwrp"), SubResource("Resource_fuwrp")])
-speed = 100
-attackspeed = 1
-title = "Mage"
+base_attributes = ExtResource("5_auqks")
 
 [node name="Root" parent="." index="4"]
 rotation = -1.49814
@@ -224,9 +222,6 @@ libraries = {
 "": SubResource("AnimationLibrary_886hd"),
 "Mage": SubResource("AnimationLibrary_ljcjm")
 }
-
-[node name="AttackManager" parent="." index="11"]
-base_attack = ExtResource("5_un8ev")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

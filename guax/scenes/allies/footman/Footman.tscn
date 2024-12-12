@@ -4,7 +4,7 @@
 [ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_se881"]
 [ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_vjwvv"]
 [ext_resource type="PackedScene" uid="uid://dor3fr4bjgepd" path="res://scenes/allies/champion/Champion.tscn" id="5_5djjd"]
-[ext_resource type="Resource" uid="uid://nyu8s63u1dga" path="res://scenes/allies/footman/footman_attack.tres" id="5_d8232"]
+[ext_resource type="Resource" uid="uid://dkm1jhd0swoi0" path="res://scenes/allies/footman/footman_attributes.tres" id="5_xain8"]
 [ext_resource type="Texture2D" uid="uid://cp0i8fy5um7f1" path="res://art/AI_test/b27d7a8e-dc2b-43f1-a17b-e488fd318721 (3).png" id="6_3se0g"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="7_kd4b4"]
 [ext_resource type="Texture2D" uid="uid://bfw4muxb2mupy" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_longsword.png" id="8_utvpp"]
@@ -166,10 +166,7 @@ rotation = -0.111155
 cost = 2000
 upgrade = ExtResource("2_se881")
 promotion_path = Array[ExtResource("3_vjwvv")]([SubResource("Resource_h5rf8")])
-maxHealth = 200
-speed = 100
-attackspeed = 1
-title = "Footman"
+base_attributes = ExtResource("5_xain8")
 
 [node name="Root" parent="." index="4"]
 rotation = -1.49814
@@ -214,9 +211,6 @@ libraries = {
 "": SubResource("AnimationLibrary_886hd"),
 "Footman": SubResource("AnimationLibrary_ljcjm")
 }
-
-[node name="AttackManager" parent="." index="11"]
-base_attack = ExtResource("5_d8232")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

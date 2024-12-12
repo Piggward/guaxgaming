@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_qlki8"]
 [ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_hqent"]
-[ext_resource type="Resource" uid="uid://dv2gtmwanncth" path="res://scenes/allies/marksman/attack_marksman.tres" id="3_ynd70"]
+[ext_resource type="Resource" uid="uid://dw2ot1g57xtup" path="res://scenes/allies/marksman/attributes_marksman.tres" id="3_sdju1"]
 [ext_resource type="Texture2D" uid="uid://drjxemlp6fypk" path="res://art/AI_test/20b2a804-0e44-49a3-a305-0cadbff55f38.png" id="4_5eh5m"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="5_1qn2y"]
 [ext_resource type="Texture2D" uid="uid://mcv3rtscdpag" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_arrow.png" id="6_2fl2l"]
@@ -230,10 +230,7 @@ _data = {
 rotation = -0.111155
 cost = 2000
 upgrade = ExtResource("2_hqent")
-maxHealth = 100
-speed = 100
-starting_attack = ExtResource("3_ynd70")
-title = "Marksman"
+base_attributes = ExtResource("3_sdju1")
 
 [node name="Root" parent="." index="4"]
 rotation = -1.49814

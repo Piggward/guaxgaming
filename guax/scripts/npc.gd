@@ -1,12 +1,19 @@
 class_name Npc
 extends CharacterBody2D
 
+
+@export var base_attributes: BaseAttributes
+
 #NPC stats
-@export var maxHealth = 30
+var maxHealth = 30
 var currentHealth
-@export var speed = 30
-@export var attackspeed = 30
-@export var title: String
+var speed = 30
+var attackspeed = 30
+var title: String
+
+#NPC attacks
+var special_attacks: Array[Attack]
+var base_attack: Attack
 
 #navigation
 @onready var advanced_navigation: AdvancedNavigation = $NavigationAgent2D
@@ -31,12 +38,13 @@ signal receive_damage(amount: int)
 
 #UI Signals:
 signal on_input(event: InputEvent)
-signal on_mouse_enter()
-signal on_mouse_exit()
+signal mouse_enter()
+signal mouse_exit()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	currentHealth = maxHealth
+	set_attributes()
+	duplicate_attacks()
 	advanced_navigation.set_agent_target(position)
 	state_machine.init(self)
 
@@ -65,6 +73,32 @@ func play_animation(animation: String):
 func set_health(new_health: int):
 	currentHealth = new_health
 	health_updated.emit(currentHealth)
+	
+func set_attributes():
+	speed = base_attributes.speed
+	attackspeed = base_attributes.attackspeed
+	maxHealth = base_attributes.maxHealth
+	title = base_attributes.title
+	currentHealth = maxHealth
+	
+func duplicate_attacks():
+	# Important to duplicate the attacks here, upgrades applied to the attack will 
+	# effect all attacks otherwise. 
+	for at: Attack in base_attributes.special_attacks:
+		# Set effects also duplicates the effects in the attack.
+		var a = at.duplicate()
+		a.performer = self
+		a.ready()
+		a.attack_cooldown.connect(attack_manager.update_next_attack)
+		a.attack_ready.connect(attack_manager.update_next_attack)
+		special_attacks.append(a)
+	
+	# duplicate base_attack:
+	base_attack = base_attributes.base_attack.duplicate()
+	base_attack.performer = self
+	base_attack.is_base_attack = true;
+	base_attack.ready()
+	base_attack.set_to_base_attack()
 	
 func deactivate():
 	self.visible = false
@@ -105,5 +139,5 @@ func _on_ui_control_mouse_entered():
 	pass # Replace with function body.
 
 func _on_ui_control_mouse_exited():
-	mouse_exited.emit()
+	mouse_exit.emit()
 	pass # Replace with function body.

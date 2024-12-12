@@ -8,10 +8,10 @@
 [ext_resource type="PackedScene" uid="uid://ci0tfreekqfdy" path="res://scenes/allies/ranger/musketeer/musketeer.tscn" id="4_r5l3m"]
 [ext_resource type="Texture2D" uid="uid://dfse6le3rh5kv" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_bow.png" id="4_vdyar"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="5_23tlb"]
+[ext_resource type="Resource" uid="uid://dex6hwg6jxdwp" path="res://scenes/allies/ranger/attributes_ranger.tres" id="5_83vk0"]
 [ext_resource type="Texture2D" uid="uid://mcv3rtscdpag" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_arrow.png" id="5_i2kuk"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="6_igs2r"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="7_oqyq0"]
-[ext_resource type="Resource" uid="uid://uvweqnd0ptkr" path="res://scenes/allies/ranger/attack_ranger.tres" id="12_wfy2s"]
 
 [sub_resource type="Resource" id="Resource_35is3"]
 script = ExtResource("3_meqh2")
@@ -242,10 +242,7 @@ _data = {
 cost = 2000
 upgrade = ExtResource("2_r8kjx")
 promotion_path = Array[ExtResource("3_meqh2")]([SubResource("Resource_35is3")])
-maxHealth = 50
-speed = 100
-attackspeed = 1
-title = "Ranger"
+base_attributes = ExtResource("5_83vk0")
 
 [node name="ProgressBar" parent="Node2D" index="0"]
 metadata/_edit_use_anchors_ = true
@@ -299,9 +296,6 @@ libraries = {
 
 [node name="UIControl" parent="." index="10"]
 metadata/_edit_use_anchors_ = true
-
-[node name="AttackManager" parent="." index="11"]
-base_attack = ExtResource("12_wfy2s")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
