@@ -2,14 +2,14 @@
 
 [ext_resource type="Texture2D" uid="uid://dqiw5k64mi133" path="res://art/kenney_scribble-dungeons/Tilesheet/tilesheet.png" id="1_5n2xs"]
 [ext_resource type="Script" path="res://scripts/level.gd" id="1_80x34"]
-[ext_resource type="PackedScene" uid="uid://drwikpwdj133y" path="res://scenes/waves/Wave 1.tscn" id="2_ss6v4"]
-[ext_resource type="PackedScene" uid="uid://dlo52wyg0288g" path="res://scenes/waves/Wave 2.tscn" id="3_t4tcq"]
-[ext_resource type="PackedScene" uid="uid://how15pnrf1su" path="res://scenes/waves/Wave 3.tscn" id="4_fe40b"]
+[ext_resource type="PackedScene" uid="uid://bsvuu5uiogl30" path="res://scenes/waves/Wave 1.tscn" id="2_ss6v4"]
+[ext_resource type="PackedScene" path="res://scenes/waves/Wave 2.tscn" id="3_t4tcq"]
+[ext_resource type="PackedScene" path="res://scenes/waves/Wave 3.tscn" id="4_fe40b"]
 [ext_resource type="Texture2D" uid="uid://cigo17wlx6w7u" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_axe_double.png" id="5_4asks"]
-[ext_resource type="PackedScene" uid="uid://bthoe38unvktm" path="res://scenes/waves/Wave 4.tscn" id="5_54fyo"]
+[ext_resource type="PackedScene" path="res://scenes/waves/Wave 4.tscn" id="5_54fyo"]
 [ext_resource type="Script" path="res://scripts/start_wave_button.gd" id="6_dgeyi"]
 [ext_resource type="PackedScene" uid="uid://cjevh1ieopuam" path="res://scenes/enemy_spawn.tscn" id="6_few75"]
-[ext_resource type="PackedScene" uid="uid://dab6djj21np6l" path="res://scenes/waves/Wave 5.tscn" id="6_liacg"]
+[ext_resource type="PackedScene" path="res://scenes/waves/Wave 5.tscn" id="6_liacg"]
 [ext_resource type="Texture2D" uid="uid://c7hxbgj0aa8kt" path="res://art/kenney_scribble-dungeons/PNG/Double (128px)/dragon.png" id="10_xd72q"]
 [ext_resource type="Texture2D" uid="uid://di4u317sqx8hs" path="res://art/kenney_scribble-dungeons/PNG/Double (128px)/puddle.png" id="11_gmbdq"]
 [ext_resource type="Texture2D" uid="uid://jbhlmhec2g4o" path="res://art/kenney_scribble-dungeons/PNG/Double (128px)/campfire.png" id="12_l4nap"]
@@ -23,8 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://byxpwvlrdu7og" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/wall_demolished.png" id="18_1eb3h"]
 [ext_resource type="PackedScene" uid="uid://b8ixl4nnppqyi" path="res://scenes/allies/ranger/ranger.tscn" id="18_e680i"]
 [ext_resource type="PackedScene" uid="uid://cq7kcdnm7mdwk" path="res://scenes/shop.tscn" id="21_0v8fp"]
+[ext_resource type="PackedScene" uid="uid://dt0se21ntcu1f" path="res://scenes/allies/mage/mage.tscn" id="21_qahwv"]
 [ext_resource type="PackedScene" uid="uid://dhowsoe3olcid" path="res://scenes/allies/footman/Footman.tscn" id="21_ubgfh"]
-[ext_resource type="PackedScene" uid="uid://dt0se21ntcu1f" path="res://scenes/allies/mage/mage.tscn" id="22_6c8tb"]
 [ext_resource type="Script" path="res://scripts/upgrade_card_marker.gd" id="22_smyi1"]
 [ext_resource type="Script" path="res://scripts/gold_display_label.gd" id="22_ywdx1"]
 [ext_resource type="Script" path="res://scenes/income_display_label.gd" id="25_8frh7"]
@@ -425,7 +425,7 @@ offset_right = 100.0
 offset_bottom = 0.0
 grow_horizontal = 2
 grow_vertical = 0
-items = Array[PackedScene]([ExtResource("18_e680i"), ExtResource("21_ubgfh"), ExtResource("22_6c8tb")])
+items = Array[PackedScene]([ExtResource("18_e680i"), ExtResource("21_ubgfh"), ExtResource("21_qahwv")])
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
 anchors_preset = 8

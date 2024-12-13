@@ -9,12 +9,10 @@
 scale = Vector2(0.890233, 1)
 
 [node name="BasicEnemy" parent="." index="1" instance=ExtResource("2_7fixl")]
-position = Vector2(-728, 5)
-speed = 300
+position = Vector2(-416, 2)
 
 [node name="BasicEnemy2" parent="." index="2" instance=ExtResource("2_7fixl")]
 position = Vector2(-413, 48)
-speed = 300
 
 [node name="goldreward" parent="." index="3"]
 gold_rewarded = 2000

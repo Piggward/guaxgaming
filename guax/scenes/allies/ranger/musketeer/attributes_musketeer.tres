@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BaseAttributes" load_steps=4 format=3 uid="uid://bnbwxhh11r47c"]
+
+[ext_resource type="Resource" uid="uid://djct0uybjmc2m" path="res://scenes/allies/ranger/musketeer/attack_musketeer.tres" id="1_ylyny"]
+[ext_resource type="Script" path="res://resources/base_attributes/base_attributes.gd" id="2_uegvj"]
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="3_vxmaw"]
+
+[resource]
+script = ExtResource("2_uegvj")
+title = "Musketeer"
+maxHealth = 30
+attackspeed = 30
+speed = 30
+base_attack = ExtResource("1_ylyny")
+special_attacks = Array[ExtResource("3_vxmaw")]([])

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b8ixl4nnppqyi"]
+[gd_scene load_steps=20 format=3 uid="uid://b8ixl4nnppqyi"]
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_djvip"]
 [ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_r8kjx"]
@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://ci0tfreekqfdy" path="res://scenes/allies/ranger/musketeer/musketeer.tscn" id="4_r5l3m"]
 [ext_resource type="Texture2D" uid="uid://dfse6le3rh5kv" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_bow.png" id="4_vdyar"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="5_23tlb"]
+[ext_resource type="Resource" uid="uid://dex6hwg6jxdwp" path="res://scenes/allies/ranger/attributes_ranger.tres" id="5_83vk0"]
 [ext_resource type="Texture2D" uid="uid://mcv3rtscdpag" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_arrow.png" id="5_i2kuk"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="6_igs2r"]
-[ext_resource type="Resource" uid="uid://kjnlb7vkq6o6" path="res://scenes/allies/ranger/attack_ranger.tres" id="6_vjwna"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="7_oqyq0"]
 
 [sub_resource type="Resource" id="Resource_35is3"]
@@ -228,10 +228,14 @@ tracks/4/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_kbtrt"]
+resource_name = "Special"
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ljcjm"]
 _data = {
 "Attack1": SubResource("Animation_ee0c2"),
-"Idle": SubResource("Animation_deet6")
+"Idle": SubResource("Animation_deet6"),
+"Special": SubResource("Animation_kbtrt")
 }
 
 [node name="Ranger" instance=ExtResource("1_djvip")]
@@ -239,11 +243,7 @@ rotation = -0.111155
 cost = 100
 upgrade = ExtResource("2_r8kjx")
 promotion_path = Array[ExtResource("3_meqh2")]([SubResource("Resource_35is3")])
-maxHealth = 50
-speed = 100
-attackspeed = 1
-starting_attack = ExtResource("6_vjwna")
-title = "Ranger"
+base_attributes = ExtResource("5_83vk0")
 
 [node name="ProgressBar" parent="Node2D" index="0"]
 metadata/_edit_use_anchors_ = true

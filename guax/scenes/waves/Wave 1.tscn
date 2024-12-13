@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://drwikpwdj133y"]
+[gd_scene load_steps=3 format=3 uid="uid://bsvuu5uiogl30"]
 
 [ext_resource type="PackedScene" uid="uid://4qq5j0av5itd" path="res://scenes/scene_templates/wave_template.tscn" id="1_ugbn3"]
 [ext_resource type="PackedScene" uid="uid://dqmxqpsf4wtr0" path="res://scenes/enemies/goblin slave/enemy_goblin_slave.tscn" id="2_bmcu2"]

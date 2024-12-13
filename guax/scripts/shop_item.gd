@@ -7,6 +7,7 @@ extends Control
 @onready var unit_cost = $VBoxContainer/CostPanel/UnitCost
 
 var store_front: Ally
+var base_attributes: BaseAttributes
 var cd = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,12 +15,9 @@ func _ready():
 	if not npc is Ally:
 		print_debug("ERROR: scene needs to be an ally")
 		return
-
-	# We need to instantiate a store front where we can access the sprites and collision shapes from. 
+		
 	store_front = npc
-	add_child(store_front)
-	store_front.deactivate()
-	store_front.visible = false
+	base_attributes = npc.base_attributes
 	
 	set_display_text()
 	pass # Replace with function body.
@@ -47,8 +45,8 @@ func set_cd():
 	cd = false
 	
 func set_display_text():
-	unit_name.text = store_front.title
-	unit_info.text = "damage: " + str(store_front.attack.damage) + "\n"
-	unit_info.text += "speed: " + str(store_front.speed) + "\n"
-	unit_info.text += "range: " + str(store_front.attack.range) + "\n"
+	unit_name.text = base_attributes.title
+	unit_info.text = "damage: " + str(base_attributes.base_attack.damage) + "\n"
+	unit_info.text += "speed: " + str(base_attributes.speed) + "\n"
+	unit_info.text += "range: " + str(base_attributes.base_attack.range) + "\n"
 	unit_cost.text = str(store_front.cost)

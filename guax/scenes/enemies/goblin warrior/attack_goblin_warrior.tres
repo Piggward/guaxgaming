@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Attack" load_steps=3 format=3 uid="uid://c6ggsyf3hujf7"]
+
+[ext_resource type="Script" path="res://resources/effects/effect.gd" id="1_kfeox"]
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="2_g3b3w"]
+
+[resource]
+script = ExtResource("2_g3b3w")
+damage = 50
+range = 100
+types = Array[int]([])
+target_type = 0
+effects = Array[ExtResource("1_kfeox")]([])
+cd_on_battle_start = false
+cd_time = 0.0
+ranged_attack = false

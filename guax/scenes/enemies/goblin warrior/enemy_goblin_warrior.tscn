@@ -1,21 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://q3rovbht1b45"]
+[gd_scene load_steps=14 format=3 uid="uid://q3rovbht1b45"]
 
 [ext_resource type="PackedScene" uid="uid://vd48q4imlpo8" path="res://scenes/scene_templates/enemy_template.tscn" id="1_5pxff"]
-[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="2_gpud3"]
-[ext_resource type="Script" path="res://resources/effects/effect.gd" id="3_bn45o"]
+[ext_resource type="Resource" uid="uid://dmqgx4feyoqs0" path="res://scenes/enemies/goblin warrior/attributes_goblin_warrior.tres" id="2_6pyi5"]
 [ext_resource type="PackedScene" uid="uid://cnjgch3idabq1" path="res://scenes/character_sprites/humanoids/red_soldier.tscn" id="4_34kjc"]
 [ext_resource type="Texture2D" uid="uid://davurgj1861g4" path="res://art/AI_test/Goblin ai art.png" id="5_3u12i"]
 [ext_resource type="Texture2D" uid="uid://crbtqrgoiyydw" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_axe.png" id="6_1lbvd"]
 [ext_resource type="Script" path="res://scripts/npc_states/enemy_states/enemy_idle_state.gd" id="7_3ceae"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="8_0spp7"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="9_1utyr"]
-
-[sub_resource type="Resource" id="Resource_qfssp"]
-script = ExtResource("2_gpud3")
-damage = 25
-range = 100
-types = Array[int]([])
-starting_effects = Array[ExtResource("3_bn45o")]([])
 
 [sub_resource type="Animation" id="Animation_a671q"]
 length = 0.001
@@ -175,11 +167,7 @@ _data = {
 [node name="goblin_warrior" instance=ExtResource("1_5pxff")]
 rotation = 0.00852703
 bounty = 500
-maxHealth = 100
-speed = 100
-attackspeed = 20
-starting_attack = SubResource("Resource_qfssp")
-title = "Goblin Warrior"
+base_attributes = ExtResource("2_6pyi5")
 
 [node name="Character Sprite" parent="Root" index="0" instance=ExtResource("4_34kjc")]
 rotation = -1.56803

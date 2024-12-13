@@ -1,21 +1,13 @@
-[gd_scene load_steps=16 format=3 uid="uid://dekvup814w7bd"]
+[gd_scene load_steps=14 format=3 uid="uid://dekvup814w7bd"]
 
 [ext_resource type="PackedScene" uid="uid://vd48q4imlpo8" path="res://scenes/scene_templates/enemy_template.tscn" id="1_nkyc3"]
-[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="2_vou6y"]
+[ext_resource type="Resource" uid="uid://dlrma76gt0aed" path="res://scenes/enemies/orc_warrior/attributes_orc_warrior.tres" id="2_3uuan"]
 [ext_resource type="PackedScene" uid="uid://cnjgch3idabq1" path="res://scenes/character_sprites/humanoids/red_soldier.tscn" id="3_dyjqy"]
-[ext_resource type="Script" path="res://resources/effects/effect.gd" id="3_slpr8"]
 [ext_resource type="Texture2D" uid="uid://b7b0ln86ypsb6" path="res://art/AI_test/orc.png" id="5_ib5rq"]
 [ext_resource type="Script" path="res://scripts/npc_states/enemy_states/enemy_idle_state.gd" id="6_ilosg"]
 [ext_resource type="Texture2D" uid="uid://cigo17wlx6w7u" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_axe_double.png" id="6_nf3e4"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="7_k6502"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="8_tu1xu"]
-
-[sub_resource type="Resource" id="Resource_m1xhm"]
-script = ExtResource("2_vou6y")
-damage = 50
-range = 100
-types = Array[int]([])
-starting_effects = Array[ExtResource("3_slpr8")]([])
 
 [sub_resource type="Animation" id="Animation_a671q"]
 length = 0.001
@@ -175,10 +167,7 @@ _data = {
 [node name="Orc warrior" instance=ExtResource("1_nkyc3")]
 rotation = 0.00852703
 bounty = 500
-maxHealth = 150
-speed = 100
-starting_attack = SubResource("Resource_m1xhm")
-title = "Orc warrior"
+base_attributes = ExtResource("2_3uuan")
 
 [node name="Character Sprite" parent="Root" index="0" instance=ExtResource("3_dyjqy")]
 rotation = -1.56803

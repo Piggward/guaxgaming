@@ -9,6 +9,6 @@ extends Resource
 
 func apply(ally: Ally):
 	ally.maxHealth += bonus_health
-	ally.attack.damage += bonus_damage
-	ally.attack.range += bonus_range
+	ally.base_attack.damage += bonus_damage
+	ally.base_attack.range += bonus_range
 	ally.attackspeed += bonus_attack_speed

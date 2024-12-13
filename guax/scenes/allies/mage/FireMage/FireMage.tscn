@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_py8k5"]
 [ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_b6y6p"]
-[ext_resource type="Resource" uid="uid://dpe5atyakg6r3" path="res://scenes/allies/mage/FireMage/fire_mage_attack.tres" id="5_2hcnp"]
+[ext_resource type="Resource" uid="uid://cqae4811s3obx" path="res://scenes/allies/mage/FireMage/attributes_firemage.tres" id="3_kj78r"]
 [ext_resource type="Texture2D" uid="uid://ddhi2fp71hm3" path="res://art/AI_test/firemage.png" id="6_482wa"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="7_sjeg8"]
 [ext_resource type="Texture2D" uid="uid://drhx3dqbfv4dg" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_staff.png" id="8_rs14u"]
@@ -168,10 +168,7 @@ _data = {
 rotation = -0.111155
 cost = 2000
 upgrade = ExtResource("2_b6y6p")
-speed = 100
-attackspeed = 1
-starting_attack = ExtResource("5_2hcnp")
-title = "Fire Mage"
+base_attributes = ExtResource("3_kj78r")
 
 [node name="Root" parent="." index="4"]
 rotation = -1.49814

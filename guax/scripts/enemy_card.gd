@@ -8,6 +8,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	self.visible = true
+	enemy.mouse_exit.connect(func(): self.queue_free())
 	refresh_card()
 	pass # Replace with function body.
 
@@ -24,5 +25,5 @@ func set_display_text():
 	stats_label.text = "Damage: {dmg}
 Range: {rng}
 Attackspeed: {atsp}
-Base health: {bsh}".format({"dmg": str(enemy.starting_attack.damage), "rng": str(enemy.starting_attack.range),"atsp": enemy.attackspeed, "bsh": enemy.maxHealth})
+Base health: {bsh}".format({"dmg": str(enemy.base_attributes.base_attack.damage), "rng": str(enemy.base_attributes.base_attack.range),"atsp": enemy.base_attributes.attackspeed, "bsh": enemy.base_attributes.maxHealth})
 	unit_name.text = enemy.title

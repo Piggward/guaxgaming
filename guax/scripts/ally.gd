@@ -9,6 +9,7 @@ extends Npc
 
 var upgrade_level = 0
 var battle_start_location: Vector2
+var is_promotion = false
 
 #In case someone needs to keep track on this exact Ally using reposition.
 signal reposition(ally: Ally)
@@ -21,6 +22,7 @@ func _ready():
 	super()
 	
 func refresh():
+	activate()
 	global_position = battle_start_location
 	set_health(maxHealth)
 
@@ -31,7 +33,8 @@ func promote(promotion: Promotion):
 	var new_scene: Ally = promotion.promotion_scene.instantiate()
 	new_scene.battle_start_location = battle_start_location
 	new_scene.upgrade_level = upgrade_level
-	promoting.emit(self, new_scene)
+	new_scene.is_promotion = true
+	self.deactivate()
 	GameManager.ally_promotion.emit(self, new_scene)
 	
 func basic_upgrade():

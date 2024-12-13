@@ -9,6 +9,7 @@ enum State{
 }
 var npc: Npc
 var target: Npc
+var attack: Attack
 
 signal transition_requested(from: NpcState, to: State)
 @export var state:State
