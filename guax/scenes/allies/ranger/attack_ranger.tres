@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("3_74dvh")
 damage = 15
-range = 400
+range = 1000000
 types = Array[int]([])
 target_type = 0
 effects = Array[ExtResource("1_awykb")]([])

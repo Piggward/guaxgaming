@@ -63,6 +63,8 @@ offset_right = 17.0
 offset_bottom = 18.0
 scale = Vector2(1.15572, 1.14714)
 
+[node name="Debuffs" type="Node" parent="."]
+
 [node name="AttackManager" type="Node" parent="."]
 script = ExtResource("8_7pn7v")
 
