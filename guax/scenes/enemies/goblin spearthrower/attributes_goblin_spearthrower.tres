@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="BaseAttributes" load_steps=6 format=3 uid="uid://drawtanblra4q"]
 
 [ext_resource type="Script" path="res://resources/effects/effect.gd" id="1_h8v0o"]
-[ext_resource type="PackedScene" path="res://scenes/projectiles/projectile_goblin_spear.tscn" id="2_4i6ol"]
+[ext_resource type="PackedScene" uid="uid://drl8ql26o0fc1" path="res://scenes/projectiles/projectile_goblin_spear.tscn" id="2_4i6ol"]
 [ext_resource type="Script" path="res://resources/attacks/attack.gd" id="3_vt4ww"]
 [ext_resource type="Script" path="res://resources/base_attributes/base_attributes.gd" id="4_2se54"]
 
