@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_mnk5e"]
 [ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_xtpmf"]
 [ext_resource type="Resource" uid="uid://vhi5sll4qmku" path="res://scenes/allies/champion/attributes_champion.tres" id="3_nl0ya"]
-[ext_resource type="Texture2D" uid="uid://djcd0mj85g3d7" path="res://art/AI_test/Barbarian ai.png" id="4_3463a"]
+[ext_resource type="Texture2D" uid="uid://cp0i8fy5um7f1" path="res://art/AI_test/Footman ai art 2.png" id="4_4vwu4"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="4_ans1f"]
 [ext_resource type="Texture2D" uid="uid://bfw4muxb2mupy" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_longsword.png" id="5_ctfh3"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="6_jxevs"]
@@ -165,7 +165,7 @@ rotation = -1.49814
 [node name="Character Sprite" type="Sprite2D" parent="Root" index="0"]
 modulate = Color(0.74558, 0.74558, 0.74558, 1)
 scale = Vector2(1.145, 1.145)
-texture = ExtResource("4_3463a")
+texture = ExtResource("4_4vwu4")
 
 [node name="Hand right" type="Sprite2D" parent="Root/Character Sprite" index="0"]
 position = Vector2(-33, 10)

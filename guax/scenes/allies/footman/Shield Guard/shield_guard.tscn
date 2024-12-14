@@ -1,0 +1,293 @@
+[gd_scene load_steps=21 format=3 uid="uid://dx8elcivnk8kd"]
+
+[ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_7xjvm"]
+[ext_resource type="Script" path="res://resources/upgrades/upgrade.gd" id="2_tw2on"]
+[ext_resource type="Script" path="res://resources/base_attributes/base_attributes.gd" id="4_du42s"]
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="5_fvsch"]
+[ext_resource type="Script" path="res://resources/effects/effect.gd" id="6_vrd2l"]
+[ext_resource type="Texture2D" uid="uid://cp0i8fy5um7f1" path="res://art/AI_test/Footman ai art 2.png" id="7_15fkv"]
+[ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="8_tyu5v"]
+[ext_resource type="Texture2D" uid="uid://b620wyd5mtjq4" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/shield_curved.png" id="9_xux1b"]
+[ext_resource type="Texture2D" uid="uid://bfw4muxb2mupy" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_longsword.png" id="10_cc1yp"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="10_woxik"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="11_i0msf"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="12_q66nl"]
+
+[sub_resource type="Resource" id="Resource_q5lhg"]
+script = ExtResource("2_tw2on")
+cost = 50
+bonus_health = 100
+bonus_damage = 100
+bonus_range = 0.0
+bonus_attack_speed = -1.0
+
+[sub_resource type="Resource" id="Resource_1une8"]
+script = ExtResource("5_fvsch")
+damage = 50
+range = 100
+types = Array[int]([0, 2])
+target_type = 0
+effects = Array[ExtResource("6_vrd2l")]([])
+cd_on_battle_start = false
+cd_time = 0.0
+ranged_attack = false
+
+[sub_resource type="Resource" id="Resource_tkaqx"]
+script = ExtResource("4_du42s")
+title = "Shield Guard"
+maxHealth = 50
+attackspeed = 30
+speed = 100
+base_attack = SubResource("Resource_1une8")
+special_attacks = Array[ExtResource("5_fvsch")]([])
+
+[sub_resource type="Animation" id="Animation_0ebak"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.86696]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(34, 12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-33, 10)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Character Sprite/Hand right:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.22601]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_886hd"]
+_data = {
+"RESET": SubResource("Animation_0ebak")
+}
+
+[sub_resource type="Animation" id="Animation_ivckp"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.035, 1.035), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.466667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-33, 10), Vector2(-34.3895, 12.2426), Vector2(-33, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.466667, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(34, 12), Vector2(34.3136, 14.8889), Vector2(34, 12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.86696, 1.86696]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Root/Character Sprite/Hand right:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.29429, 0.29429]
+}
+
+[sub_resource type="Animation" id="Animation_awgym"]
+resource_name = "Attack_melee_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.333333, 0.466667, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-33, 10), Vector2(-37.9434, -7.34244), Vector2(-35.609, -17.0541), Vector2(-35.609, -17.0541), Vector2(-33, 10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.3, 0.433333, 0.666667, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(34, 12), Vector2(41.068, 2.562), Vector2(-2.97668, 51.8337), Vector2(-33.2774, 24.2023), Vector2(20.5514, 26.2757), Vector2(34, 12)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.3, 0.433333, 0.666667, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.86696, -0.312222, 1.17914, 3.14473, 1.63191, 1.86696]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Character Sprite/Hand right:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.333333, 0.466667, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.29429, 1.22601, 1.22601, 1.83674, 0.29429]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StateMachine/BasicAttackingState")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"on_hit"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ljcjm"]
+_data = {
+"Attack1": SubResource("Animation_awgym"),
+"Idle": SubResource("Animation_ivckp")
+}
+
+[node name="Shield Guard" instance=ExtResource("1_7xjvm")]
+rotation = -0.111155
+cost = 50
+upgrade = SubResource("Resource_q5lhg")
+base_attributes = SubResource("Resource_tkaqx")
+
+[node name="Root" parent="." index="4"]
+rotation = -1.49814
+
+[node name="Character Sprite" type="Sprite2D" parent="Root" index="0"]
+texture = ExtResource("7_15fkv")
+
+[node name="Hand right" type="Sprite2D" parent="Root/Character Sprite" index="0"]
+position = Vector2(-33, 10)
+rotation = 1.22601
+texture = ExtResource("8_tyu5v")
+
+[node name="Sprite2D" type="Sprite2D" parent="Root/Character Sprite/Hand right" index="0"]
+modulate = Color(0.4612, 0.228229, 0, 1)
+position = Vector2(-1.2454, 7.79761)
+rotation = -2.89921
+texture = ExtResource("9_xux1b")
+
+[node name="Hand left" type="Sprite2D" parent="Root/Character Sprite" index="1"]
+position = Vector2(34, 12)
+rotation = 1.86696
+texture = ExtResource("8_tyu5v")
+
+[node name="Sword" type="Sprite2D" parent="Root/Character Sprite/Hand left" index="0"]
+modulate = Color(0.564962, 0.564962, 0.564962, 1)
+position = Vector2(20.4246, 9.54718)
+rotation = 2.16162
+texture = ExtResource("10_cc1yp")
+
+[node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("BasicIdleState")
+
+[node name="BasicIdleState" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("10_woxik")
+
+[node name="BasicHuntingState" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("11_i0msf")
+state = 1
+
+[node name="BasicAttackingState" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("12_q66nl")
+state = 2
+
+[node name="OutOfBattleStateMachine" parent="." index="6" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("ShopDisplayState")
+
+[node name="AnimationPlayer" parent="." index="7"]
+libraries = {
+"": SubResource("AnimationLibrary_886hd"),
+"Shield Guard": SubResource("AnimationLibrary_ljcjm")
+}
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]

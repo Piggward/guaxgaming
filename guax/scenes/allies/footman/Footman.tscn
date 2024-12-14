@@ -1,9 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://dhowsoe3olcid"]
+[gd_scene load_steps=20 format=3 uid="uid://dhowsoe3olcid"]
 
 [ext_resource type="PackedScene" uid="uid://kbkxkn8p4yjl" path="res://scenes/scene_templates/ally_template.tscn" id="1_vqdik"]
 [ext_resource type="Resource" uid="uid://cb4ckwy2xe6p" path="res://resources/upgrades/ranger_upgrade.tres" id="2_se881"]
 [ext_resource type="Script" path="res://resources/promotions/promotion.gd" id="3_vjwvv"]
-[ext_resource type="PackedScene" uid="uid://dor3fr4bjgepd" path="res://scenes/allies/champion/Champion.tscn" id="5_5djjd"]
+[ext_resource type="PackedScene" uid="uid://bxtrgmcftymij" path="res://scenes/allies/footman/Barbarian/Barbarian.tscn" id="4_df0fg"]
+[ext_resource type="PackedScene" uid="uid://dx8elcivnk8kd" path="res://scenes/allies/footman/Shield Guard/shield_guard.tscn" id="5_dy7m8"]
 [ext_resource type="Resource" uid="uid://dkm1jhd0swoi0" path="res://scenes/allies/footman/footman_attributes.tres" id="5_xain8"]
 [ext_resource type="Texture2D" uid="uid://cp0i8fy5um7f1" path="res://art/AI_test/Footman ai art 2.png" id="6_3se0g"]
 [ext_resource type="Texture2D" uid="uid://12lf0mg7wtd3" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Characters/green_hand.png" id="7_kd4b4"]
@@ -16,7 +17,13 @@
 script = ExtResource("3_vjwvv")
 cost = 0
 cost_type = "EMERALD"
-promotion_scene = ExtResource("5_5djjd")
+promotion_scene = ExtResource("4_df0fg")
+
+[sub_resource type="Resource" id="Resource_q60hv"]
+script = ExtResource("3_vjwvv")
+cost = 0
+cost_type = ""
+promotion_scene = ExtResource("5_dy7m8")
 
 [sub_resource type="Animation" id="Animation_0ebak"]
 length = 0.001
@@ -165,7 +172,7 @@ _data = {
 rotation = -0.111155
 cost = 100
 upgrade = ExtResource("2_se881")
-promotion_path = Array[ExtResource("3_vjwvv")]([SubResource("Resource_h5rf8")])
+promotion_path = Array[ExtResource("3_vjwvv")]([SubResource("Resource_h5rf8"), SubResource("Resource_q60hv")])
 base_attributes = ExtResource("5_xain8")
 
 [node name="Root" parent="." index="4"]
