@@ -1,0 +1,205 @@
+[gd_scene load_steps=14 format=3 uid="uid://ihg2sa53lqx7"]
+
+[ext_resource type="PackedScene" uid="uid://vd48q4imlpo8" path="res://scenes/scene_templates/enemy_template.tscn" id="1_dmmyl"]
+[ext_resource type="Resource" uid="uid://bg465yalij76q" path="res://scenes/enemies/goblin shaman/attributes_goblin_shaman.tres" id="2_7nayv"]
+[ext_resource type="PackedScene" uid="uid://cnjgch3idabq1" path="res://scenes/character_sprites/humanoids/red_soldier.tscn" id="3_nehin"]
+[ext_resource type="Texture2D" uid="uid://davurgj1861g4" path="res://art/AI_test/Goblin ai art.png" id="4_kie7t"]
+[ext_resource type="Texture2D" uid="uid://drhx3dqbfv4dg" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_staff.png" id="5_84cri"]
+[ext_resource type="Script" path="res://scripts/npc_states/enemy_states/enemy_idle_state.gd" id="6_aor7w"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="7_3kgbd"]
+[ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="8_cjq6f"]
+
+[sub_resource type="Animation" id="Animation_a671q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-33, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(34, 12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.86696]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6p1qd"]
+_data = {
+"RESET": SubResource("Animation_a671q")
+}
+
+[sub_resource type="Animation" id="Animation_2lr24"]
+resource_name = "Attack_melee_1"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.333333, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-33, 10), Vector2(-37, 24), Vector2(-33, -10), Vector2(-33, 10)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/AttackState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"shoot_projectile"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.333333, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(34, 12), Vector2(37, -17), Vector2(32, 33), Vector2(34, 12)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Root/Character Sprite/Hand left:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.333333, 0.733333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.86696, 1.93352, 1.92794, 1.86696]
+}
+
+[sub_resource type="Animation" id="Animation_7f36o"]
+resource_name = "Idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Root/Character Sprite:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.035, 1.035), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Root/Character Sprite/Hand right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-33, 10), Vector2(-32.8502, 5.7971), Vector2(-33, 10)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Root/Character Sprite/Hand left:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(34, 12), Vector2(36.715, 6.76328), Vector2(34, 12)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6l8p8"]
+_data = {
+"Attack1": SubResource("Animation_2lr24"),
+"Idle": SubResource("Animation_7f36o")
+}
+
+[node name="Goblin Shaman" instance=ExtResource("1_dmmyl")]
+bounty = 500
+base_attributes = ExtResource("2_7nayv")
+
+[node name="Root" parent="." index="4"]
+rotation = -1.5435
+
+[node name="Character Sprite" parent="Root" index="0" instance=ExtResource("3_nehin")]
+texture = ExtResource("4_kie7t")
+
+[node name="Sword" parent="Root/Character Sprite/Hand left" index="0"]
+position = Vector2(-1.62107, 1.54017)
+rotation = -1.79662
+texture = ExtResource("5_84cri")
+
+[node name="StateMachine" parent="." index="5" node_paths=PackedStringArray("initial_state")]
+initial_state = NodePath("BasicIdleState")
+
+[node name="BasicIdleState" type="Node" parent="StateMachine" index="0"]
+script = ExtResource("6_aor7w")
+
+[node name="BasicHuntingState" type="Node" parent="StateMachine" index="1"]
+script = ExtResource("7_3kgbd")
+state = 1
+
+[node name="AttackState" type="Node" parent="StateMachine" index="2"]
+script = ExtResource("8_cjq6f")
+state = 2
+
+[node name="AnimationPlayer" parent="." index="6"]
+libraries = {
+"": SubResource("AnimationLibrary_6p1qd"),
+"Goblin Shaman": SubResource("AnimationLibrary_6l8p8")
+}
+
+[node name="Senses2d" parent="." index="8"]
+top_level = false
+
+[editable path="Root/Character Sprite"]

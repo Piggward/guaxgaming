@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="BaseAttributes" load_steps=5 format=3 uid="uid://bg465yalij76q"]
+
+[ext_resource type="Resource" uid="uid://ciasnxpwc8s2d" path="res://scenes/enemies/goblin shaman/attack_goblin_shaman.tres" id="1_qqgc5"]
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="3_v0yia"]
+[ext_resource type="Resource" uid="uid://0x8ayk4ebp3x" path="res://scenes/enemies/goblin shaman/special_attack_heal_goblin_shaman.tres" id="4_7r653"]
+[ext_resource type="Script" path="res://resources/base_attributes/base_attributes.gd" id="4_b3x68"]
+
+[resource]
+script = ExtResource("4_b3x68")
+title = "Goblin Shaman"
+maxHealth = 30
+attackspeed = 30
+speed = 30
+base_attack = ExtResource("1_qqgc5")
+special_attacks = Array[ExtResource("3_v0yia")]([ExtResource("4_7r653")])

@@ -3,6 +3,9 @@ extends Label
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	if text.contains("-"):
+		text = text.replace("-", "")
+		self.set("theme_override_colors/font_color", Color.GREEN)
 	pass # Replace with function body.
 
 

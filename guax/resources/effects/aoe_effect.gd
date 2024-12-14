@@ -18,7 +18,7 @@ func init(attack: Attack, target: Npc, projectile: Projectile = null):
 	instantiate_aoe()
 	# For a projectile attack we add the aoe to the projectile. 
 	# For melee attacks - to the target directly 
-	if attack is ProjectileAttack:
+	if attack.ranged_attack:
 		aoe.global_position = projectile.global_position
 		projectile.add_child(aoe)
 	else:

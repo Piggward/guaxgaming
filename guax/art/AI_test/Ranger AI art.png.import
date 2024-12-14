@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d2vcr2vgst8g5"
-path="res://.godot/imported/e475cd98-cde2-4362-9d27-16d834ea2873 (1).png-c5b26103b1499bbe043c6aca63831463.ctex"
+uid="uid://drjxemlp6fypk"
+path="res://.godot/imported/Ranger AI art.png-18a142daba81b3784703820f1c4529d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/AI_test/e475cd98-cde2-4362-9d27-16d834ea2873 (1).png"
-dest_files=["res://.godot/imported/e475cd98-cde2-4362-9d27-16d834ea2873 (1).png-c5b26103b1499bbe043c6aca63831463.ctex"]
+source_file="res://art/AI_test/Ranger AI art.png"
+dest_files=["res://.godot/imported/Ranger AI art.png-18a142daba81b3784703820f1c4529d4.ctex"]
 
 [params]
 

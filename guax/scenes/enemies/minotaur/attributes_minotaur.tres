@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BaseAttributes" load_steps=4 format=3 uid="uid://b8rj3edq8daqd"]
+
+[ext_resource type="Resource" uid="uid://p0gy45efsq6i" path="res://scenes/enemies/minotaur/attack_minotaur.tres" id="1_0v5bq"]
+[ext_resource type="Script" path="res://resources/base_attributes/base_attributes.gd" id="2_wkvh3"]
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="3_m8044"]
+
+[resource]
+script = ExtResource("2_wkvh3")
+title = "Minotaur"
+maxHealth = 30
+attackspeed = 30
+speed = 30
+base_attack = ExtResource("1_0v5bq")
+special_attacks = Array[ExtResource("3_m8044")]([])

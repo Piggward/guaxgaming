@@ -30,6 +30,7 @@ func _on_transition_requested(from: NpcState, to: NpcState.State) -> void:
 	if current_state:
 		current_state.exit()
 	new_state.target = current_state.target
+	new_state.attack = current_state.attack
 	new_state.enter()
 	current_state = new_state
 	

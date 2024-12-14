@@ -5,7 +5,10 @@
 
 [resource]
 script = ExtResource("2_7gla2")
-damage = 30
+damage = 10
 range = 100
 types = Array[int]([])
-starting_effects = Array[ExtResource("1_u0baw")]([])
+target_type = 0
+effects = Array[ExtResource("1_u0baw")]([])
+cd_on_battle_start = null
+ranged_attack = false

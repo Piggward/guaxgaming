@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Heal" load_steps=3 format=3 uid="uid://0x8ayk4ebp3x"]
+
+[ext_resource type="Script" path="res://resources/effects/effect.gd" id="1_0cuna"]
+[ext_resource type="Script" path="res://resources/attacks/heal.gd" id="2_4awmw"]
+
+[resource]
+script = ExtResource("2_4awmw")
+damage = 20
+range = 400
+types = Array[int]([])
+target_type = 2
+effects = Array[ExtResource("1_0cuna")]([])
+cd_on_battle_start = true
+cd_time = 3.0
+ranged_attack = false

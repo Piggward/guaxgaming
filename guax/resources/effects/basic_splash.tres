@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_yavi2")
-splash_dmg_ratio = 0.5
+splash_dmg_ratio = 1.0
 aoe_radius = 200.0
 name = "Basic Splash"
 trigger_window = 0

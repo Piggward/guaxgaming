@@ -1,15 +1,18 @@
-[gd_resource type="Resource" script_class="ProjectileAttack" load_steps=5 format=3 uid="uid://dnmicg56y5kfu"]
+[gd_resource type="Resource" script_class="Attack" load_steps=4 format=3 uid="uid://uvweqnd0ptkr"]
 
-[ext_resource type="Script" path="res://resources/effects/effect.gd" id="1_cmuke"]
+[ext_resource type="Script" path="res://resources/effects/effect.gd" id="1_awykb"]
 [ext_resource type="PackedScene" uid="uid://cd35by30uyhja" path="res://scenes/projectiles/projectile.tscn" id="2_shrku"]
-[ext_resource type="Script" path="res://resources/attacks/projectile_attack.gd" id="3_ipf12"]
-[ext_resource type="Resource" uid="uid://d0pllu02f28tv" path="res://resources/effects/apply_debuff_effect.tres" id="4_vfnqb"]
+[ext_resource type="Script" path="res://resources/attacks/attack.gd" id="3_74dvh"]
 
 [resource]
-script = ExtResource("3_ipf12")
-projectile = ExtResource("2_shrku")
-shoot_speed = 15.0
+script = ExtResource("3_74dvh")
 damage = 15
 range = 1000000
 types = Array[int]([])
-starting_effects = Array[ExtResource("1_cmuke")]([ExtResource("4_vfnqb")])
+target_type = 0
+effects = Array[ExtResource("1_awykb")]([])
+cd_on_battle_start = false
+cd_time = 0.0
+ranged_attack = true
+projectile = ExtResource("2_shrku")
+shoot_speed = 15.0

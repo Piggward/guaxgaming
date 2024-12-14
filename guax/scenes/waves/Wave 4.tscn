@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bthoe38unvktm"]
+
+[ext_resource type="PackedScene" uid="uid://4qq5j0av5itd" path="res://scenes/scene_templates/wave_template.tscn" id="1_12oyp"]
+[ext_resource type="PackedScene" uid="uid://bp2uy2klonwtn" path="res://scenes/enemies/goblin spearthrower/enemy_goblin_spearthrower.tscn" id="2_h3hbx"]
+[ext_resource type="PackedScene" uid="uid://q3rovbht1b45" path="res://scenes/enemies/goblin warrior/enemy_goblin_warrior.tscn" id="3_o8isa"]
+
+[node name="EnemySpawn" instance=ExtResource("1_12oyp")]
+
+[node name="CollisionShape2D" parent="." index="0"]
+scale = Vector2(0.890233, 1)
+
+[node name="goldreward" parent="." index="1"]
+gold_rewarded = 100
+
+[node name="goblin_spear_thrower" parent="." index="2" instance=ExtResource("2_h3hbx")]
+position = Vector2(53, -181)
+
+[node name="goblin_spear_thrower2" parent="." index="3" instance=ExtResource("2_h3hbx")]
+position = Vector2(-14, -144)
+
+[node name="goblin_warrior" parent="." index="4" instance=ExtResource("3_o8isa")]
+position = Vector2(-9, 105)
