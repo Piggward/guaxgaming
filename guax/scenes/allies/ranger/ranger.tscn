@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://ci0tfreekqfdy" path="res://scenes/allies/ranger/musketeer/musketeer.tscn" id="4_r5l3m"]
 [ext_resource type="Texture2D" uid="uid://dfse6le3rh5kv" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_bow.png" id="4_vdyar"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_idle_state.gd" id="5_23tlb"]
-[ext_resource type="Resource" uid="uid://dex6hwg6jxdwp" path="res://scenes/allies/ranger/attributes_ranger.tres" id="5_83vk0"]
+[ext_resource type="Resource" uid="uid://c3r86dt7rk6dn" path="res://scenes/allies/ranger/attributes_ranger.tres" id="5_83vk0"]
 [ext_resource type="Texture2D" uid="uid://mcv3rtscdpag" path="res://art/kenney_scribble-dungeons/PNG/Default (64px)/Items/weapon_arrow.png" id="5_i2kuk"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_hunting_state.gd" id="6_igs2r"]
 [ext_resource type="Script" path="res://scripts/npc_states/ally_states/basic_attacking_state.gd" id="7_oqyq0"]

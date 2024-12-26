@@ -10,8 +10,7 @@ extends Control
 @onready var wave_display_2 = $WaveDisplay2
 
 const GZ_WAVE_CLEAR = preload("res://sfx/gz_wave_clear.wav")
-const WAVE_INTRO_DRUMS_GONG_SHORT = preload("res://sfx/wave_intro_drums_gong_short.wav")
-
+const WAVE_INTRO_DRUMS_GONG_SHORTER = preload("res://sfx/wave_intro_drums_gong_shorter.wav")
 var animation: String
 var sound: AudioStream
 
@@ -29,7 +28,7 @@ func _ready():
 	match text_type:
 		TextType.WAVE_BEGIN: 
 			animation = "new_animation"
-			audio_stream_player_2d.stream = WAVE_INTRO_DRUMS_GONG_SHORT
+			audio_stream_player_2d.stream = WAVE_INTRO_DRUMS_GONG_SHORTER
 		TextType.WAVE_CLEARED:
 			animation = "wave_cleared"
 			audio_stream_player_2d.stream = GZ_WAVE_CLEAR

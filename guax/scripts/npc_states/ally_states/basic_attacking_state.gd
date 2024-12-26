@@ -22,7 +22,6 @@ func act():
 	npc.stand_still()
 
 func enter():
-	print(npc.title + " now enter attacking state with attack: " + str(attack.range))
 	if attack != npc.attack_manager.current_attack:
 		transition_requested.emit(self, NpcState.State.HUNTING)
 		
@@ -35,17 +34,15 @@ func enter():
 		transition_requested.emit(self, NpcState.State.HUNTING)
 
 func set_attack_changed(a):
-	print(npc.title + " in attacking state got attack changed from " + str(attack.range) + " - to: " + str(a.range))
 	attack_changed = true
 
 func exit():
 	npc.attack_manager.attack_changed.disconnect(set_attack_changed)
 	attack_changed = false
+	attacking = false
 	pass
 
 func try_attack():
-	if(npc.title == "Goblin Slave"):
-		print("hej")
 	if(attack.is_ready):
 		attacking = true
 		attack.init(target)
@@ -57,7 +54,6 @@ func on_hit():
 	attack.on_hit(target)
 	
 func on_attack_animation_finished(animation):
-	print("animation finished")
 	attacking = false
 		
 func shoot_projectile():

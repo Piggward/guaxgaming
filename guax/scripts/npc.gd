@@ -31,7 +31,7 @@ var aggrozone: Area2D
 #sprites and collisions
 @onready var root_sprites = $Root
 @onready var collision_shape = $CollisionShape2D
-@onready var debuffs: Node = $Debuffs
+@onready var status_effects: Node = $StatusEffects
 
 signal on_death(npc: Npc)
 signal health_updated(new_value: int)
@@ -132,13 +132,11 @@ func is_enemy(npc: Npc):
 	return (npc is Enemy and self is Ally) or (npc is Ally and self is Enemy)
 	
 func apply_debuff(debuff_node: DebuffNode):
-	print("applying debuff")
-	for child: DebuffNode in debuffs.get_children():
+	for child: DebuffNode in status_effects.get_children():
 		if child.debuff.debuff_name == debuff_node.debuff.debuff_name:
 			child.reapply_debuff()
-			print("just reapplying")
 			return
-	debuffs.add_child(debuff_node)
+	status_effects.add_child(debuff_node)
 	debuff_node.apply_debuff(self)
 	
 func _on_ui_control_gui_input(event):
